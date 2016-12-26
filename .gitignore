@@ -1,0 +1,8 @@
+node_modules
+*.js
+*.js.map
+
+!chat-application/include/*.js
+!chat-appliaction/include/*.js.map
+
+!interaction/execute.bat
