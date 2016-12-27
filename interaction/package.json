@@ -1,8 +1,8 @@
 {
-  "name": "samchon-framework-examples",
-  "version": "1.0.0",
-  "description": "Examples of Samchon Framework",
-  "main": "index.js",
+  "name": "@samchon/interaction",
+  "version": "0.0.0",
+  "description": "",
+  "main": "chief.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -17,12 +17,8 @@
   },
   "homepage": "https://github.com/samchon/framework#readme",
   "dependencies": {
-    "@types/node": "^6.0.45",
-    "@types/react": "^0.14.39",
-    "@types/react-data-grid": "^1.0.4",
-    "@types/react-dom": "^0.14.17",
-    "@types/samchon-framework": "^2.0.8",
-    "@types/scanf": "0.0.5",
-    "@types/typescript-stl": "^1.1.8"
+    "@types/node": "^6.0.52",
+    "samchon-framework": "^2.0.0-rc.5-a",
+    "tstl": "^1.3.1"
   }
 }

@@ -1,6 +1,6 @@
 ﻿/// <reference types="samchon-framework" />
 
-import std = require("typescript-stl");
+import std = require("tstl");
 import samchon = require("samchon-framework");
 
 module tsp

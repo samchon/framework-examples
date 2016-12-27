@@ -1,0 +1,23 @@
+{
+  "name": "@samchon/interaction-viewer",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/samchon/framework.git"
+  },
+  "author": "Jeongho Nam",
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/samchon/framework/issues"
+  },
+  "homepage": "https://github.com/samchon/framework#readme",
+  "dependencies": {
+    "samchon-framework": "^2.0.0-rc.5-a",
+    "tstl": "^1.3.1"
+  }
+}

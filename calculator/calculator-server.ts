@@ -1,5 +1,5 @@
 ﻿// IMPORTS
-import std = require("typescript-stl");
+import std = require("tstl");
 import samchon = require("samchon-framework");
 
 // SHORTCUTS

@@ -1,6 +1,6 @@
 ﻿/// <reference types="samchon-framework" />
 
-import std = require("typescript-stl");
+import std = require("tstl");
 import samchon = require("samchon-framework");
 
 namespace pack
@@ -151,10 +151,10 @@ namespace pack
 			var volume: number = 0;
 			var weight: number = 0;
 
-			for (var i: number = 0; i < this.length; i++)
+			for (var i: number = 0; i < this.size(); i++)
 			{
-				volume += this[i].getVolume();
-				weight += this[i].getWeight();
+				volume += this.at(i).getVolume();
+				weight += this.at(i).getWeight();
 			}
 
 			if (product.getVolume() + volume > this.volume ||
@@ -276,9 +276,9 @@ namespace pack
 		 */
 		public optimize(): void
 		{
-			for (let i: number = 0; i < this.reserved.length; i++)
+			for (let i: number = 0; i < this.reserved.size(); i++)
 			{
-				let product: Product = this.reserved[i];
+				let product: Product = this.reserved.at(i);
 				
 				if (this.empty() == true || this.back().tryInsert(product) == false)
 				{
@@ -336,7 +336,7 @@ namespace pack
 		 */
 		public calcPrice(): number
 		{
-			return this.sample.getPrice() * this.length;
+			return this.sample.getPrice() * this.size();
 		}
 
 		/**
@@ -414,10 +414,10 @@ namespace pack
 
 				this.productArray = packer.productArray;
 
-				for (var i: number = 0; i < packer.length; i++)
+				for (var i: number = 0; i < packer.size(); i++)
 					this.push
 					(
-						new WrapperArray(packer[i].getSample())
+						new WrapperArray(packer.at(i).getSample())
 					);
 			}
 			else
@@ -443,10 +443,10 @@ namespace pack
 
 		public optimize(first: number = 0, last: number = -1): void
 		{
-			if (this.length == 0 || this.productArray.length == 0)
+			if (this.size() == 0 || this.productArray.size() == 0)
 				return;
 
-			var caseGenerator = new library.CombinedPermutationGenerator(this.length, this.productArray.length);
+			var caseGenerator = new library.CombinedPermutationGenerator(this.size(), this.productArray.size());
 			var minPacker: Packer = null;
 
 			//ADJUST END INDEX
@@ -463,8 +463,8 @@ namespace pack
 
 				for (var j: number = 0; j < row.length; j++) //EACH ELEMENT
 				{
-					var product: Product = this.productArray[j];
-					var wrapperArray: WrapperArray = packer[row[j]];
+					var product: Product = this.productArray.at(j);
+					var wrapperArray: WrapperArray = packer.at(row[j]);
 
 					if (wrapperArray.tryInsert(product) == false)
 					{
@@ -477,20 +477,20 @@ namespace pack
 					continue;
 
 				//OPTIMIZE ALL WRAPPERS IN A PACKER
-				for (var j: number = 0; j < packer.length; j++)
-					packer[j].optimize();
+				for (var j: number = 0; j < packer.size(); j++)
+					packer.at(j).optimize();
 
 				if (minPacker == null || packer.computePrice() < minPacker.computePrice())
 					minPacker = packer;
 			}
 
 			//REPLACE TO MIN_PACKER
-			this.splice(0, this.length);
+			this.clear();
 			if (minPacker == null)
 				return;
 
-			for (var i: number = 0; i < minPacker.length; i++)
-				this.push(minPacker[i]);
+			for (var i: number = 0; i < minPacker.size(); i++)
+				this.push(minPacker.at(i));
 		}
 
 		/* --------------------------------------------------------------------
@@ -502,8 +502,8 @@ namespace pack
 		public computePrice(): number
 		{
 			var price: number = 0;
-			for (var i: number = 0; i < this.length; i++)
-				price += this[i].calcPrice();
+			for (var i: number = 0; i < this.size(); i++)
+				price += this.at(i).calcPrice();
 
 			return price;
 		}

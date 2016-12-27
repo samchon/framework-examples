@@ -41,7 +41,7 @@ var samchon;
 })(samchon || (samchon = {}));
 try {
     // IF THE CONDITION BE IS_NODE(), THEN CANNOT BE USED IN BROWSERIFY
-    eval("var std = require('typescript-stl')");
+    eval("var std = require('tstl')");
     eval("var http = require('http')");
     eval("var websocket = require('websocket')");
     eval("var net = require('net')");
@@ -129,11 +129,12 @@ var samchon;
         var ArrayCollection = (function (_super) {
             __extends(ArrayCollection, _super);
             function ArrayCollection() {
-                _super.apply(this, arguments);
+                var _this = _super.apply(this, arguments) || this;
                 /**
                  * A chain object taking responsibility of dispatching events.
                  */
-                this.event_dispatcher_ = new samchon.library.EventDispatcher(this);
+                _this.event_dispatcher_ = new samchon.library.EventDispatcher(_this);
+                return _this;
             }
             /* ---------------------------------------------------------
                 CONSTRUCTORS
@@ -153,10 +154,10 @@ var samchon;
             ArrayCollection.prototype.push = function () {
                 var items = [];
                 for (var _i = 0; _i < arguments.length; _i++) {
-                    items[_i - 0] = arguments[_i];
+                    items[_i] = arguments[_i];
                 }
                 var ret = _super.prototype.push.apply(this, items);
-                this.notify_insert(this.end().advance(-items.length), this.end());
+                this._Notify_insert(this.end().advance(-items.length), this.end());
                 return ret;
             };
             /**
@@ -164,14 +165,14 @@ var samchon;
              */
             ArrayCollection.prototype.push_back = function (val) {
                 _super.prototype.push_back.call(this, val);
-                this.notify_insert(this.end().prev(), this.end());
+                this._Notify_insert(this.end().prev(), this.end());
             };
             /**
              * @hidden
              */
             ArrayCollection.prototype._Insert_by_repeating_val = function (position, n, val) {
                 var ret = _super.prototype._Insert_by_repeating_val.call(this, position, n, val);
-                this.notify_insert(ret, ret.advance(n));
+                this._Notify_insert(ret, ret.advance(n));
                 return ret;
             };
             /**
@@ -181,7 +182,7 @@ var samchon;
                 var n = this.size();
                 var ret = _super.prototype._Insert_by_range.call(this, position, begin, end);
                 n = this.size() - n;
-                this.notify_insert(ret, ret.advance(n));
+                this._Notify_insert(ret, ret.advance(n));
                 return ret;
             };
             /* ---------------------------------------------------------
@@ -191,7 +192,7 @@ var samchon;
              * @hidden
              */
             ArrayCollection.prototype._Erase_by_range = function (first, last) {
-                this.notify_erase(first, last);
+                this._Notify_erase(first, last);
                 return _super.prototype._Erase_by_range.call(this, first, last);
             };
             /* ---------------------------------------------------------
@@ -200,13 +201,13 @@ var samchon;
             /**
              * @hidden
              */
-            ArrayCollection.prototype.notify_insert = function (first, last) {
+            ArrayCollection.prototype._Notify_insert = function (first, last) {
                 collections.ICollection._Dispatch_CollectionEvent(this, "insert", first, last);
             };
             /**
              * @hidden
              */
-            ArrayCollection.prototype.notify_erase = function (first, last) {
+            ArrayCollection.prototype._Notify_erase = function (first, last) {
                 collections.ICollection._Dispatch_CollectionEvent(this, "erase", first, last);
             };
             /* =========================================================
@@ -232,7 +233,7 @@ var samchon;
             ArrayCollection.prototype.refresh = function () {
                 var args = [];
                 for (var _i = 0; _i < arguments.length; _i++) {
-                    args[_i - 0] = arguments[_i];
+                    args[_i] = arguments[_i];
                 }
                 var first;
                 var last;
@@ -257,51 +258,6 @@ var samchon;
             ArrayCollection.prototype.removeEventListener = function (type, listener, thisArg) {
                 if (thisArg === void 0) { thisArg = null; }
                 this.event_dispatcher_.removeEventListener(type, listener, thisArg);
-            };
-            /* =========================================================
-                ARRAY'S MEMBERS
-                    - INSERT
-                    - ERASE
-            ============================================================
-                INSERT
-            --------------------------------------------------------- */
-            /**
-             * @inheritdoc
-             */
-            ArrayCollection.prototype.unshift = function () {
-                var items = [];
-                for (var _i = 0; _i < arguments.length; _i++) {
-                    items[_i - 0] = arguments[_i];
-                }
-                var ret = _super.prototype.unshift.apply(this, items);
-                this.notify_insert(this.begin(), this.begin().advance(items.length));
-                return ret;
-            };
-            /* ---------------------------------------------------------
-                ERASE
-            --------------------------------------------------------- */
-            /**
-             * @inheritdoc
-             */
-            ArrayCollection.prototype.pop = function () {
-                this.notify_erase(this.end().prev(), this.end());
-                return _super.prototype.pop.call(this);
-            };
-            ArrayCollection.prototype.splice = function (start, deleteCount) {
-                if (deleteCount === void 0) { deleteCount = this.size() - start; }
-                var items = [];
-                for (var _i = 2; _i < arguments.length; _i++) {
-                    items[_i - 2] = arguments[_i];
-                }
-                // FILTER
-                if (start + deleteCount > this.size())
-                    deleteCount = this.size() - start;
-                // NOTIFY ERASE
-                var first = new std.VectorIterator(this, start);
-                var last = first.advance(deleteCount);
-                this.notify_erase(first, last);
-                // CALL SUPER::ERASE
-                return _super.prototype.splice.apply(this, [start, deleteCount].concat(items));
             };
             return ArrayCollection;
         }(std.Vector));
@@ -491,6 +447,27 @@ var samchon;
             return BasicEvent;
         }());
         library.BasicEvent = BasicEvent;
+        //export class ProgressEvent
+        //	extends library.BasicEvent
+        //{
+        //	public static get PROGRESS(): string { return "progress"; }
+        //	protected numerator_: number;
+        //	protected denominator_: number;
+        //	public constructor(type: string, numerator: number, denominator: number)
+        //	{
+        //		super(type);
+        //		this.numerator_ = numerator;
+        //		this.denominator_ = denominator;
+        //	}
+        //	public get numerator(): number
+        //	{
+        //		return this.numerator_;
+        //	}
+        //	public get denominator(): number
+        //	{
+        //		return this.denominator_;
+        //	}
+        //}
     })(library = samchon.library || (samchon.library = {}));
 })(samchon || (samchon = {}));
 ;
@@ -509,19 +486,20 @@ var samchon;
         var CollectionEvent = (function (_super) {
             __extends(CollectionEvent, _super);
             function CollectionEvent(type, first, last) {
-                _super.call(this, type, false, (type == "insert" || type == "erase"));
+                var _this = _super.call(this, type, false, (type == "insert" || type == "erase")) || this;
                 if (type == "erase" && (first instanceof std.VectorIterator || first instanceof std.DequeIterator)) {
-                    this.temporary_container_ = new std.Vector(first, last);
-                    this.origin_first_ = first;
-                    this.first_ = this.temporary_container_.begin();
-                    this.last_ = this.temporary_container_.end();
+                    _this.temporary_container_ = new std.Vector(first, last);
+                    _this.origin_first_ = first;
+                    _this.first_ = _this.temporary_container_.begin();
+                    _this.last_ = _this.temporary_container_.end();
                 }
                 else {
-                    this.temporary_container_ = null;
-                    this.origin_first_ = null;
-                    this.first_ = first;
-                    this.last_ = last;
+                    _this.temporary_container_ = null;
+                    _this.origin_first_ = null;
+                    _this.first_ = first;
+                    _this.last_ = last;
                 }
+                return _this;
             }
             Object.defineProperty(CollectionEvent.prototype, "target", {
                 /**
@@ -579,7 +557,6 @@ var samchon;
         collections.CollectionEvent = CollectionEvent;
     })(collections = samchon.collections || (samchon.collections = {}));
 })(samchon || (samchon = {}));
-var samchon;
 (function (samchon) {
     var collections;
     (function (collections) {
@@ -667,11 +644,12 @@ var samchon;
         var DequeCollection = (function (_super) {
             __extends(DequeCollection, _super);
             function DequeCollection() {
-                _super.apply(this, arguments);
+                var _this = _super.apply(this, arguments) || this;
                 /**
                  * A chain object taking responsibility of dispatching events.
                  */
-                this.event_dispatcher_ = new samchon.library.EventDispatcher(this);
+                _this.event_dispatcher_ = new samchon.library.EventDispatcher(_this);
+                return _this;
             }
             /* ---------------------------------------------------------
                 CONSTRUCTORS
@@ -691,7 +669,7 @@ var samchon;
             DequeCollection.prototype.push = function () {
                 var items = [];
                 for (var _i = 0; _i < arguments.length; _i++) {
-                    items[_i - 0] = arguments[_i];
+                    items[_i] = arguments[_i];
                 }
                 var ret = _super.prototype.push.apply(this, items);
                 this.notify_insert(this.end().advance(-items.length), this.end());
@@ -777,7 +755,7 @@ var samchon;
             DequeCollection.prototype.refresh = function () {
                 var args = [];
                 for (var _i = 0; _i < arguments.length; _i++) {
-                    args[_i - 0] = arguments[_i];
+                    args[_i] = arguments[_i];
                 }
                 var first;
                 var last;
@@ -883,11 +861,12 @@ var samchon;
         var HashMapCollection = (function (_super) {
             __extends(HashMapCollection, _super);
             function HashMapCollection() {
-                _super.apply(this, arguments);
+                var _this = _super.apply(this, arguments) || this;
                 /**
                  * A chain object taking responsibility of dispatching events.
                  */
-                this.event_dispatcher_ = new samchon.library.EventDispatcher(this);
+                _this.event_dispatcher_ = new samchon.library.EventDispatcher(_this);
+                return _this;
             }
             /* ---------------------------------------------------------
                 CONSTRUCTORS
@@ -936,7 +915,7 @@ var samchon;
             HashMapCollection.prototype.refresh = function () {
                 var args = [];
                 for (var _i = 0; _i < arguments.length; _i++) {
-                    args[_i - 0] = arguments[_i];
+                    args[_i] = arguments[_i];
                 }
                 var first;
                 var last;
@@ -1039,11 +1018,12 @@ var samchon;
         var HashMultiMapCollection = (function (_super) {
             __extends(HashMultiMapCollection, _super);
             function HashMultiMapCollection() {
-                _super.apply(this, arguments);
+                var _this = _super.apply(this, arguments) || this;
                 /**
                  * A chain object taking responsibility of dispatching events.
                  */
-                this.event_dispatcher_ = new samchon.library.EventDispatcher(this);
+                _this.event_dispatcher_ = new samchon.library.EventDispatcher(_this);
+                return _this;
             }
             /* ---------------------------------------------------------
                 CONSTRUCTORS
@@ -1092,7 +1072,7 @@ var samchon;
             HashMultiMapCollection.prototype.refresh = function () {
                 var args = [];
                 for (var _i = 0; _i < arguments.length; _i++) {
-                    args[_i - 0] = arguments[_i];
+                    args[_i] = arguments[_i];
                 }
                 var first;
                 var last;
@@ -1190,11 +1170,12 @@ var samchon;
         var HashMultiSetCollection = (function (_super) {
             __extends(HashMultiSetCollection, _super);
             function HashMultiSetCollection() {
-                _super.apply(this, arguments);
+                var _this = _super.apply(this, arguments) || this;
                 /**
                  * A chain object taking responsibility of dispatching events.
                  */
-                this.event_dispatcher_ = new samchon.library.EventDispatcher(this);
+                _this.event_dispatcher_ = new samchon.library.EventDispatcher(_this);
+                return _this;
             }
             /* ---------------------------------------------------------
                 CONSTRUCTORS
@@ -1243,7 +1224,7 @@ var samchon;
             HashMultiSetCollection.prototype.refresh = function () {
                 var args = [];
                 for (var _i = 0; _i < arguments.length; _i++) {
-                    args[_i - 0] = arguments[_i];
+                    args[_i] = arguments[_i];
                 }
                 var first;
                 var last;
@@ -1342,11 +1323,12 @@ var samchon;
         var HashSetCollection = (function (_super) {
             __extends(HashSetCollection, _super);
             function HashSetCollection() {
-                _super.apply(this, arguments);
+                var _this = _super.apply(this, arguments) || this;
                 /**
                  * A chain object taking responsibility of dispatching events.
                  */
-                this.event_dispatcher_ = new samchon.library.EventDispatcher(this);
+                _this.event_dispatcher_ = new samchon.library.EventDispatcher(_this);
+                return _this;
             }
             /* ---------------------------------------------------------
                 CONSTRUCTORS
@@ -1395,7 +1377,7 @@ var samchon;
             HashSetCollection.prototype.refresh = function () {
                 var args = [];
                 for (var _i = 0; _i < arguments.length; _i++) {
-                    args[_i - 0] = arguments[_i];
+                    args[_i] = arguments[_i];
                 }
                 var first;
                 var last;
@@ -1561,11 +1543,12 @@ var samchon;
         var ListCollection = (function (_super) {
             __extends(ListCollection, _super);
             function ListCollection() {
-                _super.apply(this, arguments);
+                var _this = _super.apply(this, arguments) || this;
                 /**
                  * A chain object taking responsibility of dispatching events.
                  */
-                this.event_dispatcher_ = new samchon.library.EventDispatcher(this);
+                _this.event_dispatcher_ = new samchon.library.EventDispatcher(_this);
+                return _this;
             }
             /* ---------------------------------------------------------
                 CONSTRUCTORS
@@ -1585,7 +1568,7 @@ var samchon;
             ListCollection.prototype.push = function () {
                 var items = [];
                 for (var _i = 0; _i < arguments.length; _i++) {
-                    items[_i - 0] = arguments[_i];
+                    items[_i] = arguments[_i];
                 }
                 var ret = _super.prototype.push.apply(this, items);
                 this.notify_insert(this.end().advance(-items.length), this.end());
@@ -1688,7 +1671,7 @@ var samchon;
             ListCollection.prototype.refresh = function () {
                 var args = [];
                 for (var _i = 0; _i < arguments.length; _i++) {
-                    args[_i - 0] = arguments[_i];
+                    args[_i] = arguments[_i];
                 }
                 var first;
                 var last;
@@ -1734,7 +1717,7 @@ var samchon;
         var MapCollectionEvent = (function (_super) {
             __extends(MapCollectionEvent, _super);
             function MapCollectionEvent() {
-                _super.apply(this, arguments);
+                return _super.apply(this, arguments) || this;
             }
             Object.defineProperty(MapCollectionEvent.prototype, "first", {
                 // using super::constructor
@@ -1836,11 +1819,12 @@ var samchon;
         var TreeMapCollection = (function (_super) {
             __extends(TreeMapCollection, _super);
             function TreeMapCollection() {
-                _super.apply(this, arguments);
+                var _this = _super.apply(this, arguments) || this;
                 /**
                  * A chain object taking responsibility of dispatching events.
                  */
-                this.event_dispatcher_ = new samchon.library.EventDispatcher(this);
+                _this.event_dispatcher_ = new samchon.library.EventDispatcher(_this);
+                return _this;
             }
             /* ---------------------------------------------------------
                 CONSTRUCTORS
@@ -1889,7 +1873,7 @@ var samchon;
             TreeMapCollection.prototype.refresh = function () {
                 var args = [];
                 for (var _i = 0; _i < arguments.length; _i++) {
-                    args[_i - 0] = arguments[_i];
+                    args[_i] = arguments[_i];
                 }
                 var first;
                 var last;
@@ -1998,11 +1982,12 @@ var samchon;
         var TreeMultiMapCollection = (function (_super) {
             __extends(TreeMultiMapCollection, _super);
             function TreeMultiMapCollection() {
-                _super.apply(this, arguments);
+                var _this = _super.apply(this, arguments) || this;
                 /**
                  * A chain object taking responsibility of dispatching events.
                  */
-                this.event_dispatcher_ = new samchon.library.EventDispatcher(this);
+                _this.event_dispatcher_ = new samchon.library.EventDispatcher(_this);
+                return _this;
             }
             /* ---------------------------------------------------------
                 CONSTRUCTORS
@@ -2051,7 +2036,7 @@ var samchon;
             TreeMultiMapCollection.prototype.refresh = function () {
                 var args = [];
                 for (var _i = 0; _i < arguments.length; _i++) {
-                    args[_i - 0] = arguments[_i];
+                    args[_i] = arguments[_i];
                 }
                 var first;
                 var last;
@@ -2152,11 +2137,12 @@ var samchon;
         var TreeMultiSetCollection = (function (_super) {
             __extends(TreeMultiSetCollection, _super);
             function TreeMultiSetCollection() {
-                _super.apply(this, arguments);
+                var _this = _super.apply(this, arguments) || this;
                 /**
                  * A chain object taking responsibility of dispatching events.
                  */
-                this.event_dispatcher_ = new samchon.library.EventDispatcher(this);
+                _this.event_dispatcher_ = new samchon.library.EventDispatcher(_this);
+                return _this;
             }
             /* ---------------------------------------------------------
                 CONSTRUCTORS
@@ -2205,7 +2191,7 @@ var samchon;
             TreeMultiSetCollection.prototype.refresh = function () {
                 var args = [];
                 for (var _i = 0; _i < arguments.length; _i++) {
-                    args[_i - 0] = arguments[_i];
+                    args[_i] = arguments[_i];
                 }
                 var first;
                 var last;
@@ -2308,11 +2294,12 @@ var samchon;
         var TreeSetCollection = (function (_super) {
             __extends(TreeSetCollection, _super);
             function TreeSetCollection() {
-                _super.apply(this, arguments);
+                var _this = _super.apply(this, arguments) || this;
                 /**
                  * A chain object taking responsibility of dispatching events.
                  */
-                this.event_dispatcher_ = new samchon.library.EventDispatcher(this);
+                _this.event_dispatcher_ = new samchon.library.EventDispatcher(_this);
+                return _this;
             }
             /* ---------------------------------------------------------
                 CONSTRUCTORS
@@ -2361,7 +2348,7 @@ var samchon;
             TreeSetCollection.prototype.refresh = function () {
                 var args = [];
                 for (var _i = 0; _i < arguments.length; _i++) {
-                    args[_i - 0] = arguments[_i];
+                    args[_i] = arguments[_i];
                 }
                 var first;
                 var last;
@@ -2468,14 +2455,15 @@ var samchon;
              * @param r Size of elements of each case.
              */
             function CombinedPermutationGenerator(n, r) {
-                _super.call(this, n, r);
-                this.size_ = Math.pow(n, r);
-                this.divider_array = new Array();
+                var _this = _super.call(this, n, r) || this;
+                _this.size_ = Math.pow(n, r);
+                _this.divider_array = new Array();
                 for (var i = 0; i < r; i++) {
                     var x = r - (i + 1);
                     var val = Math.pow(n, x);
-                    this.divider_array.push(val);
+                    _this.divider_array.push(val);
                 }
+                return _this;
             }
             CombinedPermutationGenerator.prototype.at = function (index) {
                 var row = [];
@@ -2507,10 +2495,11 @@ var samchon;
              * @param r Size of elements of each case.
              */
             function PermuationGenerator(n, r) {
-                _super.call(this, n, r);
-                this.size_ = n;
+                var _this = _super.call(this, n, r) || this;
+                _this.size_ = n;
                 for (var i = n - 1; i > n - r; i--)
-                    this.size_ *= i;
+                    _this.size_ *= i;
+                return _this;
             }
             /**
              * @inheritdoc
@@ -2546,7 +2535,7 @@ var samchon;
              * @param n Factoria size N.
              */
             function FactorialGenerator(n) {
-                _super.call(this, n, n);
+                return _super.call(this, n, n) || this;
             }
             return FactorialGenerator;
         }(PermuationGenerator));
@@ -2692,9 +2681,10 @@ var samchon;
              * Default Constructor.
              */
             function FileReference() {
-                _super.call(this);
-                this.file_ = null;
-                this.data_ = null;
+                var _this = _super.call(this) || this;
+                _this.file_ = null;
+                _this.data_ = null;
+                return _this;
             }
             Object.defineProperty(FileReference.prototype, "data", {
                 /* ---------------------------------------------------------
@@ -2832,7 +2822,7 @@ var samchon;
             FileReference.prototype.browse = function () {
                 var typeFilter = [];
                 for (var _i = 0; _i < arguments.length; _i++) {
-                    typeFilter[_i - 0] = arguments[_i];
+                    typeFilter[_i] = arguments[_i];
                 }
                 var this_ = this;
                 // CREATE A FILE SELECTOR
@@ -2990,8 +2980,9 @@ var samchon;
              * Default Constructor.
              */
             function FileReferenceList() {
-                _super.call(this);
-                this.file_list = new std.Vector();
+                var _this = _super.call(this) || this;
+                _this.file_list = new std.Vector();
+                return _this;
             }
             Object.defineProperty(FileReferenceList.prototype, "fileList", {
                 /**
@@ -3032,7 +3023,7 @@ var samchon;
             FileReferenceList.prototype.browse = function () {
                 var typeFilter = [];
                 for (var _i = 0; _i < arguments.length; _i++) {
-                    typeFilter[_i - 0] = arguments[_i];
+                    typeFilter[_i] = arguments[_i];
                 }
                 var this_ = this;
                 // CREATE A FILE SELECTOR
@@ -3301,24 +3292,22 @@ var samchon;
             function GAPopulation() {
                 var args = [];
                 for (var _i = 0; _i < arguments.length; _i++) {
-                    args[_i - 0] = arguments[_i];
+                    args[_i] = arguments[_i];
                 }
                 if (args.length == 1) {
                     this.children_ = new std.Vector();
-                    this.children_.length = args[0];
                 }
                 else {
                     var geneArray = args[0];
                     var size = args[1];
                     var compare = (args.length == 2) ? std.greater : args[2];
                     this.children_ = new std.Vector();
-                    this.children_.length = args[1];
                     this.compare_ = compare;
                     for (var i = 0; i < size; i++) {
                         var child = this.clone(geneArray);
                         if (i > 0)
                             std.random_shuffle(child.begin(), child.end());
-                        this.children_[i] = child;
+                        this.children_.push_back(child);
                     }
                 }
             }
@@ -3696,15 +3685,15 @@ var samchon;
                 if (precision === void 0) { precision = 2; }
                 return StringUtil.numberFormat(val * 100, precision) + " %";
             };
-            /* ------------------------------------------------------------------
-                TRIM
-            ------------------------------------------------------------------ */
-            /**
-             * An array containing whitespaces.
-             */
-            StringUtil.SPACE_ARRAY = [" ", "\t", "\r", "\n"];
             return StringUtil;
         }());
+        /* ------------------------------------------------------------------
+            TRIM
+        ------------------------------------------------------------------ */
+        /**
+         * An array containing whitespaces.
+         */
+        StringUtil.SPACE_ARRAY = [" ", "\t", "\r", "\n"];
         library.StringUtil = StringUtil;
     })(library = samchon.library || (samchon.library = {}));
 })(samchon || (samchon = {}));
@@ -3728,9 +3717,10 @@ var samchon;
             __extends(URLVariables, _super);
             function URLVariables(str) {
                 if (str === void 0) { str = ""; }
-                _super.call(this);
+                var _this = _super.call(this) || this;
                 if (str != "")
-                    this.decode(str);
+                    _this.decode(str);
+                return _this;
             }
             /**
              * Converts the variable string to properties of the specified URLVariables object.
@@ -3834,11 +3824,11 @@ var samchon;
             __extends(XML, _super);
             function XML(str) {
                 if (str === void 0) { str = ""; }
-                _super.call(this);
-                this.property_map_ = new std.HashMap();
-                this.value_ = "";
+                var _this = _super.call(this) || this;
+                _this.property_map_ = new std.HashMap();
+                _this.value_ = "";
                 if (str.indexOf("<") == -1)
-                    return;
+                    return _this;
                 var start;
                 var end;
                 //ERASE HEADER OF XML
@@ -3855,7 +3845,8 @@ var samchon;
                     str = str.substr(0, start) + str.substr(end + 3);
                 }
                 //BEGIN PARSING
-                this.parse(str);
+                _this.parse(str);
+                return _this;
             }
             /* -------------------------------------------------------------
                 PARSERS
@@ -4170,7 +4161,7 @@ var samchon;
             XML.prototype.push = function () {
                 var items = [];
                 for (var _i = 0; _i < arguments.length; _i++) {
-                    items[_i - 0] = arguments[_i];
+                    items[_i] = arguments[_i];
                 }
                 for (var i = 0; i < items.length; i++) {
                     if (items[i] instanceof XML) {
@@ -4250,7 +4241,7 @@ var samchon;
             XML.prototype.compute_min_index = function () {
                 var args = [];
                 for (var _i = 0; _i < arguments.length; _i++) {
-                    args[_i - 0] = arguments[_i];
+                    args[_i] = arguments[_i];
                 }
                 var min = args[0];
                 for (var i = 1; i < args.length; i++) {
@@ -4354,7 +4345,6 @@ var samchon;
         library.XML = XML;
     })(library = samchon.library || (samchon.library = {}));
 })(samchon || (samchon = {}));
-var samchon;
 (function (samchon) {
     var library;
     (function (library) {
@@ -4368,7 +4358,7 @@ var samchon;
         var XMLList = (function (_super) {
             __extends(XMLList, _super);
             function XMLList() {
-                _super.apply(this, arguments);
+                return _super.apply(this, arguments) || this;
             }
             // using super::constructor
             /**
@@ -4532,7 +4522,7 @@ var samchon;
         var EntityArrayCollection = (function (_super) {
             __extends(EntityArrayCollection, _super);
             function EntityArrayCollection() {
-                _super.apply(this, arguments);
+                return _super.apply(this, arguments) || this;
             }
             /* ------------------------------------------------------------------
                 CONSTRUCTORS
@@ -4542,7 +4532,7 @@ var samchon;
              * @inheritdoc
              */
             EntityArrayCollection.prototype.construct = function (xml) {
-                protocol.IEntityGroup.construct(this, xml, "length");
+                protocol.IEntityGroup.construct(this, xml);
             };
             /* ------------------------------------------------------------------
                 GETTERS
@@ -4582,7 +4572,6 @@ var samchon;
         protocol.EntityArrayCollection = EntityArrayCollection;
     })(protocol = samchon.protocol || (samchon.protocol = {}));
 })(samchon || (samchon = {}));
-var samchon;
 (function (samchon) {
     var protocol;
     (function (protocol) {
@@ -4592,7 +4581,7 @@ var samchon;
         var EntityListCollection = (function (_super) {
             __extends(EntityListCollection, _super);
             function EntityListCollection() {
-                _super.apply(this, arguments);
+                return _super.apply(this, arguments) || this;
             }
             /* ------------------------------------------------------------------
                 CONSTRUCTORS
@@ -4642,7 +4631,6 @@ var samchon;
         protocol.EntityListCollection = EntityListCollection;
     })(protocol = samchon.protocol || (samchon.protocol = {}));
 })(samchon || (samchon = {}));
-var samchon;
 (function (samchon) {
     var protocol;
     (function (protocol) {
@@ -4652,7 +4640,7 @@ var samchon;
         var EntityDequeCollection = (function (_super) {
             __extends(EntityDequeCollection, _super);
             function EntityDequeCollection() {
-                _super.apply(this, arguments);
+                return _super.apply(this, arguments) || this;
             }
             /* ------------------------------------------------------------------
                 CONSTRUCTORS
@@ -4772,8 +4760,9 @@ var samchon;
                  * Default Constructor.
                  */
                 function ExternalSystemArray() {
-                    _super.call(this);
-                    this.addEventListener("erase", this.handle_system_erase, this);
+                    var _this = _super.call(this) || this;
+                    _this.addEventListener("erase", _this.handle_system_erase, _this);
+                    return _this;
                 }
                 /**
                  * @hidden
@@ -4932,8 +4921,9 @@ var samchon;
                  * Default Constructor.
                  */
                 function ParallelSystemArray() {
-                    _super.call(this);
-                    this.history_sequence_ = 0;
+                    var _this = _super.call(this) || this;
+                    _this.history_sequence_ = 0;
+                    return _this;
                 }
                 /* =========================================================
                     INVOKE MESSAGE CHAIN
@@ -5224,9 +5214,10 @@ var samchon;
                  * Default Constructor.
                  */
                 function DistributedSystemArray() {
-                    _super.call(this);
+                    var _this = _super.call(this) || this;
                     // CREATE ROLE MAP AND ENROLL COLLECTION EVENT LISTENRES
-                    this.process_map_ = new std.HashMap();
+                    _this.process_map_ = new std.HashMap();
+                    return _this;
                 }
                 /**
                  * @inheritdoc
@@ -5573,8 +5564,9 @@ var samchon;
                  * Default Constructor.
                  */
                 function DistributedSystemArrayMediator() {
-                    _super.call(this);
-                    this.mediator_ = null;
+                    var _this = _super.call(this) || this;
+                    _this.mediator_ = null;
+                    return _this;
                 }
                 /**
                  * Start mediator.
@@ -5752,7 +5744,6 @@ var samchon;
         protocol.CommunicatorBase = CommunicatorBase;
     })(protocol = samchon.protocol || (samchon.protocol = {}));
 })(samchon || (samchon = {}));
-var samchon;
 (function (samchon) {
     var protocol;
     (function (protocol) {
@@ -5790,28 +5781,29 @@ var samchon;
         var Communicator = (function (_super) {
             __extends(Communicator, _super);
             function Communicator() {
-                _super.apply(this, arguments);
+                var _this = _super.apply(this, arguments) || this;
                 // SOCKET AND RECEIVED DATA
                 /**
                  * @hidden
                  */
-                this.socket_ = null;
+                _this.socket_ = null;
                 /**
                  * @hidden
                  */
-                this.header_bytes_ = null;
+                _this.header_bytes_ = null;
                 /**
                  * @hidden
                  */
-                this.data_ = null;
+                _this.data_ = null;
                 /**
                  * @hidden
                  */
-                this.data_index_ = -1;
+                _this.data_index_ = -1;
                 /**
                  * @hidden
                  */
-                this.listening_ = false;
+                _this.listening_ = false;
+                return _this;
             }
             /* ---------------------------------------------------------
                 CONSTRUCTORS
@@ -5967,7 +5959,6 @@ var samchon;
         protocol.Communicator = Communicator;
     })(protocol = samchon.protocol || (samchon.protocol = {}));
 })(samchon || (samchon = {}));
-var samchon;
 (function (samchon) {
     var protocol;
     (function (protocol) {
@@ -6004,12 +5995,13 @@ var samchon;
         var WebCommunicator = (function (_super) {
             __extends(WebCommunicator, _super);
             function WebCommunicator() {
-                _super.apply(this, arguments);
+                var _this = _super.apply(this, arguments) || this;
                 // SOCKET MEMBER
                 /**
                  * @hidden
                  */
-                this.connection_ = null;
+                _this.connection_ = null;
+                return _this;
             }
             /* ---------------------------------------------------------
                 CONSTRUCTORS
@@ -6058,7 +6050,6 @@ var samchon;
         protocol.WebCommunicator = WebCommunicator;
     })(protocol = samchon.protocol || (samchon.protocol = {}));
 })(samchon || (samchon = {}));
-var samchon;
 (function (samchon) {
     var protocol;
     (function (protocol) {
@@ -6105,7 +6096,7 @@ var samchon;
         var DedicatedWorkerCommunicator = (function (_super) {
             __extends(DedicatedWorkerCommunicator, _super);
             function DedicatedWorkerCommunicator() {
-                _super.apply(this, arguments);
+                return _super.apply(this, arguments) || this;
             }
             /**
              * @hidden
@@ -6121,7 +6112,6 @@ var samchon;
         protocol.DedicatedWorkerCommunicator = DedicatedWorkerCommunicator;
     })(protocol = samchon.protocol || (samchon.protocol = {}));
 })(samchon || (samchon = {}));
-var samchon;
 (function (samchon) {
     var protocol;
     (function (protocol) {
@@ -6170,7 +6160,7 @@ var samchon;
         var SharedWorkerCommunicator = (function (_super) {
             __extends(SharedWorkerCommunicator, _super);
             function SharedWorkerCommunicator() {
-                _super.apply(this, arguments);
+                return _super.apply(this, arguments) || this;
             }
             /* ---------------------------------------------------------
                 CONSTRUCTORS
@@ -6264,9 +6254,10 @@ var samchon;
              * Construct from a socket.
              */
             function ClientDriver(socket) {
-                _super.call(this);
-                this.socket_ = socket;
-                this.connected_ = true;
+                var _this = _super.call(this) || this;
+                _this.socket_ = socket;
+                _this.connected_ = true;
+                return _this;
             }
             /**
              * @inheritdoc
@@ -6280,7 +6271,6 @@ var samchon;
         protocol.ClientDriver = ClientDriver;
     })(protocol = samchon.protocol || (samchon.protocol = {}));
 })(samchon || (samchon = {}));
-var samchon;
 (function (samchon) {
     var protocol;
     (function (protocol) {
@@ -6342,11 +6332,12 @@ var samchon;
              * @param session_id Session ID, an identifier of the remote client.
              */
             function WebClientDriver(connection, path, session_id) {
-                _super.call(this);
-                this.connection_ = connection;
-                this.path_ = path;
-                this.session_id_ = session_id;
-                this.listening_ = false;
+                var _this = _super.call(this) || this;
+                _this.connection_ = connection;
+                _this.path_ = path;
+                _this.session_id_ = session_id;
+                _this.listening_ = false;
+                return _this;
             }
             /**
              * @inheritdoc
@@ -6377,7 +6368,6 @@ var samchon;
         protocol.WebClientDriver = WebClientDriver;
     })(protocol = samchon.protocol || (samchon.protocol = {}));
 })(samchon || (samchon = {}));
-var samchon;
 (function (samchon) {
     var protocol;
     (function (protocol) {
@@ -6440,9 +6430,10 @@ var samchon;
              * Default Constructor.
              */
             function DedicatedWorkerClientDriver() {
-                _super.call(this);
-                onmessage = this.handle_message.bind(this);
-                this.connected_ = true;
+                var _this = _super.call(this) || this;
+                onmessage = _this.handle_message.bind(_this);
+                _this.connected_ = true;
+                return _this;
             }
             /**
              * @inheritdoc
@@ -6470,7 +6461,6 @@ var samchon;
         protocol.DedicatedWorkerClientDriver = DedicatedWorkerClientDriver;
     })(protocol = samchon.protocol || (samchon.protocol = {}));
 })(samchon || (samchon = {}));
-var samchon;
 (function (samchon) {
     var protocol;
     (function (protocol) {
@@ -6532,10 +6522,11 @@ var samchon;
              * Construct from a MessagePort object.
              */
             function SharedWorkerClientDriver(port) {
-                _super.call(this);
-                this.port_ = port;
-                this.connected_ = true;
-                this.listening_ = false;
+                var _this = _super.call(this) || this;
+                _this.port_ = port;
+                _this.connected_ = true;
+                _this.listening_ = false;
+                return _this;
             }
             /**
              * @inheritdoc
@@ -6632,7 +6623,6 @@ var samchon;
         })(IEntityGroup = protocol.IEntityGroup || (protocol.IEntityGroup = {}));
     })(protocol = samchon.protocol || (samchon.protocol = {}));
 })(samchon || (samchon = {}));
-var samchon;
 (function (samchon) {
     var protocol;
     (function (protocol) {
@@ -6642,7 +6632,7 @@ var samchon;
         var EntityArray = (function (_super) {
             __extends(EntityArray, _super);
             function EntityArray() {
-                _super.apply(this, arguments);
+                return _super.apply(this, arguments) || this;
             }
             /* ------------------------------------------------------------------
                 CONSTRUCTORS
@@ -6652,7 +6642,7 @@ var samchon;
              * @inheritdoc
              */
             EntityArray.prototype.construct = function (xml) {
-                protocol.IEntityGroup.construct(this, xml, "length");
+                protocol.IEntityGroup.construct(this, xml);
             };
             /* ------------------------------------------------------------------
                 GETTERS
@@ -6692,7 +6682,6 @@ var samchon;
         protocol.EntityArray = EntityArray;
     })(protocol = samchon.protocol || (samchon.protocol = {}));
 })(samchon || (samchon = {}));
-var samchon;
 (function (samchon) {
     var protocol;
     (function (protocol) {
@@ -6702,7 +6691,7 @@ var samchon;
         var EntityList = (function (_super) {
             __extends(EntityList, _super);
             function EntityList() {
-                _super.apply(this, arguments);
+                return _super.apply(this, arguments) || this;
             }
             /* ------------------------------------------------------------------
                 CONSTRUCTORS
@@ -6752,7 +6741,6 @@ var samchon;
         protocol.EntityList = EntityList;
     })(protocol = samchon.protocol || (samchon.protocol = {}));
 })(samchon || (samchon = {}));
-var samchon;
 (function (samchon) {
     var protocol;
     (function (protocol) {
@@ -6762,7 +6750,7 @@ var samchon;
         var EntityDeque = (function (_super) {
             __extends(EntityDeque, _super);
             function EntityDeque() {
-                _super.apply(this, arguments);
+                return _super.apply(this, arguments) || this;
             }
             /* ------------------------------------------------------------------
                 CONSTRUCTORS
@@ -6847,21 +6835,22 @@ var samchon;
             function Invoke() {
                 var args = [];
                 for (var _i = 0; _i < arguments.length; _i++) {
-                    args[_i - 0] = arguments[_i];
+                    args[_i] = arguments[_i];
                 }
-                _super.call(this);
+                var _this = _super.call(this) || this;
                 /**
                  * Listener, represent function's name.
                  */
-                this.listener = "";
+                _this.listener = "";
                 if (args.length == 0) {
-                    this.listener = "";
+                    _this.listener = "";
                 }
                 else {
-                    this.listener = args[0];
+                    _this.listener = args[0];
                     for (var i = 1; i < args.length; i++)
-                        this.push_back(new protocol.InvokeParameter(args[i]));
+                        _this.push_back(new protocol.InvokeParameter(args[i]));
                 }
+                return _this;
             }
             /**
              * @inheritdoc
@@ -6886,10 +6875,10 @@ var samchon;
             Invoke.prototype.getArguments = function () {
                 var args = [];
                 for (var i = 0; i < this.size(); i++)
-                    if (this[i].getName() == "_History_uid")
+                    if (this.at(i).getName() == "_History_uid")
                         continue;
                     else
-                        args.push(this[i].getValue());
+                        args.push(this.at(i).getValue());
                 return args;
             };
             Invoke.prototype.apply = function (thisArg, func) {
@@ -6944,35 +6933,36 @@ var samchon;
             function InvokeParameter() {
                 var args = [];
                 for (var _i = 0; _i < arguments.length; _i++) {
-                    args[_i - 0] = arguments[_i];
+                    args[_i] = arguments[_i];
                 }
-                _super.call(this);
+                var _this = _super.call(this) || this;
                 /**
                  * Name of the parameter.
                  *
                  * @details Optional property, can be omitted.
                  */
-                this.name = "";
+                _this.name = "";
                 /**
                  * Type of the parameter.
                  */
-                this.type = "";
+                _this.type = "";
                 /**
                  * Value of the parameter.
                  */
-                this.value = null;
+                _this.value = null;
                 // DEFAULT CONSTRUCTOR
                 if (args.length == 0)
-                    return;
+                    return _this;
                 // INITIALIZATION CONSTRUCTOR
                 if (args.length == 1) {
-                    this.name = "";
-                    this.setValue(args[0]);
+                    _this.name = "";
+                    _this.setValue(args[0]);
                 }
                 else {
-                    this.name = args[0];
-                    this.setValue(args[1]);
+                    _this.name = args[0];
+                    _this.setValue(args[1]);
                 }
+                return _this;
             }
             /**
              * @inheritdoc
@@ -7131,7 +7121,6 @@ var samchon;
         protocol.Server = Server;
     })(protocol = samchon.protocol || (samchon.protocol = {}));
 })(samchon || (samchon = {}));
-var samchon;
 (function (samchon) {
     var protocol;
     (function (protocol) {
@@ -7252,7 +7241,6 @@ var samchon;
         protocol.WebServer = WebServer;
     })(protocol = samchon.protocol || (samchon.protocol = {}));
 })(samchon || (samchon = {}));
-var samchon;
 (function (samchon) {
     var protocol;
     (function (protocol) {
@@ -7329,7 +7317,6 @@ var samchon;
         protocol.DedicatedWorkerServer = DedicatedWorkerServer;
     })(protocol = samchon.protocol || (samchon.protocol = {}));
 })(samchon || (samchon = {}));
-var samchon;
 (function (samchon) {
     var protocol;
     (function (protocol) {
@@ -7483,8 +7470,9 @@ var samchon;
              * @param hooker A hooker throwing responsibility of server's role.
              */
             function ServerBase(hooker) {
-                _super.call(this);
-                this.hooker_ = hooker;
+                var _this = _super.call(this) || this;
+                _this.hooker_ = hooker;
+                return _this;
             }
             /**
              * @inheritdoc
@@ -7497,7 +7485,6 @@ var samchon;
         protocol.ServerBase = ServerBase;
     })(protocol = samchon.protocol || (samchon.protocol = {}));
 })(samchon || (samchon = {}));
-var samchon;
 (function (samchon) {
     var protocol;
     (function (protocol) {
@@ -7564,8 +7551,9 @@ var samchon;
              * @param hooker A hooker throwing responsibility of server's role.
              */
             function WebServerBase(hooker) {
-                _super.call(this);
-                this.hooker_ = hooker;
+                var _this = _super.call(this) || this;
+                _this.hooker_ = hooker;
+                return _this;
             }
             /**
              * @inheritdoc
@@ -7578,7 +7566,6 @@ var samchon;
         protocol.WebServerBase = WebServerBase;
     })(protocol = samchon.protocol || (samchon.protocol = {}));
 })(samchon || (samchon = {}));
-var samchon;
 (function (samchon) {
     var protocol;
     (function (protocol) {
@@ -7646,8 +7633,9 @@ var samchon;
              * @param hooker A hooker throwing responsibility of server's role.
              */
             function DedicatedWorkerServerBase(hooker) {
-                _super.call(this);
-                this.hooker_ = hooker;
+                var _this = _super.call(this) || this;
+                _this.hooker_ = hooker;
+                return _this;
             }
             /**
              * @inheritdoc
@@ -7660,7 +7648,6 @@ var samchon;
         protocol.DedicatedWorkerServerBase = DedicatedWorkerServerBase;
     })(protocol = samchon.protocol || (samchon.protocol = {}));
 })(samchon || (samchon = {}));
-var samchon;
 (function (samchon) {
     var protocol;
     (function (protocol) {
@@ -7728,8 +7715,9 @@ var samchon;
              * @param hooker A hooker throwing responsibility of server's role.
              */
             function SharedWorkerServerBase(hooker) {
-                _super.call(this);
-                this.hooker_ = hooker;
+                var _this = _super.call(this) || this;
+                _this.hooker_ = hooker;
+                return _this;
             }
             /**
              * @inheritdoc
@@ -7793,8 +7781,9 @@ var samchon;
              *				   {@link IProtocol.replyData replyData()} as an {@link Invoke} object.
              */
             function ServerConnector(listener) {
-                _super.call(this, listener);
-                this.connected_ = false;
+                var _this = _super.call(this, listener) || this;
+                _this.connected_ = false;
+                return _this;
             }
             /**
              * @inheritdoc
@@ -7811,7 +7800,7 @@ var samchon;
             ServerConnector.prototype.handle_connect = function () {
                 var arg = [];
                 for (var _i = 0; _i < arguments.length; _i++) {
-                    arg[_i - 0] = arguments[_i];
+                    arg[_i] = arguments[_i];
                 }
                 this.connected_ = true;
                 this.start_listen();
@@ -7842,7 +7831,6 @@ var samchon;
         protocol.ServerConnector = ServerConnector;
     })(protocol = samchon.protocol || (samchon.protocol = {}));
 })(samchon || (samchon = {}));
-var samchon;
 (function (samchon) {
     var protocol;
     (function (protocol) {
@@ -7891,11 +7879,12 @@ var samchon;
              *				   {@link IProtocol.replyData replyData()} as an {@link Invoke} object.
              */
             function WebServerConnector(listener) {
-                _super.call(this, listener);
-                this.browser_socket_ = null;
-                this.node_client_ = null;
-                this.connected_ = false;
-                this.onConnect = null;
+                var _this = _super.call(this, listener) || this;
+                _this.browser_socket_ = null;
+                _this.node_client_ = null;
+                _this.connected_ = false;
+                _this.onConnect = null;
+                return _this;
             }
             /**
              * Connect to a web server.
@@ -8001,7 +7990,6 @@ var samchon;
         protocol.WebServerConnector = WebServerConnector;
     })(protocol = samchon.protocol || (samchon.protocol = {}));
 })(samchon || (samchon = {}));
-var samchon;
 (function (samchon) {
     var protocol;
     (function (protocol) {
@@ -8058,8 +8046,9 @@ var samchon;
              *				   {@link IProtocol.replyData replyData()} as an {@link Invoke} object.
              */
             function DedicatedWorkerServerConnector(listener) {
-                _super.call(this, listener);
-                this.worker = null;
+                var _this = _super.call(this, listener) || this;
+                _this.worker = null;
+                return _this;
             }
             /**
              * @inheritdoc
@@ -8095,7 +8084,6 @@ var samchon;
         protocol.DedicatedWorkerServerConnector = DedicatedWorkerServerConnector;
     })(protocol = samchon.protocol || (samchon.protocol = {}));
 })(samchon || (samchon = {}));
-var samchon;
 (function (samchon) {
     var protocol;
     (function (protocol) {
@@ -8154,9 +8142,10 @@ var samchon;
              *				   {@link IProtocol.replyData replyData()} as an {@link Invoke} object.
              */
             function SharedWorkerServerConnector(listener) {
-                _super.call(this, listener);
-                this.connected_ = false;
-                this.onConnect = null;
+                var _this = _super.call(this, listener) || this;
+                _this.connected_ = false;
+                _this.onConnect = null;
+                return _this;
             }
             /**
              * Connect to a SharedWorker.
@@ -8292,7 +8281,7 @@ var samchon;
                  * Default Constructor.
                  */
                 function DistributedClientArray() {
-                    _super.call(this);
+                    return _super.call(this) || this;
                 }
                 /* ---------------------------------------------------------
                     FACTORY METHOD FOR CHILDREN
@@ -8472,7 +8461,7 @@ var samchon;
                  * Default Constructor.
                  */
                 function DistributedClientArrayMediator() {
-                    _super.call(this);
+                    return _super.call(this) || this;
                 }
                 /* ---------------------------------------------------------
                     FACTORY METHOD FOR CHILDREN
@@ -8580,13 +8569,14 @@ var samchon;
                  * @param systemArray The parent {@link DistributedSystemArray} object.
                  */
                 function DistributedProcess(systemArray) {
-                    _super.call(this);
-                    this.system_array_ = systemArray;
-                    this.name = "";
+                    var _this = _super.call(this) || this;
+                    _this.system_array_ = systemArray;
+                    _this.name = "";
                     // PERFORMANCE INDEX
-                    this.resource = 1.0;
-                    this.progress_list_ = new std.HashMap();
-                    this.history_list_ = new std.HashMap();
+                    _this.resource = 1.0;
+                    _this.progress_list_ = new std.HashMap();
+                    _this.history_list_ = new std.HashMap();
+                    return _this;
                 }
                 /* ---------------------------------------------------------
                     ACCESSORS
@@ -8832,12 +8822,13 @@ var samchon;
                 __extends(ExternalSystem, _super);
                 function ExternalSystem(systemArray, communicator) {
                     if (communicator === void 0) { communicator = null; }
-                    _super.call(this);
-                    this.system_array_ = systemArray;
-                    this.communicator = communicator;
+                    var _this = _super.call(this) || this;
+                    _this.system_array_ = systemArray;
+                    _this.communicator = communicator;
                     if (communicator != null)
-                        communicator.listen(this);
-                    this.name = "";
+                        communicator.listen(_this);
+                    _this.name = "";
+                    return _this;
                 }
                 /**
                  * Default Destructor.
@@ -9032,14 +9023,15 @@ var samchon;
                 __extends(ParallelSystem, _super);
                 function ParallelSystem(systemArray, communicator) {
                     if (communicator === void 0) { communicator = null; }
-                    _super.call(this, systemArray, communicator);
+                    var _this = _super.call(this, systemArray, communicator) || this;
                     // HIDDEN MEMBERS
-                    this.progress_list_ = new std.HashMap();
-                    this.history_list_ = new std.HashMap();
-                    this.enforced_ = false;
-                    this.exclude_ = false;
+                    _this.progress_list_ = new std.HashMap();
+                    _this.history_list_ = new std.HashMap();
+                    _this.enforced_ = false;
+                    _this.exclude_ = false;
                     // PERFORMANCE INDEX
-                    this.performance = 1.0;
+                    _this.performance = 1.0;
+                    return _this;
                 }
                 /**
                  * Default Destructor.
@@ -9307,7 +9299,7 @@ var samchon;
                 __extends(DistributedSystem, _super);
                 function DistributedSystem(systemArray, communicator) {
                     if (communicator === void 0) { communicator = null; }
-                    _super.call(this, systemArray, communicator);
+                    return _super.call(this, systemArray, communicator) || this;
                 }
                 // using super::destructor
                 /**
@@ -9471,9 +9463,10 @@ var samchon;
                  * @param systemArray The parent {@link DistributedSystemArray} object.
                  */
                 function DistributedServer(systemArray) {
-                    _super.call(this, systemArray);
-                    this.ip = "";
-                    this.port = 0;
+                    var _this = _super.call(this, systemArray) || this;
+                    _this.ip = "";
+                    _this.port = 0;
+                    return _this;
                 }
                 /**
                  * @inheritdoc
@@ -9585,7 +9578,7 @@ var samchon;
                  * Default Constructor.
                  */
                 function DistributedServerArray() {
-                    _super.call(this);
+                    return _super.call(this) || this;
                 }
                 /* ---------------------------------------------------------
                     CONNECTOR's METHOD
@@ -9719,7 +9712,7 @@ var samchon;
                  * Default Constructor.
                  */
                 function DistributedServerArrayMediator() {
-                    _super.call(this);
+                    return _super.call(this) || this;
                 }
                 /* ---------------------------------------------------------
                     CONNECTOR's METHOD
@@ -9837,7 +9830,7 @@ var samchon;
                  * Default Constructor.
                  */
                 function DistributedServerClientArray() {
-                    _super.call(this);
+                    return _super.call(this) || this;
                 }
                 /**
                  * Factory method of a child Entity.
@@ -9991,7 +9984,7 @@ var samchon;
                  * Default Constructor.
                  */
                 function DistributedServerClientArrayMediator() {
-                    _super.call(this);
+                    return _super.call(this) || this;
                 }
                 /**
                  * Factory method of a child Entity.
@@ -10049,18 +10042,19 @@ var samchon;
                 __extends(InvokeHistory, _super);
                 function InvokeHistory(invoke) {
                     if (invoke === void 0) { invoke = null; }
-                    _super.call(this);
+                    var _this = _super.call(this) || this;
                     if (invoke == null) {
                         // DEFAULT CONSTRUCTOR
-                        this.uid = 0;
-                        this.listener = "";
+                        _this.uid = 0;
+                        _this.listener = "";
                     }
                     else {
                         // CONSTRUCT FROM AN INVOKE MESSAGE
-                        this.uid = invoke.get("_History_uid").getValue();
-                        this.listener = invoke.getListener();
-                        this.start_time_ = new Date();
+                        _this.uid = invoke.get("_History_uid").getValue();
+                        _this.listener = invoke.getListener();
+                        _this.start_time_ = new Date();
                     }
+                    return _this;
                 }
                 /**
                  * @inheritdoc
@@ -10181,10 +10175,11 @@ var samchon;
                     if (process === void 0) { process = null; }
                     if (invoke === void 0) { invoke = null; }
                     if (weight === void 0) { weight = 1; }
-                    _super.call(this, invoke);
-                    this.system_ = system;
-                    this.process_ = process;
-                    this.weight_ = weight;
+                    var _this = _super.call(this, invoke) || this;
+                    _this.system_ = system;
+                    _this.process_ = process;
+                    _this.weight_ = weight;
+                    return _this;
                 }
                 /**
                  * @inheritdoc
@@ -10311,8 +10306,9 @@ var samchon;
                  * Default Constructor.
                  */
                 function ExternalClientArray() {
-                    _super.call(this);
-                    this.server_base_ = null;
+                    var _this = _super.call(this) || this;
+                    _this.server_base_ = null;
+                    return _this;
                 }
                 /* ---------------------------------------------------------
                     FACTORY METHOD FOR CHILDREN
@@ -10430,9 +10426,10 @@ var samchon;
                  * @param systemArray The parent {@link ExternalSystemArray} object.
                  */
                 function ExternalServer(systemArray) {
-                    _super.call(this, systemArray);
-                    this.ip = "";
-                    this.port = 0;
+                    var _this = _super.call(this, systemArray) || this;
+                    _this.ip = "";
+                    _this.port = 0;
+                    return _this;
                 }
                 /**
                  * @inheritdoc
@@ -10511,7 +10508,7 @@ var samchon;
                  * Default Constructor.
                  */
                 function ExternalServerArray() {
-                    _super.call(this);
+                    return _super.call(this) || this;
                 }
                 /* ---------------------------------------------------------
                     CONNECTOR's METHOD
@@ -10598,7 +10595,7 @@ var samchon;
                  * Default Constructor.
                  */
                 function ExternalServerClientArray() {
-                    _super.call(this);
+                    return _super.call(this) || this;
                 }
                 /**
                  * Factory method of a child Entity.
@@ -10688,8 +10685,9 @@ var samchon;
                  * @param system An external system containing this role.
                  */
                 function ExternalSystemRole(system) {
-                    _super.call(this);
-                    this.system = system;
+                    var _this = _super.call(this) || this;
+                    _this.system = system;
+                    return _this;
                 }
                 /* ---------------------------------------------------------
                     ACCESSORS
@@ -10856,9 +10854,10 @@ var samchon;
             var MediatorSystem = (function (_super) {
                 __extends(MediatorSystem, _super);
                 function MediatorSystem(systemArray) {
-                    _super.call(this);
-                    this.system_array_ = systemArray;
-                    this.progress_list_ = new std.HashMap();
+                    var _this = _super.call(this) || this;
+                    _this.system_array_ = systemArray;
+                    _this.progress_list_ = new std.HashMap();
+                    return _this;
                 }
                 MediatorSystem.prototype.getSystemArray = function () {
                     return this.system_array_;
@@ -10943,7 +10942,6 @@ var samchon;
         })(parallel = templates.parallel || (templates.parallel = {}));
     })(templates = samchon.templates || (samchon.templates = {}));
 })(samchon || (samchon = {}));
-var samchon;
 (function (samchon) {
     var templates;
     (function (templates) {
@@ -10992,8 +10990,9 @@ var samchon;
             var MediatorServer = (function (_super) {
                 __extends(MediatorServer, _super);
                 function MediatorServer(systemArray, port) {
-                    _super.call(this, systemArray);
-                    this.port = port;
+                    var _this = _super.call(this, systemArray) || this;
+                    _this.port = port;
+                    return _this;
                 }
                 /**
                  * Factory method creating {@link IServerBase} object.
@@ -11095,7 +11094,7 @@ var samchon;
             var MediatorWebServer = (function (_super) {
                 __extends(MediatorWebServer, _super);
                 function MediatorWebServer() {
-                    _super.apply(this, arguments);
+                    return _super.apply(this, arguments) || this;
                 }
                 /**
                  * @inheritdoc
@@ -11149,7 +11148,7 @@ var samchon;
             var MediatorDedicatedWorkerServer = (function (_super) {
                 __extends(MediatorDedicatedWorkerServer, _super);
                 function MediatorDedicatedWorkerServer() {
-                    _super.apply(this, arguments);
+                    return _super.apply(this, arguments) || this;
                 }
                 /**
                  * @inheritdoc
@@ -11203,7 +11202,7 @@ var samchon;
             var MediatorSharedWorkerServer = (function (_super) {
                 __extends(MediatorSharedWorkerServer, _super);
                 function MediatorSharedWorkerServer() {
-                    _super.apply(this, arguments);
+                    return _super.apply(this, arguments) || this;
                 }
                 /**
                  * @inheritdoc
@@ -11217,7 +11216,6 @@ var samchon;
         })(parallel = templates.parallel || (templates.parallel = {}));
     })(templates = samchon.templates || (samchon.templates = {}));
 })(samchon || (samchon = {}));
-var samchon;
 (function (samchon) {
     var templates;
     (function (templates) {
@@ -11266,9 +11264,10 @@ var samchon;
             var MediatorClient = (function (_super) {
                 __extends(MediatorClient, _super);
                 function MediatorClient(systemArray, ip, port) {
-                    _super.call(this, systemArray);
-                    this.ip = ip;
-                    this.port = port;
+                    var _this = _super.call(this, systemArray) || this;
+                    _this.ip = ip;
+                    _this.port = port;
+                    return _this;
                 }
                 /**
                  * Factory method creating {@link IServerConnector} object.
@@ -11350,7 +11349,7 @@ var samchon;
             var MediatorWebClient = (function (_super) {
                 __extends(MediatorWebClient, _super);
                 function MediatorWebClient() {
-                    _super.apply(this, arguments);
+                    return _super.apply(this, arguments) || this;
                 }
                 /**
                  * @inheritdoc
@@ -11404,7 +11403,7 @@ var samchon;
             var MediatorSharedWorkerClient = (function (_super) {
                 __extends(MediatorSharedWorkerClient, _super);
                 function MediatorSharedWorkerClient() {
-                    _super.apply(this, arguments);
+                    return _super.apply(this, arguments) || this;
                 }
                 /**
                  * @inheritdoc
@@ -11497,7 +11496,7 @@ var samchon;
                  * Default Constructor.
                  */
                 function ParallelClientArray() {
-                    _super.call(this);
+                    return _super.call(this) || this;
                 }
                 /* ---------------------------------------------------------
                     FACTORY METHOD FOR CHILDREN
@@ -11652,8 +11651,9 @@ var samchon;
                  * Default Constructor.
                  */
                 function ParallelSystemArrayMediator() {
-                    _super.call(this);
-                    this.mediator_ = null;
+                    var _this = _super.call(this) || this;
+                    _this.mediator_ = null;
+                    return _this;
                 }
                 /**
                  * Start mediator.
@@ -11804,7 +11804,7 @@ var samchon;
                  * Default Constructor.
                  */
                 function ParallelClientArrayMediator() {
-                    _super.call(this);
+                    return _super.call(this) || this;
                 }
                 /* ---------------------------------------------------------
                     FACTORY METHOD FOR CHILDREN
@@ -11936,9 +11936,10 @@ var samchon;
                  * @param systemArray The parent {@link ParallelSystemArray} object.
                  */
                 function ParallelServer(systemArray) {
-                    _super.call(this, systemArray);
-                    this.ip = "";
-                    this.port = 0;
+                    var _this = _super.call(this, systemArray) || this;
+                    _this.ip = "";
+                    _this.port = 0;
+                    return _this;
                 }
                 /**
                  * @inheritdoc
@@ -12030,7 +12031,7 @@ var samchon;
                  * Default Constructor.
                  */
                 function ParallelServerArray() {
-                    _super.call(this);
+                    return _super.call(this) || this;
                 }
                 /* ---------------------------------------------------------
                     CONNECTOR's METHOD
@@ -12153,7 +12154,7 @@ var samchon;
                  * Default Constructor.
                  */
                 function ParallelServerArrayMediator() {
-                    _super.call(this);
+                    return _super.call(this) || this;
                 }
                 /* ---------------------------------------------------------
                     CONNECTOR's METHOD
@@ -12252,7 +12253,7 @@ var samchon;
                  * Default Constructor.
                  */
                 function ParallelServerClientArray() {
-                    _super.call(this);
+                    return _super.call(this) || this;
                 }
                 /**
                  * Factory method of a child Entity.
@@ -12395,7 +12396,7 @@ var samchon;
                  * Default Constructor.
                  */
                 function ParallelServerClientArrayMediator() {
-                    _super.call(this);
+                    return _super.call(this) || this;
                 }
                 /**
                  * Factory method of a child Entity.
@@ -12460,15 +12461,16 @@ var samchon;
                 __extends(PRInvokeHistory, _super);
                 function PRInvokeHistory(invoke) {
                     if (invoke === void 0) { invoke = null; }
-                    _super.call(this, invoke);
+                    var _this = _super.call(this, invoke) || this;
                     if (invoke == null) {
-                        this.first = 0;
-                        this.last = 0;
+                        _this.first = 0;
+                        _this.last = 0;
                     }
                     else {
-                        this.first = invoke.get("_Piece_first").getValue();
-                        this.last = invoke.get("_Piece_last").getValue();
+                        _this.first = invoke.get("_Piece_first").getValue();
+                        _this.last = invoke.get("_Piece_last").getValue();
                     }
+                    return _this;
                 }
                 /**
                  * Get initial piece's index.
@@ -12741,10 +12743,11 @@ var samchon;
                  * Default Constructor.
                  */
                 function Server() {
-                    _super.call(this);
+                    var _this = _super.call(this) || this;
                     // INITIALIZE USER MAPS
-                    this.session_map_ = new std.HashMap();
-                    this.account_map_ = new std.HashMap();
+                    _this.session_map_ = new std.HashMap();
+                    _this.account_map_ = new std.HashMap();
+                    return _this;
                 }
                 /* ------------------------------------------------------------------
                     ACCESSORS
@@ -13009,13 +13012,14 @@ var samchon;
                  * @param server The parent {@link Server} object.
                  */
                 function User(server) {
-                    _super.call(this);
-                    this.server_ = server;
-                    this.account_id_ = "guest";
-                    this.authority_ = 0;
-                    this.session_id_ = "";
-                    this.sequence_ = 0;
-                    this.addEventListener("erase", this.handle_erase_client, this);
+                    var _this = _super.call(this) || this;
+                    _this.server_ = server;
+                    _this.account_id_ = "guest";
+                    _this.authority_ = 0;
+                    _this.session_id_ = "";
+                    _this.sequence_ = 0;
+                    _this.addEventListener("erase", _this.handle_erase_client, _this);
+                    return _this;
                 }
                 /**
                  * Default Destructor.
@@ -13203,11 +13207,12 @@ var samchon;
             var PInvoke = (function (_super) {
                 __extends(PInvoke, _super);
                 function PInvoke(invoke, history, masterDriver) {
-                    _super.call(this, invoke.getListener());
-                    this.assign(invoke.begin(), invoke.end());
-                    this.history_ = history;
-                    this.master_driver_ = masterDriver;
-                    this.hold_ = false;
+                    var _this = _super.call(this, invoke.getListener()) || this;
+                    _this.assign(invoke.begin(), invoke.end());
+                    _this.history_ = history;
+                    _this.master_driver_ = masterDriver;
+                    _this.hold_ = false;
+                    return _this;
                 }
                 PInvoke.prototype.getHistory = function () {
                     return this.history_;
@@ -13251,7 +13256,7 @@ var samchon;
                  * Default Constructor.
                  */
                 function SlaveClient() {
-                    _super.call(this);
+                    return _super.call(this) || this;
                 }
                 /* ---------------------------------------------------------
                     METHOD OF CONNECTOR
@@ -13289,8 +13294,9 @@ var samchon;
                     MEMBER
                 --------------------------------------------------------- */
                 function SlaveServer() {
-                    _super.call(this);
-                    this.server_base_ = null;
+                    var _this = _super.call(this) || this;
+                    _this.server_base_ = null;
+                    return _this;
                 }
                 /* ---------------------------------------------------------
                     SERVER's METHOD

@@ -1,8 +1,6 @@
 ﻿/// <reference types="samchon-framework" />
 
-/// <reference types="scanf" />
-
-import std = require("typescript-stl");
+import std = require("tstl");
 import samchon = require("samchon-framework");
 
 import tsp = require("./base/tsp");
@@ -52,10 +50,10 @@ namespace monitor
 
 		public constructSystemTree(): void
 		{
-			for (let it = this.system_map.begin(); !it.equal_to(this.system_map.end()); it = it.next())
+			for (let it = this.system_map.begin(); !it.equals(this.system_map.end()); it = it.next())
 				it.second.clear();
 
-			for (let it = this.system_map.begin(); !it.equal_to(this.system_map.end()); it = it.next())
+			for (let it = this.system_map.begin(); !it.equals(this.system_map.end()); it = it.next())
 				if (it.second.getParent() != null)
 					it.second.getParent().push_back(it.second);
 		}

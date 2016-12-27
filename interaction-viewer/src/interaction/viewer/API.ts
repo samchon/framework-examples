@@ -1,4 +1,4 @@
-﻿/// <reference types="typescript-stl" />
+﻿/// <reference types="tstl" />
 /// <reference types="samchon-framework" />
 
 namespace interaction.viewer

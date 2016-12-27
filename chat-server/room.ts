@@ -1,4 +1,4 @@
-﻿import std = require("typescript-stl");
+﻿import std = require("tstl");
 import samchon = require("samchon-framework");
 
 import collections = samchon.collections;
