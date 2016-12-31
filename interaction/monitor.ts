@@ -1,7 +1,5 @@
-﻿/// <reference types="samchon-framework" />
-
-import std = require("tstl");
-import samchon = require("samchon-framework");
+﻿import std = require("tstl");
+import samchon = require("samchon");
 
 import tsp = require("./base/tsp");
 import pack = require("./base/packer");

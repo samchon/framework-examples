@@ -1,8 +1,5 @@
-﻿/// <reference types="node" />
-/// <reference types="samchon-framework" />
-
-import std = require("tstl");
-import samchon = require("samchon-framework");
+﻿import std = require("tstl");
+import samchon = require("samchon");
 import monitor = require("./base/monitor-driver");
 
 import pack = require("./base/packer");

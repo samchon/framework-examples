@@ -1,5 +1,5 @@
 ﻿/// <reference types="tstl" />
-/// <reference types="samchon-framework" />
+/// <reference types="samchon" />
 
 namespace interaction.viewer
 {

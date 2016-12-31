@@ -1,4 +1,8 @@
-﻿/// <reference types="samchon-framework" />
+﻿/// <reference types="react" />
+/// <reference types="react-dom" />
+
+/// <reference types="tstl" />
+/// <reference types="samchon" />
 
 namespace example.chat
 {

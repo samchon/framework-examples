@@ -1,5 +1,5 @@
 ﻿// IMPORT
-import samchon = require("samchon-framework");
+import samchon = require("samchon");
 
 // SHORTCUTS
 import library = samchon.library;

@@ -1,10 +1,7 @@
-﻿/// <reference types="node" />
-/// <reference types="samchon-framework" />
+﻿import std = require("tstl");
+import samchon = require("samchon");
 
-import std = require("tstl");
-import samchon = require("samchon-framework");
 import monitor = require("./base/monitor-driver");
-
 import base = require("./base/parallel");
 
 namespace mediator
