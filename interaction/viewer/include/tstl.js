@@ -26,9 +26,9 @@ var std;
         FOR_EACH
     --------------------------------------------------------- */
     /**
-     * <p> Apply function to range. </p>
+     * Apply function to range.
      *
-     * <p> Applies function <i>fn</i> to each of the elements in the range [<i>first</i>, <i>last</i>). </p>
+     * Applies function <i>fn</i> to each of the elements in the range [<i>first</i>, <i>last</i>).
      *
      * @param first An {@link Iterator} to the initial position in a sequence.
      * @param last An {@link Iterator} to the final position in a sequence. The range used is [<i>first</i>, <i>last</i>),
@@ -67,11 +67,11 @@ var std;
         AGGREGATE CONDITIONS
     --------------------------------------------------------- */
     /**
-     * <p> Test condition on all elements in range. </p>
+     * Test condition on all elements in range.
      *
-     * <p> Returns <code>true</code> if <i>pred</i> returns <code>true</code> for all the elements in the range
-     * [<i>first</i>, <i>last</i>) or if the range is {@link IContainer.empty empty}, and <code>false</code> otherwise.
-     * </p>
+     * Returns <code>true</code> if <i>pred</i> returns <code>true</code> for all the elements in the range
+     * [<i>first</i>, <i>last</i>) or if the range is {@link Container.empty empty}, and <code>false</code> otherwise.
+     *
      *
      * @param first An {@link Iterator} to the initial position in a sequence.
      * @param last An {@link Iterator} to the final position in a sequence. The range used is [<i>first</i>, <i>last</i>),
@@ -82,7 +82,7 @@ var std;
      *			   checked by this function. The function shall not modify its argument.
      *
      * @return <code>true</code> if pred returns true for all the elements in the range or if the range is
-     *		   {@link IContainer.empty empty}, and <code>false</code> otherwise.
+     *		   {@link Container.empty empty}, and <code>false</code> otherwise.
      */
     function all_of(first, last, pred) {
         for (var it = first; !it.equals(last); it = it.next())
@@ -92,13 +92,13 @@ var std;
     }
     std.all_of = all_of;
     /**
-     * <p> Test if any element in range fulfills condition. </p>
+     * Test if any element in range fulfills condition.
      *
-     * <p> Returns <code>true</code> if <i>pred</i> returns true for any of the elements in the range
-     * [<i>first</i>, <i>last</i>), and <code>false</code> otherwise. </p>
+     * Returns <code>true</code> if <i>pred</i> returns true for any of the elements in the range
+     * [<i>first</i>, <i>last</i>), and <code>false</code> otherwise.
      *
-     * <p> If [<i>first</i>, <i>last</i>) is an {@link IContainer.empty empty} range, the function returns
-     * <code>false</code>. </p>
+     * If [<i>first</i>, <i>last</i>) is an {@link Container.empty empty} range, the function returns
+     * <code>false</code>.
      *
      * @param first An {@link Iterator} to the initial position in a sequence.
      * @param last An {@link Iterator} to the final position in a sequence. The range used is [<i>first</i>, <i>last</i>),
@@ -110,7 +110,7 @@ var std;
      *
      * @return <code>true</code> if <i>pred</i> returns <code>true</code> for any of the elements in the range
      *		   [<i>first</i>, <i>last</i>), and <code>false</code> otherwise. If [<i>first</i>, <i>last</i>) is an
-     *		   {@link IContainer.empty empty} range, the function returns <code>false</code>.
+     *		   {@link Container.empty empty} range, the function returns <code>false</code>.
      */
     function any_of(first, last, pred) {
         for (var it = first; !it.equals(last); it = it.next())
@@ -120,11 +120,10 @@ var std;
     }
     std.any_of = any_of;
     /**
-     * <p> Test if no elements fulfill condition. </p>
+     * Test if no elements fulfill condition.
      *
-     * <p> Returns <code>true</code> if <i>pred</i> returns false for all the elements in the range
-     * [<i>first</i>, <i>last</i>) or if the range is {@link IContainer.empty empty}, and <code>false</code> otherwise.
-     * </p>
+     * Returns <code>true</code> if <i>pred</i> returns false for all the elements in the range
+     * [<i>first</i>, <i>last</i>) or if the range is {@link Container.empty empty}, and <code>false</code> otherwise.
      *
      * @param first An {@link Iterator} to the initial position in a sequence.
      * @param last An {@link Iterator} to the final position in a sequence. The range used is [<i>first</i>, <i>last</i>),
@@ -135,7 +134,7 @@ var std;
      *			   checked by this function. The function shall not modify its argument.
      *
      * @return <code>true</code> if <i>pred</i> returns <code>false</code> for all the elements in the range
-     *		   [<i>first</i>, <i>last</i>) or if the range is {@link IContainer.empty empty}, and <code>false</code>
+     *		   [<i>first</i>, <i>last</i>) or if the range is {@link Container.empty empty}, and <code>false</code>
      *		   otherwise.
      */
     function none_of(first, last, pred) {
@@ -172,12 +171,12 @@ var std;
         FINDERS
     --------------------------------------------------------- */
     /**
-     * <p> Find value in range. </p>
+     * Find value in range.
      *
-     * <p> Returns an iterator to the first element in the range [<i>first</i>, <i>last</i>) that compares equal to
-     * <i>val</i>. If no such element is found, the function returns <i>last</i>. </p>
+     * Returns an iterator to the first element in the range [<i>first</i>, <i>last</i>) that compares equal to
+     * <i>val</i>. If no such element is found, the function returns <i>last</i>.
      *
-     * <p> The function uses {@link equal_to equal_to} to compare the individual elements to <i>val</i>. </p>
+     * The function uses {@link equal_to equal_to} to compare the individual elements to <i>val</i>.
      *
      * @param first An {@link Iterator} to the initial position in a sequence.
      * @param last An {@link Iterator} to the final position in a sequence. The range used is [<i>first</i>, <i>last</i>),
@@ -196,10 +195,10 @@ var std;
     }
     std.find = find;
     /**
-     * <p> Find element in range. </p>
+     * Find element in range.
      *
-     * <p> Returns an iterator to the first element in the range [<i>first</i>, <i>last</i>) for which pred returns
-     * <code>true</code>. If no such element is found, the function returns <i>last</i>. </p>
+     * Returns an iterator to the first element in the range [<i>first</i>, <i>last</i>) for which pred returns
+     * <code>true</code>. If no such element is found, the function returns <i>last</i>.
      *
      * @param first An {@link Iterator} to the initial position in a sequence.
      * @param last An {@link Iterator} to the final position in a sequence. The range used is [<i>first</i>, <i>last</i>),
@@ -221,10 +220,10 @@ var std;
     }
     std.find_if = find_if;
     /**
-     * <p> Find element in range. </p>
+     * Find element in range.
      *
-     * <p> Returns an iterator to the first element in the range [<i>first</i>, <i>last</i>) for which pred returns
-     * <code>true</code>. If no such element is found, the function returns <i>last</i>. </p>
+     * Returns an iterator to the first element in the range [<i>first</i>, <i>last</i>) for which pred returns
+     * <code>true</code>. If no such element is found, the function returns <i>last</i>.
      *
      * @param first An {@link Iterator} to the initial position in a sequence.
      * @param last An {@link Iterator} to the final position in a sequence. The range used is [<i>first</i>, <i>last</i>),
@@ -337,11 +336,11 @@ var std;
         COUNTERS
     --------------------------------------------------------- */
     /**
-     * <p> Count appearances of value in range. </p>
+     * Count appearances of value in range.
      *
-     * <p> Returns the number of elements in the range [<i>first</i>, <i>last</i>) that compare equal to <i>val</i>. </p>
+     * Returns the number of elements in the range [<i>first</i>, <i>last</i>) that compare equal to <i>val</i>.
      *
-     * <p> The function uses {@link equal_to} to compare the individual elements to <i>val</i>. </p>
+     * The function uses {@link equal_to} to compare the individual elements to <i>val</i>.
      *
      * @param first An {@link Iterator} to the initial position in a sequence.
      * @param last An {@link Iterator} to the final position in a sequence. The range used is [<i>first</i>, <i>last</i>),
@@ -360,10 +359,9 @@ var std;
     }
     std.count = count;
     /**
-     * <p> Return number of elements in range satisfying condition. </p>
+     * Return number of elements in range satisfying condition.
      *
-     * <p> Returns the number of elements in the range [<i>first</i>, <i>last</i>) for which pred is <code>true</code>.
-     * </p>
+     * Returns the number of elements in the range [<i>first</i>, <i>last</i>) for which pred is <code>true</code>.
      *
      * @param first An {@link Iterator} to the initial position in a sequence.
      * @param last An {@link Iterator} to the final position in a sequence. The range used is [<i>first</i>, <i>last</i>),
@@ -394,15 +392,15 @@ var std;
         FILL
     --------------------------------------------------------- */
     /**
-     * <p> Copy range of elements. </p>
+     * Copy range of elements.
      *
-     * <p> Copies the elements in the range [<i>first</i>, <i>last</i>) into the range beginning at <i>result</i>. </p>
+     * Copies the elements in the range [<i>first</i>, <i>last</i>) into the range beginning at <i>result</i>.
      *
-     * <p> The function returns an iterator to the end of the destination range (which points to the element following the
-     * last element copied). </p>
+     * The function returns an iterator to the end of the destination range (which points to the element following the
+     * last element copied).
      *
-     * <p> The ranges shall not overlap in such a way that result points to an element in the range
-     * [<i>first</i>, <i>last</i>). For such cases, see {@link copy_backward}. </p>
+     * The ranges shall not overlap in such a way that result points to an element in the range
+     * [<i>first</i>, <i>last</i>). For such cases, see {@link copy_backward}.
      *
      * @param first {@link Iterator Input iterator} to the initial position in a sequence to be copied.
      * @param last {@link Iterator Input iterator} to the initial position in a sequence to be copied. The range used is
@@ -422,18 +420,17 @@ var std;
     }
     std.copy = copy;
     /**
-     * <p> Copy elements. </p>
+     * Copy elements.
      *
-     * <p> Copies the first <i>n</i> elements from the range beginning at <i>first</i> into the range beginning at
-     * <i>result</i>. </p>
+     * Copies the first <i>n</i> elements from the range beginning at <i>first</i> into the range beginning at
+     * <i>result</i>.
      *
-     * <p> The function returns an iterator to the end of the destination range (which points to one past the last element
-     * copied). </p>
+     * The function returns an iterator to the end of the destination range (which points to one past the last element
+     * copied).
      *
-     * <p> If <i>n</i> is negative, the function does nothing. </p>
+     * If <i>n</i> is negative, the function does nothing.
      *
-     * <p> If the ranges overlap, some of the elements in the range pointed by result may have undefined but valid values.
-     * </p>
+     * If the ranges overlap, some of the elements in the range pointed by result may have undefined but valid values.
      *
      * @param first {@link Iterator Input iterator} to the initial position in a sequence of at least <i>n</i> elements to
      *				be copied. <i>InputIterator</i> shall point to a type assignable to the elements pointed by
@@ -454,10 +451,10 @@ var std;
     }
     std.copy_n = copy_n;
     /**
-     * <p> Copy certain elements of range. </p>
+     * Copy certain elements of range.
      *
-     * <p> Copies the elements in the range [<i>first</i>, <i>last</i>) for which pred returns <code>true</code> to the
-     * range beginning at <i>result</i>. </p>
+     * Copies the elements in the range [<i>first</i>, <i>last</i>) for which pred returns <code>true</code> to the
+     * range beginning at <i>result</i>.
      *
      * @param first {@link Iterator Input iterator} to the initial position in a sequence to be copied.
      * @param last {@link Iterator Input iterator} to the initial position in a sequence to be copied. The range used is
@@ -482,21 +479,21 @@ var std;
     }
     std.copy_if = copy_if;
     /**
-     * <p> Copy range of elements backward. </p>
+     * Copy range of elements backward.
      *
-     * <p> Copies the elements in the range [<i>first</i>, <i>last</i>) starting from the end into the range terminating
-     * at <i>result</i>. </p>
+     * Copies the elements in the range [<i>first</i>, <i>last</i>) starting from the end into the range terminating
+     * at <i>result</i>.
      *
-     * <p> The function returns an iterator to the first element in the destination range. </p>
+     * The function returns an iterator to the first element in the destination range.
      *
-     * <p> The resulting range has the elements in the exact same order as [<i>first</i>, <i>last</i>). To reverse their
-     * order, see {@link reverse_copy}. </p>
+     * The resulting range has the elements in the exact same order as [<i>first</i>, <i>last</i>). To reverse their
+     * order, see {@link reverse_copy}.
      *
-     * <p> The function begins by copying <code>*(last-1)</code> into <code>*(result-1)</code>, and then follows backward
-     * by the elements preceding these, until <i>first</i> is reached (and including it). </p>
+     * The function begins by copying <code>*(last-1)</code> into <code>*(result-1)</code>, and then follows backward
+     * by the elements preceding these, until <i>first</i> is reached (and including it).
      *
-     * <p> The ranges shall not overlap in such a way that <i>result</i> (which is the <i>past-the-end element</i> in the
-     * destination range) points to an element in the range (first,last]. For such cases, see {@link copy}. </p>
+     * The ranges shall not overlap in such a way that <i>result</i> (which is the <i>past-the-end element</i> in the
+     * destination range) points to an element in the range (first,last]. For such cases, see {@link copy}.
      *
      * @param first {@link Iterator Bidirectional iterator} to the initial position in a sequence to be copied.
      * @param last {@link Iterator Bidirectional iterator} to the initial position in a sequence to be copied. The range
@@ -517,9 +514,9 @@ var std;
     }
     std.copy_backward = copy_backward;
     /**
-     * <p> Fill range with value. </p>
+     * Fill range with value.
      *
-     * <p> Assigns val to all the elements in the range [<i>first</i>, <i>last</i>). </p>
+     * Assigns val to all the elements in the range [<i>first</i>, <i>last</i>).
      *
      * @param first {@link Iterator Forward iterator} to the initial position in a sequence of elements that support being
      *				assigned a value of type <i>T</i>.
@@ -535,9 +532,9 @@ var std;
     }
     std.fill = fill;
     /**
-     * <p> Fill sequence with value. </p>
+     * Fill sequence with value.
      *
-     * <p> Assigns <i>val</i> to the first <i>n</i> elements of the sequence pointed by <i>first</i>. </p>
+     * Assigns <i>val</i> to the first <i>n</i> elements of the sequence pointed by <i>first</i>.
      *
      * @param first {@link Iterator Output iterator} to the initial position in a sequence of elements that support being
      *				assigned a value of type <i>T</i>.
@@ -588,10 +585,9 @@ var std;
         return result;
     }
     /**
-     * <p> Generate values for range with function. </p>
+     * Generate values for range with function.
      *
-     * <p> Assigns the value returned by successive calls to gen to the elements in the range [<i>first</i>, <i>last</i>).
-     * </p>
+     * Assigns the value returned by successive calls to gen to the elements in the range [<i>first</i>, <i>last</i>).
      *
      * @param first {@link Iterator Forward iterator} to the initial position in a sequence.
      * @param last {@link Iterator Forward iterator} to the final position in a sequence. The range affected is
@@ -606,10 +602,10 @@ var std;
     }
     std.generate = generate;
     /**
-     * <p> Generate values for sequence with function. </p>
+     * Generate values for sequence with function.
      *
-     * <p> Assigns the value returned by successive calls to <i>gen</i> to the first <i>n</i> elements of the sequence
-     * pointed by <i>first</i>. </p>
+     * Assigns the value returned by successive calls to <i>gen</i> to the first <i>n</i> elements of the sequence
+     * pointed by <i>first</i>.
      *
      * @param first {@link Iterator Output iterator} to the initial position in a sequence of at least <i>n</i> elements
      *				that support being assigned a value of the type returned by <i>gen</i>.
@@ -656,18 +652,18 @@ var std;
     }
     std.unique_copy = unique_copy;
     /**
-     * <p> Remove value from range. </p>
+     * Remove value from range.
      *
-     * <p> Transforms the range [<i>first</i>, <i>last</i>) into a range with all the elements that compare equal to
-     * <i>val</i> removed, and returns an iterator to the new last of that range. </p>
+     * Transforms the range [<i>first</i>, <i>last</i>) into a range with all the elements that compare equal to
+     * <i>val</i> removed, and returns an iterator to the new last of that range.
      *
-     * <p> The function cannot alter the properties of the object containing the range of elements (i.e., it cannot alter
+     * The function cannot alter the properties of the object containing the range of elements (i.e., it cannot alter
      * the size of an array or a container): The removal is done by replacing the elements that compare equal to
      * <i>val</i> by the next element that does not, and signaling the new size of the shortened range by returning an
-     * iterator to the element that should be considered its new past-the-last element. </p>
+     * iterator to the element that should be considered its new past-the-last element.
      *
-     * <p> The relative order of the elements not removed is preserved, while the elements between the returned iterator
-     * and last are left in a valid but unspecified state. </p>
+     * The relative order of the elements not removed is preserved, while the elements between the returned iterator
+     * and last are left in a valid but unspecified state.
      *
      * @param first An {@link Iterator} to the initial position in a sequence.
      * @param last An {@link Iterator} to the final position in a sequence. The range used is [<i>first</i>, <i>last</i>),
@@ -689,18 +685,18 @@ var std;
     }
     std.remove = remove;
     /**
-     * <p> Remove elements from range. </p>
+     * Remove elements from range.
      *
-     * <p> Transforms the range [<i>first</i>, <i>last</i>) into a range with all the elements for which pred returns
-     * <code>true</code> removed, and returns an iterator to the new last of that range. </p>
+     * Transforms the range [<i>first</i>, <i>last</i>) into a range with all the elements for which pred returns
+     * <code>true</code> removed, and returns an iterator to the new last of that range.
      *
-     * <p> The function cannot alter the properties of the object containing the range of elements (i.e., it cannot
+     * The function cannot alter the properties of the object containing the range of elements (i.e., it cannot
      * alter the size of an array or a container): The removal is done by replacing the elements for which pred returns
      * <code>true</code> by the next element for which it does not, and signaling the new size of the shortened range
-     * by returning an iterator to the element that should be considered its new past-the-last element. </p>
+     * by returning an iterator to the element that should be considered its new past-the-last element.
      *
-     * <p> The relative order of the elements not removed is preserved, while the elements between the returned
-     * iterator and last are left in a valid but unspecified state. </p>
+     * The relative order of the elements not removed is preserved, while the elements between the returned
+     * iterator and last are left in a valid but unspecified state.
      *
      * @param first An {@link Iterator} to the initial position in a sequence.
      * @param last An {@link Iterator} to the final position in a sequence. The range used is [<i>first</i>, <i>last</i>),
@@ -724,15 +720,15 @@ var std;
     }
     std.remove_if = remove_if;
     /**
-     * <p> Copy range removing value. </p>
+     * Copy range removing value.
      *
-     * <p> Copies the elements in the range [<i>first</i>, <i>last</i>) to the range beginning at <i>result</i>, except
-     * those elements that compare equal to <i>val</i>. </p>
+     * Copies the elements in the range [<i>first</i>, <i>last</i>) to the range beginning at <i>result</i>, except
+     * those elements that compare equal to <i>val</i>.
      *
-     * <p> The resulting range is shorter than [<i>first</i>, <i>last</i>) by as many elements as matches in the sequence,
-     * which are "removed". </p>
+     * The resulting range is shorter than [<i>first</i>, <i>last</i>) by as many elements as matches in the sequence,
+     * which are "removed".
      *
-     * <p> The function uses {@link equal_to} to compare the individual elements to <i>val</i>. </p>
+     * The function uses {@link equal_to} to compare the individual elements to <i>val</i>.
      *
      * @param first {@link Iterator InputIterator} to the initial position in a sequence.
      * @param last {@link Iterator InputIterator} to the final position in a sequence. The range used is
@@ -757,13 +753,13 @@ var std;
     }
     std.remove_copy = remove_copy;
     /**
-     * <p> Copy range removing values. </p>
+     * Copy range removing values.
      *
-     * <p> Copies the elements in the range [<i>first</i>, <i>last</i>) to the range beginning at <i>result</i>, except
-     * those elements for which <i>pred</i> returns <code>true</code>. </p>
+     * Copies the elements in the range [<i>first</i>, <i>last</i>) to the range beginning at <i>result</i>, except
+     * those elements for which <i>pred</i> returns <code>true</code>.
      *
-     * <p> The resulting range is shorter than [<i>first</i>, <i>last</i>) by as many elements as matches, which are
-     * "removed". </p>
+     * The resulting range is shorter than [<i>first</i>, <i>last</i>) by as many elements as matches, which are
+     * "removed".
      *
      * @param first {@link Iterator InputIterator} to the initial position in a sequence.
      * @param last {@link Iterator InputIterator} to the final position in a sequence. The range used is
@@ -793,12 +789,12 @@ var std;
         REPLACE & SWAP
     --------------------------------------------------------- */
     /**
-     * <p> Replace value in range. </p>
+     * Replace value in range.
      *
-     * <p> Assigns <i>new_val</i> to all the elements in the range [<i>first</i>, <i>last</i>) that compare equal to
-     * <i>old_val</i>. </p>
+     * Assigns <i>new_val</i> to all the elements in the range [<i>first</i>, <i>last</i>) that compare equal to
+     * <i>old_val</i>.
      *
-     * <p> The function uses {@link equal_to} to compare the individual elements to old_val. </p>
+     * The function uses {@link equal_to} to compare the individual elements to old_val.
      *
      * @param first An {@link Iterator} to the initial position in a sequence.
      * @param last An {@link Iterator} to the final position in a sequence. The range used is [<i>first</i>, <i>last</i>),
@@ -814,10 +810,10 @@ var std;
     }
     std.replace = replace;
     /**
-     * <p> Replace value in range. </p>
+     * Replace value in range.
      *
-     * <p> Assigns <i>new_val</i> to all the elements in the range [<i>first</i>, <i>last</i>) for which pred returns
-     * <code>true</code>. </p>
+     * Assigns <i>new_val</i> to all the elements in the range [<i>first</i>, <i>last</i>) for which pred returns
+     * <code>true</code>.
      *
      * @param first An {@link Iterator} to the initial position in a sequence.
      * @param last An {@link Iterator} to the final position in a sequence. The range used is [<i>first</i>, <i>last</i>),
@@ -835,15 +831,15 @@ var std;
     }
     std.replace_if = replace_if;
     /**
-     * <p> Copy range replacing value. </p>
+     * Copy range replacing value.
      *
-     * <p> Copies the elements in the range [<i>first</i>, <i>last</i>) to the range beginning at <i>result</i>, replacing
-     * the appearances of <i>old_value</i> by <i>new_value</i>. </p>
+     * Copies the elements in the range [<i>first</i>, <i>last</i>) to the range beginning at <i>result</i>, replacing
+     * the appearances of <i>old_value</i> by <i>new_value</i>.
      *
-     * <p> The function uses {@link std.equal_to} to compare the individual elements to <i>old_value</i>. </p>
+     * The function uses {@link equal_to} to compare the individual elements to <i>old_value</i>.
      *
-     * <p> The ranges shall not overlap in such a way that result points to an element in the range
-     * [<i>first</i>, <i>last</i>). </p>
+     * The ranges shall not overlap in such a way that result points to an element in the range
+     * [<i>first</i>, <i>last</i>).
      *
      * @param first {@link Iterator InputIterator} to the initial position in a sequence.
      * @param last {@link Iterator InputIterator} to the final position in a sequence. The range used is
@@ -869,10 +865,10 @@ var std;
     }
     std.replace_copy = replace_copy;
     /**
-     * <p> Copy range replacing value. </p>
+     * Copy range replacing value.
      *
-     * <p> Copies the elements in the range [<i>first</i>, <i>last</i>) to the range beginning at <i>result</i>, replacing
-     * those for which <i>pred</i> returns <code>true</code> by <i>new_value</i>. </p>
+     * Copies the elements in the range [<i>first</i>, <i>last</i>) to the range beginning at <i>result</i>, replacing
+     * those for which <i>pred</i> returns <code>true</code> by <i>new_value</i>.
      *
      * @param first {@link Iterator InputIterator} to the initial position in a sequence.
      * @param last {@link Iterator InputIterator} to the final position in a sequence. The range used is
@@ -900,11 +896,11 @@ var std;
     }
     std.replace_copy_if = replace_copy_if;
     /**
-     * <p> Exchange values of objects pointed to by two iterators. </p>
+     * Exchange values of objects pointed to by two iterators.
      *
-     * <p> Swaps the elements pointed to by <i>x</i> and <i>y</i>. </p>
+     * Swaps the elements pointed to by <i>x</i> and <i>y</i>.
      *
-     * <p> The function calls {@link Iterator.swap} to exchange the elements. </p>
+     * The function calls {@link Iterator.swap} to exchange the elements.
      *
      * @param x {@link Iterator Forward iterator} to the objects to swap.
      * @param y {@link Iterator Forward iterator} to the objects to swap.
@@ -914,12 +910,12 @@ var std;
     }
     std.iter_swap = iter_swap;
     /**
-     * <p> Exchange values of two ranges. </p>
+     * Exchange values of two ranges.
      *
-     * <p> Exchanges the values of each of the elements in the range [<i>first1</i>, <i>last1</i>) with those of their
-     * respective elements in the range beginning at <i>first2</i>. </p>
+     * Exchanges the values of each of the elements in the range [<i>first1</i>, <i>last1</i>) with those of their
+     * respective elements in the range beginning at <i>first2</i>.
      *
-     * <p> The function calls {@link Iterator.swap} to exchange the elements. </p>
+     * The function calls {@link Iterator.swap} to exchange the elements.
      *
      * @param first1 {@link Iterator Forward iterator} to the initial position of the first sequence.
      * @param last1 {@link Iterator Forward iterator} to the final position of the first sequence. The range used is
@@ -942,11 +938,11 @@ var std;
         RE-ARRANGEMENT
     --------------------------------------------------------- */
     /**
-     * <p> Reverse range. </p>
+     * Reverse range.
      *
-     * <p> Reverses the order of the elements in the range [<i>first</i>, <i>last</i>). </p>
+     * Reverses the order of the elements in the range [<i>first</i>, <i>last</i>).
      *
-     * <p> The function calls {@link iter_swap} to swap the elements to their new locations. </p>
+     * The function calls {@link iter_swap} to swap the elements to their new locations.
      *
      * @param first An {@link Iterator} to the initial position in a sequence.
      * @param last An {@link Iterator} to the final position in a sequence. The range used is [<i>first</i>, <i>last</i>),
@@ -962,10 +958,10 @@ var std;
     }
     std.reverse = reverse;
     /**
-     * <p> Copy range reversed. </p>
+     * Copy range reversed.
      *
-     * <p> Copies the elements in the range [<i>first</i>, <i>last</i>) to the range beginning at <i>result</i>, but in
-     * reverse order. </p>
+     * Copies the elements in the range [<i>first</i>, <i>last</i>) to the range beginning at <i>result</i>, but in
+     * reverse order.
      *
      * @param first {@link Iterator Bidirectional iterator} to the initial position in a sequence to be copied.
      * @param last {@link Iterator Bidirectional iterator} to the initial position in a sequence to be copied. The range
@@ -988,10 +984,10 @@ var std;
     }
     std.reverse_copy = reverse_copy;
     /**
-     * <p> Rotate left the elements in range. </p>
+     * Rotate left the elements in range.
      *
-     * <p> Rotates the order of the elements in the range [<i>first</i>, <i>last</i>), in such a way that the element
-     * pointed by middle becomes the new first element. </p>
+     * Rotates the order of the elements in the range [<i>first</i>, <i>last</i>), in such a way that the element
+     * pointed by middle becomes the new first element.
      *
      * @param first An {@link Iterator} to the initial position in a sequence.
      * @param middle An {@link Iterator} pointing to the element within the range [<i>first</i>, <i>last</i>) that is
@@ -1015,11 +1011,11 @@ var std;
     }
     std.rotate = rotate;
     /**
-     * <p> Copy range rotated left. </p>
+     * Copy range rotated left.
      *
-     * <p> Copies the elements in the range [<i>first</i>, <i>last</i>) to the range beginning at <i>result</i>, but
+     * Copies the elements in the range [<i>first</i>, <i>last</i>) to the range beginning at <i>result</i>, but
      * rotating the order of the elements in such a way that the element pointed by <i>middle</i> becomes the first
-     * element in the resulting range. </p>
+     * element in the resulting range.
      *
      * @param first {@link Iterator Forward iterator} to the initial position of the range to be copy-rotated.
      * @param middle Forward iterator pointing to the element within the range [<i>first</i>, <i>last</i>) that is copied as the first element in the resulting range.
@@ -1039,15 +1035,15 @@ var std;
     }
     std.rotate_copy = rotate_copy;
     /**
-     * <p> Randomly rearrange elements in range. </p>
+     * Randomly rearrange elements in range.
      *
-     * <p> Rearranges the elements in the range [<i>first</i>, <i>last</i>) randomly. </p>
+     * Rearranges the elements in the range [<i>first</i>, <i>last</i>) randomly.
      *
-     * <p> The function swaps the value of each element with that of some other randomly picked element. When provided,
+     * The function swaps the value of each element with that of some other randomly picked element. When provided,
      * the function gen determines which element is picked in every case. Otherwise, the function uses some unspecified
-     * source of randomness. </p>
+     * source of randomness.
      *
-     * <p> To specify a uniform random generator, see {@link shuffle}. </p>
+     * To specify a uniform random generator, see {@link shuffle}.
      *
      * @param first An {@link Iterator} to the initial position in a sequence.
      * @param last An {@link Iterator} to the final position in a sequence. The range used is [<i>first</i>, <i>last</i>),
@@ -1055,22 +1051,22 @@ var std;
      *			  <i>first</i> but not the element pointed by <i>last</i>.
      */
     function random_shuffle(first, last) {
-        return std.shuffle(first, last);
+        return shuffle(first, last);
     }
     std.random_shuffle = random_shuffle;
     /**
-     * <p> Randomly rearrange elements in range using generator. </p>
+     * Randomly rearrange elements in range using generator.
      *
-     * <p> Rearranges the elements in the range [<i>first</i>, <i>last</i>) randomly, using <i>g</i> as uniform random
-     * number generator. </p>
+     * Rearranges the elements in the range [<i>first</i>, <i>last</i>) randomly, using <i>g</i> as uniform random
+     * number generator.
      *
-     * <p> The function swaps the value of each element with that of some other randomly picked element. The function
-     * determines the element picked by calling <i>g()</i>. </p>
+     * The function swaps the value of each element with that of some other randomly picked element. The function
+     * determines the element picked by calling <i>g()</i>.
      *
-     * <p> To shuffle the elements of the range without such a generator, see {@link random_shuffle} instead. </p>
+     * To shuffle the elements of the range without such a generator, see {@link random_shuffle} instead.
      *
      * <h5> Note </h5>
-     * <p> Using random generator engine is not implemented yet. </p>
+     * Using random generator engine is not implemented yet.
      *
      * @param first An {@link Iterator} to the initial position in a sequence.
      * @param last An {@link Iterator} to the final position in a sequence. The range used is [<i>first</i>, <i>last</i>),
@@ -1079,7 +1075,8 @@ var std;
      */
     function shuffle(first, last) {
         for (var it = first; !it.equals(last); it = it.next()) {
-            var rand_index = Math.floor(Math.random() * (last.index - first.index));
+            var last_index = (last.index() == -1) ? last.source().size() : last.index();
+            var rand_index = Math.floor(Math.random() * (last_index - first.index()));
             it.swap(first.advance(rand_index));
         }
     }
@@ -1088,12 +1085,12 @@ var std;
 (function (std) {
     function sort(first, last, compare) {
         if (compare === void 0) { compare = std.less; }
-        qsort(first.source(), first.index, last.index - 1, compare);
+        _Quick_sort(first.source(), first.index(), last.index() - 1, compare);
     }
     std.sort = sort;
     function partial_sort(first, middle, last, compare) {
         if (compare === void 0) { compare = std.less; }
-        selection_sort(first.source(), first.index, middle.index, last.index, compare);
+        _Selection_sort(first.source(), first.index(), middle.index(), last.index(), compare);
     }
     std.partial_sort = partial_sort;
     function partial_sort_copy(first, last, result_first, result_last, compare) {
@@ -1139,19 +1136,19 @@ var std;
     /**
      * @hidden
      */
-    function qsort(container, first, last, compare) {
+    function _Quick_sort(container, first, last, compare) {
         if (last == -2)
             last = container.size() - 1;
         if (first >= last)
             return;
-        var index = qsort_partition(container, first, last, compare);
-        qsort(container, first, index - 1, compare);
-        qsort(container, index + 1, last, compare);
+        var index = _Quick_sort_partition(container, first, last, compare);
+        _Quick_sort(container, first, index - 1, compare);
+        _Quick_sort(container, index + 1, last, compare);
     }
     /**
      * @hidden
      */
-    function qsort_partition(container, first, last, compare) {
+    function _Quick_sort_partition(container, first, last, compare) {
         var standard = container.at(first);
         var i = first;
         var j = last + 1;
@@ -1178,20 +1175,20 @@ var std;
     /**
      * @hidden
      */
-    function stable_qsort(container, first, last, compare) {
+    function _Stable_quick_sort(container, first, last, compare) {
         // QUICK SORT
         if (last == -2)
             last = container.size() - 1;
         else if (first >= last)
             return;
-        var index = stable_qsort_partition(container, first, last, compare);
-        stable_qsort(container, first, index - 1, compare);
-        stable_qsort(container, index + 1, last, compare);
+        var index = _Stable_quick_sort_partition(container, first, last, compare);
+        _Stable_quick_sort(container, first, index - 1, compare);
+        _Stable_quick_sort(container, index + 1, last, compare);
     }
     /**
      * @hidden
      */
-    function stable_qsort_partition(container, first, last, compare) {
+    function _Stable_quick_sort_partition(container, first, last, compare) {
         var val = container.at(first);
         var i = first;
         var j = last + 1;
@@ -1218,7 +1215,7 @@ var std;
     /**
      * @hidden
      */
-    function selection_sort(container, first, middle, last, compare) {
+    function _Selection_sort(container, first, middle, last, compare) {
         if (last == -1)
             last = container.size();
         for (var i = first; i < middle; i++) {
@@ -1269,7 +1266,7 @@ var std;
     std.pop_heap = pop_heap;
     function is_heap(first, last, compare) {
         if (compare === void 0) { compare = std.less; }
-        var it = std.is_heap_until(first, last, compare);
+        var it = is_heap_until(first, last, compare);
         return it.equals(last);
     }
     std.is_heap = is_heap;
@@ -1341,12 +1338,12 @@ var std;
         PARTITION
     ========================================================= */
     /**
-     * <p> Test whether range is partitioned. </p>
+     * Test whether range is partitioned.
      *
-     * <p> Returns <code>true</code> if all the elements in the range [<i>first</i>, <i>last</i>) for which <i>pred</i>
-     * returns <code>true</code> precede those for which it returns <code>false</code>. </p>
+     * Returns <code>true</code> if all the elements in the range [<i>first</i>, <i>last</i>) for which <i>pred</i>
+     * returns <code>true</code> precede those for which it returns <code>false</code>.
      *
-     * <p> If the range is {@link IContainer.empty empty}, the function returns <code>true</code>. </p>
+     * If the range is {@link Container.empty empty}, the function returns <code>true</code>.
      *
      * @param first {@link Iterator Input iterator} to the initial position of the sequence.
      * @param last {@link Iterator Input iterator} to the final position of the sequence. The range used is
@@ -1359,7 +1356,7 @@ var std;
      *
      * @return <code>true</code> if all the elements in the range [<i>first</i>, <i>last</i>) for which <i>pred</i> returns
      *		   <code>true</code> precede those for which it returns <code>false</code>. Otherwise it returns
-     *		   <code>false</code>. If the range is {@link IContainer.empty empty}, the function returns <code>true</code>.
+     *		   <code>false</code>. If the range is {@link Container.empty empty}, the function returns <code>true</code>.
      */
     function is_partitioned(first, last, pred) {
         while (!first.equals(last) && pred(first.value))
@@ -1371,14 +1368,14 @@ var std;
     }
     std.is_partitioned = is_partitioned;
     /**
-     * <p> Partition range in two. </p>
+     * Partition range in two.
      *
-     * <p> Rearranges the elements from the range [<i>first</i>, <i>last</i>), in such a way that all the elements for
+     * Rearranges the elements from the range [<i>first</i>, <i>last</i>), in such a way that all the elements for
      * which <i>pred</i> returns <code>true</code> precede all those for which it returns <code>false</code>. The iterator
-     * returned points to the first element of the second group. </p>
+     * returned points to the first element of the second group.
      *
-     * <p> The relative ordering within each group is not necessarily the same as before the call. See
-     * {@link stable_partition} for a function with a similar behavior but with stable ordering within each group. </p>
+     * The relative ordering within each group is not necessarily the same as before the call. See
+     * {@link stable_partition} for a function with a similar behavior but with stable ordering within each group.
      *
      * @param first {@link Iterator Forward iterator} to the initial position of the sequence to partition.
      * @param last {@link Iterator Forward iterator} to the final position of the sequence to partition. The range used is
@@ -1390,7 +1387,7 @@ var std;
      *			   <code>false</code>). The function shall not modify its argument.
      *
      * @return An iterator that points to the first element of the second group of elements (those for which <i>pred</i>
-     *		   returns <code>false</code>), or <i>last</i> if this group is {@link IContainer.empty empty}.
+     *		   returns <code>false</code>), or <i>last</i> if this group is {@link Container.empty empty}.
      */
     function partition(first, last, pred) {
         while (!first.equals(last)) {
@@ -1411,13 +1408,13 @@ var std;
     }
     std.partition = partition;
     /**
-     * <p> Partition range in two - stable ordering. </p>
+     * Partition range in two - stable ordering.
      *
-     * <p> Rearranges the elements in the range [<i>first</i>, <i>last</i>), in such a way that all the elements for which
+     * Rearranges the elements in the range [<i>first</i>, <i>last</i>), in such a way that all the elements for which
      * <i>pred</i> returns <code>true</code> precede all those for which it returns <code>false</code>, and, unlike
-     * function {@link partition}, the relative order of elements within each group is preserved. </p>
+     * function {@link partition}, the relative order of elements within each group is preserved.
      *
-     * <p> This is generally implemented using an internal temporary buffer. </p>
+     * This is generally implemented using an internal temporary buffer.
      *
      * @param first {@link Iterator Bidirectional iterator} to the initial position of the sequence to partition.
      * @param last {@link Iterator Bidirectional iterator} to the final position of the sequence to partition. The range
@@ -1429,18 +1426,18 @@ var std;
      *			   <code>false</code>). The function shall not modify its argument.
      *
      * @return An iterator that points to the first element of the second group of elements (those for which <i>pred</i>
-     *		   returns <code>false</code>), or <i>last</i> if this group is {@link IContainer.empty empty}.
+     *		   returns <code>false</code>), or <i>last</i> if this group is {@link Container.empty empty}.
      */
     function stable_partition(first, last, pred) {
         return partition(first, last, pred);
     }
     std.stable_partition = stable_partition;
     /**
-     * <p> Partition range into two. </p>
+     * Partition range into two.
      *
-     * <p> Copies the elements in the range [<i>first</i>, <i>last</i>) for which <i>pred</i> returns <code>true</code>
+     * Copies the elements in the range [<i>first</i>, <i>last</i>) for which <i>pred</i> returns <code>true</code>
      * into the range pointed by <i>result_true</i>, and those for which it does not into the range pointed by
-     * <i>result_false</i>. </p>
+     * <i>result_false</i>.
      *
      * @param first {@link Iterator Input iterator} to the initial position of the range to be copy-partitioned.
      * @param last {@link Iterator Input iterator} to the final position of the range to be copy-partitioned. The range
@@ -1474,16 +1471,16 @@ var std;
     }
     std.partition_copy = partition_copy;
     /**
-     * <p> Get partition point. </p>
+     * Get partition point.
      *
-     * <p> Returns an iterator to the first element in the partitioned range [<i>first</i>, <i>last</i>) for which
-     * <i>pred</i> is not <code>true</code>, indicating its partition point. </p>
+     * Returns an iterator to the first element in the partitioned range [<i>first</i>, <i>last</i>) for which
+     * <i>pred</i> is not <code>true</code>, indicating its partition point.
      *
-     * <p> The elements in the range shall already {@link is_partitioned be partitioned}, as if {@link partition} had been
-     * called with the same arguments. </p>
+     * The elements in the range shall already {@link is_partitioned be partitioned}, as if {@link partition} had been
+     * called with the same arguments.
      *
-     * <p> The function optimizes the number of comparisons performed by comparing non-consecutive elements of the sorted
-     * range, which is specially efficient for {@link Iteartor random-access iterators}. </p>
+     * The function optimizes the number of comparisons performed by comparing non-consecutive elements of the sorted
+     * range, which is specially efficient for {@link Iteartor random-access iterators}.
      *
      * @param first {@link Iterator Forward iterator} to the initial position of the partitioned sequence.
      * @param last {@link Iterator Forward iterator} to the final position of the partitioned sequence. The range checked
@@ -1643,13 +1640,14 @@ var std;
         MATHMATICS
             - MIN & MAX
             - PERMUTATION
+            - MISCELLANEOUS
     ============================================================
         MIN & MAX
     --------------------------------------------------------- */
     /**
-     * <p> Return the smallest. </p>
+     * Return the smallest.
      *
-     * <p> Returns the smallest of all the elements in the <i>args</i>. </p>
+     * Returns the smallest of all the elements in the <i>args</i>.
      *
      * @param args Values to compare.
      *
@@ -1668,9 +1666,9 @@ var std;
     }
     std.min = min;
     /**
-     * <p> Return the largest. </p>
+     * Return the largest.
      *
-     * <p> Returns the largest of all the elements in the <i>args</i>. </p>
+     * Returns the largest of all the elements in the <i>args</i>.
      *
      * @param args Values to compare.
      *
@@ -1689,10 +1687,10 @@ var std;
     }
     std.max = max;
     /**
-     * <p> Return smallest and largest elements. </p>
+     * Return smallest and largest elements.
      *
-     * <p> Returns a {@link Pair} with the smallest of all the elements in the <i>args</i> as first element (the first of
-     * them, if there are more than one), and the largest as second (the last of them, if there are more than one). </p>
+     * Returns a {@link Pair} with the smallest of all the elements in the <i>args</i> as first element (the first of
+     * them, if there are more than one), and the largest as second (the last of them, if there are more than one).
      *
      * @param args Values to compare.
      *
@@ -1748,6 +1746,13 @@ var std;
         return std.make_pair(smallest, largest);
     }
     std.minmax_element = minmax_element;
+    function clamp(v, lo, hi, comp) {
+        if (comp === void 0) { comp = std.less; }
+        var vec = new std.Vector([v, lo, hi]);
+        std.sort(vec.begin(), vec.end(), comp);
+        return vec.at(1);
+    }
+    std.clamp = clamp;
     function is_permutation(first1, last1, first2, pred) {
         if (pred === void 0) { pred = std.equal_to; }
         // find the mismatched
@@ -1825,13 +1830,13 @@ var std;
     var base;
     (function (base) {
         /**
-         * <p> An abstract container. </p>
+         * An abstract container.
          *
-         * <p> <a href="http://samchon.github.io/tstl/images/class_diagram/abstract_containers.png" target="_blank">
+         * <a href="http://samchon.github.io/tstl/images/class_diagram/abstract_containers.png" target="_blank">
          * <img src="http://samchon.github.io/tstl/images/class_diagram/abstract_containers.png" style="max-width: 100%" />
-         * </a> </p>
+         * </a>
          *
-         * <h3> Container properties </h3>
+         * ### Container properties
          * <dl>
          * 	<dt> Sequence </dt>
          * 	<dd> Elements in sequence containers are ordered in a strict linear sequence. Individual elements are
@@ -1863,19 +1868,19 @@ var std;
                 // NOTHING TO DO ESPECIALLY
             }
             /**
-             * <p> Clear content. </p>
+             * Clear content.
              *
-             * <p> Removes all elements from the Container, leaving the container with a size of 0. </p>
+             * Removes all elements from the Container, leaving the container with a size of 0.
              */
             Container.prototype.clear = function () {
                 this.erase(this.begin(), this.end());
             };
             /**
-             * <p> Test whether the container is empty. </p>
-             * <p> Returns whether the container is empty (i.e. whether its size is 0). </p>
+             * Test whether the container is empty.
+             * Returns whether the container is empty (i.e. whether its size is 0).
              *
-             * <p> This function does not modify the container in any way. To clear the content of the container,
-             * see {@link clear clear()}. </p>
+             * This function does not modify the container in any way. To clear the content of the container,
+             * see {@link clear clear()}.
              *
              * @return <code>true</code> if the container size is 0, <code>false</code> otherwise.
              */
@@ -1886,21 +1891,21 @@ var std;
                 UTILITIES
             --------------------------------------------------------------- */
             /**
-             * <p> Swap content. </p>
+             * Swap content.
              *
-             * <p> Exchanges the content of the container by the content of <i>obj</i>, which is another
-             * {@link IContainer container} object with same type of elements. Sizes and container type may differ. </p>
+             * Exchanges the content of the container by the content of <i>obj</i>, which is another
+             * {@link Container container} object with same type of elements. Sizes and container type may differ.
              *
-             * <p> After the call to this member function, the elements in this container are those which were in <i>obj</i>
+             * After the call to this member function, the elements in this container are those which were in <i>obj</i>
              * before the call, and the elements of <i>obj</i> are those which were in this. All iterators, references and
-             * pointers remain valid for the swapped objects. </p>
+             * pointers remain valid for the swapped objects.
              *
-             * <p> Notice that a non-member function exists with the same name, {@link std.swap swap}, overloading that
-             * algorithm with an optimization that behaves like this member function. </p>
+             * Notice that a non-member function exists with the same name, {@link swap swap}, overloading that
+             * algorithm with an optimization that behaves like this member function.
              *
-             * @param obj Another {@link IContainer container} of the same type of elements (i.e., instantiated
+             * @param obj Another {@link Container container} of the same type of elements (i.e., instantiated
              *			  with the same template parameter, <b>T</b>) whose content is swapped with that of this
-             *			  {@link container IContainer}.
+             *			  {@link Container container}.
              */
             Container.prototype.swap = function (obj) {
                 var supplement = new std.Vector(this.begin(), this.end());
@@ -1912,27 +1917,665 @@ var std;
         base.Container = Container;
     })(base = std.base || (std.base = {}));
 })(std || (std = {}));
+/// <reference path="API.ts" />
+// Iterator definitions.
+//
+// @reference http://www.cplusplus.com/reference/iterator
+// @author Jeongho Nam <http://samchon.org>
+var std;
+(function (std) {
+    /**
+     * Bi-directional iterator.
+     *
+     * {@link Iterator Bidirectional iterators} are iterators that can be used to access the sequence of elements
+     * in a range in both directions (towards the end and towards the beginning).
+     *
+     * All {@link IArrayIterator random-access iterators} are also valid {@link Iterrator bidirectional iterators}.
+     *
+     * There is not a single type of {@link Iterator bidirectional iterator}: {@link Container Each container}
+     * may define its own specific iterator type able to iterate through it and access its elements.
+     *
+     * <a href="http://samchon.github.io/tstl/images/class_diagram/abstract_containers.png" target="_blank">
+     * <img src="http://samchon.github.io/tstl/images/class_diagram/abstract_containers.png" style="max-width: 100%" /></a>
+     *
+     * @reference http://www.cplusplus.com/reference/iterator/BidirectionalIterator
+     * @author Jeongho Nam <http://samchon.org>
+     */
+    var Iterator = (function () {
+        /* ---------------------------------------------------------
+            CONSTRUCTORS
+        --------------------------------------------------------- */
+        /**
+         * Construct from the source {@link Container container}.
+         *
+         * @param source The source container.
+         */
+        function Iterator(source) {
+            this.source_ = source;
+        }
+        /**
+         * Whether an iterator is equal with the iterator.
+         *
+         * Compare two iterators and returns whether they are equal or not.
+         *
+         * #### Note
+         * Iterator's {@link equals equals()} only compare souce container and index number.
+         *
+         * Although elements in a pair, key and value are {@link equal_to equal_to}, if the source map or
+         * index number is different, then the {@link equals equals()} will return false. If you want to
+         * compare the elements of a pair, compare them directly by yourself.
+         *
+         * @param obj An iterator to compare
+         * @return Indicates whether equal or not.
+         */
+        Iterator.prototype.equals = function (obj) {
+            return this.source_ == obj.source_;
+        };
+        return Iterator;
+    }());
+    std.Iterator = Iterator;
+})(std || (std = {}));
+(function (std) {
+    /**
+     * This class reverses the direction in which a bidirectional or random-access iterator iterates through a range.
+     *
+     * A copy of the original iterator (the {@link Iterator base iterator}) is kept internally and used to reflect
+     * the operations performed on the {@link ReverseIterator}: whenever the {@link ReverseIterator} is incremented, its
+     * {@link Iterator base iterator} is decreased, and vice versa. A copy of the {@link Iterator base iterator} with the
+     * current state can be obtained at any time by calling member {@link base}.
+     *
+     * Notice however that when an iterator is reversed, the reversed version does not point to the same element in
+     * the range, but to <b>the one preceding it</b>. This is so, in order to arrange for the past-the-end element of a
+     * range: An iterator pointing to a past-the-end element in a range, when reversed, is pointing to the last element
+     * (not past it) of the range (this would be the first element of the reversed range). And if an iterator to the
+     * first element in a range is reversed, the reversed iterator points to the element before the first element (this
+     * would be the past-the-end element of the reversed range).
+     *
+     * <a href="http://samchon.github.io/tstl/images/class_diagram/abstract_containers.png" target="_blank">
+     * <img src="http://samchon.github.io/tstl/images/class_diagram/abstract_containers.png" style="max-width: 100%" /></a>
+     *
+     * @reference http://www.cplusplus.com/reference/iterator/reverse_iterator
+     * @author Jeongho Nam <http://samchon.org>
+     */
+    var ReverseIterator = (function (_super) {
+        __extends(ReverseIterator, _super);
+        /* ---------------------------------------------------------
+            CONSTRUCTORS
+        --------------------------------------------------------- */
+        /**
+         * Construct from base iterator.
+         *
+         * @param base A reference of the base iterator, which iterates in the opposite direction.
+         */
+        function ReverseIterator(base) {
+            var _this = this;
+            if (base == null)
+                _this = _super.call(this, null) || this;
+            else {
+                _this = _super.call(this, base.source()) || this;
+                _this.base_ = base.prev();
+            }
+            return _this;
+        }
+        /* ---------------------------------------------------------
+            ACCESSORS
+        --------------------------------------------------------- */
+        ReverseIterator.prototype.source = function () {
+            return this.source_;
+        };
+        /**
+         * Return base iterator.
+         *
+         * Return a reference of the base iteraotr.
+         *
+         * The base iterator is an iterator of the same type as the one used to construct the {@link ReverseIterator},
+         * but pointing to the element next to the one the {@link ReverseIterator} is currently pointing to
+         * (a {@link ReverseIterator} has always an offset of -1 with respect to its base iterator).
+         *
+         * @return A reference of the base iterator, which iterates in the opposite direction.
+         */
+        ReverseIterator.prototype.base = function () {
+            return this.base_.next();
+        };
+        Object.defineProperty(ReverseIterator.prototype, "value", {
+            /**
+             * Get value of the iterator is pointing.
+             *
+             * @return A value of the reverse iterator.
+             */
+            get: function () {
+                return this.base_.value;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        /* ---------------------------------------------------------
+            MOVERS
+        --------------------------------------------------------- */
+        /**
+         * @inheritdoc
+         */
+        ReverseIterator.prototype.prev = function () {
+            return this._Create_neighbor(this.base().next());
+        };
+        /**
+         * @inheritdoc
+         */
+        ReverseIterator.prototype.next = function () {
+            return this._Create_neighbor(this.base().prev());
+        };
+        /**
+         * @inheritdoc
+         */
+        ReverseIterator.prototype.advance = function (n) {
+            return this._Create_neighbor(this.base().advance(-n));
+        };
+        /* ---------------------------------------------------------
+            COMPARES
+        --------------------------------------------------------- */
+        /**
+         * @inheritdoc
+         */
+        ReverseIterator.prototype.equals = function (obj) {
+            return this.base_.equals(obj.base_);
+        };
+        /**
+         * @inheritdoc
+         */
+        ReverseIterator.prototype.swap = function (obj) {
+            this.base_.swap(obj.base_);
+        };
+        return ReverseIterator;
+    }(std.Iterator));
+    std.ReverseIterator = ReverseIterator;
+    /* =========================================================
+        GLOBAL FUNCTIONS
+            - ACCESSORS
+            - MOVERS
+            - FACTORY
+    ============================================================
+        ACCESSORS
+    --------------------------------------------------------- */
+    /**
+     * Return the number of elements in the {@link Container}.
+     *
+     * @param container A container with a size method.
+     * @return The number of elements in the container.
+     */
+    function size(container) {
+        return container.size();
+    }
+    std.size = size;
+    /**
+     * Test whether the container is empty.
+     *
+     * Returns whether the {@link Container} is empty (i.e. whether its {@link size} is 0).
+     *
+     * @param container A container with a empty method.
+     * @return <code>true</code> if the container size is 0, <code>false</code> otherwise.
+     */
+    function empty(container) {
+        return container.empty();
+    }
+    std.empty = empty;
+    /**
+     * Return distance between {@link Iterator iterators}.
+     *
+     * Calculates the number of elements between <i>first</i> and <i>last</i>.
+     *
+     * If it is a {@link IArrayIterator random-access iterator}, the function uses operator- to calculate this.
+     * Otherwise, the function uses the increase operator {@link Iterator.next next()} repeatedly.
+     *
+     * @param first Iterator pointing to the initial element.
+     * @param last Iterator pointing to the final element. This must be reachable from first.
+     *
+     * @return The number of elements between first and last.
+     */
+    function distance(first, last) {
+        if (first.index != undefined)
+            return _Distance_via_index(first, last);
+        var length = 0;
+        for (; !first.equals(last); first = first.next())
+            length++;
+        return length;
+    }
+    std.distance = distance;
+    /**
+     * @hidden
+     */
+    function _Distance_via_index(first, last) {
+        return Math.abs(last.index() - first.index());
+    }
+    /* ---------------------------------------------------------
+        ACCESSORS
+    --------------------------------------------------------- */
+    /**
+     * Advance iterator.
+     *
+     * Advances the iterator <i>it</i> by <i>n</i> elements positions.
+     *
+     * @param it Iterator to be advanced.
+     * @param n Number of element positions to advance.
+     *
+     * @return An iterator to the element <i>n</i> positions before <i>it</i>.
+     */
+    function advance(it, n) {
+        return it.advance(n);
+    }
+    std.advance = advance;
+    /**
+     * Get iterator to previous element.
+     *
+     * Returns an iterator pointing to the element that <i>it</i> would be pointing to if advanced <i>-n</i> positions.
+     *
+     * @param it Iterator to base position.
+     * @param n Number of element positions offset (1 by default).
+     *
+     * @return An iterator to the element <i>n</i> positions before <i>it</i>.
+     */
+    function prev(it, n) {
+        if (n === void 0) { n = 1; }
+        return it.advance(n);
+    }
+    std.prev = prev;
+    /**
+     * Get iterator to next element.
+     *
+     * Returns an iterator pointing to the element that <i>it</i> would be pointing to if advanced <i>n</i> positions.
+     *
+     * @param it Iterator to base position.
+     * @param n Number of element positions offset (1 by default).
+     *
+     * @return An iterator to the element <i>n</i> positions away from <i>it</i>.
+     */
+    function next(it, n) {
+        if (n === void 0) { n = 1; }
+        return it.advance(n);
+    }
+    std.next = next;
+    // typedef is not specified in TypeScript yet.
+    // Instead, I listed all the containers and its iterators as overloaded functions
+    function begin(container) {
+        return container.begin();
+    }
+    std.begin = begin;
+    function rbegin(container) {
+        return container.rbegin();
+    }
+    std.rbegin = rbegin;
+    function end(container) {
+        return container.end();
+    }
+    std.end = end;
+    function rend(container) {
+        return container.rend();
+    }
+    std.rend = rend;
+    function make_reverse_iterator(it) {
+        if (it instanceof std.VectorIterator)
+            return new std.VectorReverseIterator(it);
+        else if (it instanceof std.DequeIterator)
+            return new std.DequeReverseIterator(it);
+        else if (it instanceof std.ListIterator)
+            return new std.ListReverseIterator(it);
+        else if (it instanceof std.SetIterator)
+            return new std.SetReverseIterator(it);
+        else if (it instanceof std.MapIterator)
+            return new std.MapReverseIterator(it);
+    }
+    std.make_reverse_iterator = make_reverse_iterator;
+})(std || (std = {}));
+/// <reference path="../API.ts" />
+/// <reference path="Container.ts" />
+/// <reference path="../Iterator.ts" />
+var std;
+(function (std) {
+    var base;
+    (function (base) {
+        /**
+         * @hidden
+         */
+        var _ListContainer = (function (_super) {
+            __extends(_ListContainer, _super);
+            /* ---------------------------------------------------------
+                CONSTRUCTORS
+            --------------------------------------------------------- */
+            /**
+             * Default Constructor.
+             */
+            function _ListContainer() {
+                var _this = _super.call(this) || this;
+                // INIT MEMBERS
+                _this.end_ = _this._Create_iterator(null, null, null);
+                _this.end_.prev_ = _this.end_;
+                _this.end_.next_ = _this.end_;
+                _this._Set_begin(_this.end_);
+                _this.size_ = 0;
+                return _this;
+            }
+            /**
+             * @hidden
+             */
+            _ListContainer.prototype._Set_begin = function (it) {
+                this.begin_ = it;
+            };
+            /**
+             * @inheritdoc
+             */
+            _ListContainer.prototype.assign = function (first, last) {
+                this.clear();
+                this.insert(this.end(), first, last);
+            };
+            /**
+             * @inheritdoc
+             */
+            _ListContainer.prototype.clear = function () {
+                // DISCONNECT NODES
+                this._Set_begin(this.end_);
+                this.end_.prev_ = (this.end_);
+                this.end_.next_ = (this.end_);
+                // RE-SIZE -> 0
+                this.size_ = 0;
+            };
+            /* ---------------------------------------------------------
+                ACCESSORS
+            --------------------------------------------------------- */
+            /**
+             * @inheritdoc
+             */
+            _ListContainer.prototype.begin = function () {
+                return this.begin_;
+            };
+            /**
+             * @inheritdoc
+             */
+            _ListContainer.prototype.end = function () {
+                return this.end_;
+            };
+            /**
+             * @inheritdoc
+             */
+            _ListContainer.prototype.size = function () {
+                return this.size_;
+            };
+            /**
+             * @inheritdoc
+             */
+            _ListContainer.prototype.front = function () {
+                return this.begin_.value;
+            };
+            /**
+             * @inheritdoc
+             */
+            _ListContainer.prototype.back = function () {
+                return this.end_.prev().value;
+            };
+            /* =========================================================
+                ELEMENTS I/O
+                    - PUSH & POP
+                    - INSERT
+                    - ERASE
+                    - POST-PROCESS
+            ============================================================
+                PUSH & POP
+            --------------------------------------------------------- */
+            /**
+             * @inheritdoc
+             */
+            _ListContainer.prototype.push_front = function (val) {
+                this.insert(this.begin_, val);
+            };
+            /**
+             * @inheritdoc
+             */
+            _ListContainer.prototype.push_back = function (val) {
+                this.insert(this.end_, val);
+            };
+            /**
+             * @inheritdoc
+             */
+            _ListContainer.prototype.pop_front = function () {
+                this.erase(this.begin_);
+            };
+            /**
+             * @inheritdoc
+             */
+            _ListContainer.prototype.pop_back = function () {
+                this.erase(this.end_.prev());
+            };
+            /* ---------------------------------------------------------
+                INSERT
+            --------------------------------------------------------- */
+            /**
+             * @inheritdoc
+             */
+            _ListContainer.prototype.push = function () {
+                var items = [];
+                for (var _i = 0; _i < arguments.length; _i++) {
+                    items[_i] = arguments[_i];
+                }
+                if (items.length == 0)
+                    return this.size();
+                // INSERT BY RANGE
+                var first = new base._ArrayIterator(items, 0);
+                var last = new base._ArrayIterator(items, items.length);
+                this._Insert_by_range(this.end(), first, last);
+                // RETURN SIZE
+                return this.size();
+            };
+            _ListContainer.prototype.insert = function () {
+                var args = [];
+                for (var _i = 0; _i < arguments.length; _i++) {
+                    args[_i] = arguments[_i];
+                }
+                var ret;
+                // BRANCHES
+                if (args.length == 2)
+                    ret = this._Insert_by_repeating_val(args[0], 1, args[1]);
+                else if (args.length == 3 && typeof args[1] == "number")
+                    ret = this._Insert_by_repeating_val(args[0], args[1], args[2]);
+                else
+                    ret = this._Insert_by_range(args[0], args[1], args[2]);
+                // RETURNS
+                return ret;
+            };
+            /**
+             * @hidden
+             */
+            _ListContainer.prototype._Insert_by_repeating_val = function (position, n, val) {
+                var first = new base._Repeater(0, val);
+                var last = new base._Repeater(n);
+                return this._Insert_by_range(position, first, last);
+            };
+            /**
+             * @hidden
+             */
+            _ListContainer.prototype._Insert_by_range = function (position, begin, end) {
+                // INVALID ITERATOR
+                if (this != position.source_)
+                    throw new std.InvalidArgument("Parametric iterator is not this container's own.");
+                var prev = position.prev();
+                var first = null;
+                var size = 0;
+                for (var it = begin; it.equals(end) == false; it = it.next()) {
+                    // CONSTRUCT ITEM, THE NEW ELEMENT
+                    var item = this._Create_iterator(prev, null, it.value);
+                    if (size == 0)
+                        first = item;
+                    // PLACE ITEM ON THE NEXT OF "PREV"
+                    prev.next_ = item;
+                    // SHIFT CURRENT ITEM TO PREVIOUS
+                    prev = item;
+                    size++;
+                }
+                // WILL FIRST BE THE BEGIN?
+                if (position.equals(this.begin()) == true)
+                    this._Set_begin(first);
+                // CONNECT BETWEEN LAST AND POSITION
+                prev.next_ = position;
+                position.prev_ = prev;
+                this.size_ += size;
+                return first;
+            };
+            _ListContainer.prototype.erase = function (first, last) {
+                if (last === void 0) { last = first.next(); }
+                return this._Erase_by_range(first, last);
+            };
+            /**
+             * @hidden
+             */
+            _ListContainer.prototype._Erase_by_range = function (first, last) {
+                // FIND PREV AND NEXT
+                var prev = first.prev();
+                // CALCULATE THE SIZE
+                var size = std.distance(first, last);
+                // SHRINK
+                prev.next_ = (last);
+                last.prev_ = (prev);
+                this.size_ -= size;
+                if (first.equals(this.begin_))
+                    this._Set_begin(last);
+                return last;
+            };
+            _ListContainer.prototype.swap = function (obj) {
+                if (obj instanceof _ListContainer) {
+                    _a = [obj.begin_, this.begin_], this.begin_ = _a[0], obj.begin_ = _a[1];
+                    _b = [obj.end_, this.end_], this.end_ = _b[0], obj.end_ = _b[1];
+                    _c = [obj.size_, this.size_], this.size_ = _c[0], obj.size_ = _c[1];
+                }
+                else
+                    _super.prototype.swap.call(this, obj);
+                var _a, _b, _c;
+            };
+            return _ListContainer;
+        }(base.Container));
+        base._ListContainer = _ListContainer;
+    })(base = std.base || (std.base = {}));
+})(std || (std = {}));
+(function (std) {
+    var base;
+    (function (base) {
+        /**
+         * @hidden
+         */
+        var _ListIteratorBase = (function (_super) {
+            __extends(_ListIteratorBase, _super);
+            /**
+             * Initializer Constructor.
+             *
+             * @param source The source {@link Container} to reference.
+             * @param prev A refenrece of previous node ({@link ListIterator iterator}).
+             * @param next A refenrece of next node ({@link ListIterator iterator}).
+             * @param value Value to be stored in the node (iterator).
+             */
+            function _ListIteratorBase(source, prev, next, value) {
+                var _this = _super.call(this, source) || this;
+                _this.prev_ = prev;
+                _this.next_ = next;
+                _this.value_ = value;
+                return _this;
+            }
+            /* ---------------------------------------------------------------
+                ACCESSORS
+            --------------------------------------------------------------- */
+            /**
+             * @inheritdoc
+             */
+            _ListIteratorBase.prototype.prev = function () {
+                return this.prev_;
+            };
+            /**
+             * @inheritdoc
+             */
+            _ListIteratorBase.prototype.next = function () {
+                return this.next_;
+            };
+            /**
+             * @inheritdoc
+             */
+            _ListIteratorBase.prototype.advance = function (step) {
+                var it = this;
+                if (step >= 0) {
+                    for (var i = 0; i < step; i++) {
+                        it = it.next();
+                        if (it.equals(this.source_.end()))
+                            return it;
+                    }
+                }
+                else {
+                    for (var i = 0; i < step; i++) {
+                        it = it.prev();
+                        if (it.equals(this.source_.end()))
+                            return it;
+                    }
+                }
+                return it;
+            };
+            Object.defineProperty(_ListIteratorBase.prototype, "value", {
+                /**
+                 * @inheritdoc
+                 */
+                get: function () {
+                    return this.value_;
+                },
+                enumerable: true,
+                configurable: true
+            });
+            /* ---------------------------------------------------------------
+                COMPARISON
+            --------------------------------------------------------------- */
+            /**
+             * @inheritdoc
+             */
+            _ListIteratorBase.prototype.equals = function (obj) {
+                return this == obj;
+            };
+            /**
+             * @inheritdoc
+             */
+            _ListIteratorBase.prototype.swap = function (obj) {
+                var source = this.source_;
+                var supp_prev = this.prev_;
+                var supp_next = this.next_;
+                this.prev_ = obj.prev_;
+                this.next_ = obj.next_;
+                obj.prev_ = supp_prev;
+                obj.next_ = supp_next;
+                if (source.end() == this)
+                    source.end_ = obj;
+                else if (source.end() == obj)
+                    source.end_ = this;
+                if (source.begin() == this)
+                    source.begin_ = obj;
+                else if (source.begin() == obj)
+                    source.begin_ = this;
+            };
+            return _ListIteratorBase;
+        }(std.Iterator));
+        base._ListIteratorBase = _ListIteratorBase;
+    })(base = std.base || (std.base = {}));
+})(std || (std = {}));
 /// <reference path="../API.ts" />
 var std;
 (function (std) {
     var base;
     (function (base) {
         /**
-         * <p> An abstract error instance. </p>
+         * An abstract error instance.
          *
-         * <p> {@link ErrorInstance} is an abstract class of {@link ErrorCode} and {@link ErrorCondition}
-         * holding an error instance's identifier {@link value}, associated with a {@link category}. </p>
+         * {@link ErrorInstance} is an abstract class of {@link ErrorCode} and {@link ErrorCondition}
+         * holding an error instance's identifier {@link value}, associated with a {@link category}.
          *
-         * <p> The operating system and other low-level applications and libraries generate numerical error codes to
+         * The operating system and other low-level applications and libraries generate numerical error codes to
          * represent possible results. These numerical values may carry essential information for a specific platform,
-         * but be non-portable from one platform to another. </p>
+         * but be non-portable from one platform to another.
          *
-         * <p> Objects of this class associate such numerical codes to {@link ErrorCategory error categories},
+         * Objects of this class associate such numerical codes to {@link ErrorCategory error categories},
          * so that they can be interpreted when needed as more abstract (and portable)
-         * {@link ErrorCondition error conditions}. </p>
+         * {@link ErrorCondition error conditions}.
          *
-         * <p> <a href="http://samchon.github.io/tstl/images/design/class_diagram/exceptions.png" target="_blank">
-         * <img src="http://samchon.github.io/tstl/images/design/class_diagram/exceptions.png" style="max-width: 100%" /> </a> </p>
+         * <a href="http://samchon.github.io/tstl/images/design/class_diagram/exceptions.png" target="_blank">
+         * <img src="http://samchon.github.io/tstl/images/design/class_diagram/exceptions.png" style="max-width: 100%" /> </a>
          *
          * @author Jeongho Nam <http://samchon.org>
          */
@@ -1943,9 +2586,9 @@ var std;
                 this.assign(val, category);
             }
             /**
-             * <p> Assign error instance. </p>
+             * Assign error instance.
              *
-             * <p> Assigns the {@link ErrorCode} object a value of val associated with the {@link ErrorCategory}. </p>
+             * Assigns the {@link ErrorCode} object a value of val associated with the {@link ErrorCategory}.
              *
              * @param val A numerical value identifying an error instance.
              * @param category A reference to an {@link ErrorCategory} object.
@@ -1955,10 +2598,10 @@ var std;
                 this.value_ = val;
             };
             /**
-             * <p> Clear error instance. </p>
+             * Clear error instance.
              *
-             * <p> Clears the value in the {@link ErrorCode} object so that it is set to a value of <i>0</i> of the
-             * {@link ErrorCategory.systemCategory ErrorCategory.systemCategory()} (indicating no error). </p>
+             * Clears the value in the {@link ErrorCode} object so that it is set to a value of <i>0</i> of the
+             * {@link ErrorCategory.systemCategory ErrorCategory.systemCategory()} (indicating no error).
              */
             ErrorInstance.prototype.clear = function () {
                 this.value_ = 0;
@@ -1967,9 +2610,9 @@ var std;
                 ACCESSORS
             --------------------------------------------------------- */
             /**
-             * <p> Get category. </p>
+             * Get category.
              *
-             * <p> Returns a reference to the {@link ErrorCategory} associated with the {@link ErrorCode} object. </p>
+             * Returns a reference to the {@link ErrorCategory} associated with the {@link ErrorCode} object.
              *
              * @return A reference to a non-copyable object of a type derived from {@link ErrorCategory}.
              */
@@ -1977,9 +2620,9 @@ var std;
                 return this.category_;
             };
             /**
-             * <p> Error value. </p>
+             * Error value.
              *
-             * <p> Returns the error value associated with the {@link ErrorCode} object. </p>
+             * Returns the error value associated with the {@link ErrorCode} object.
              *
              * @return The error value.
              */
@@ -1987,15 +2630,15 @@ var std;
                 return this.value_;
             };
             /**
-             * <p> Get message. </p>
+             * Get message.
              *
-             * <p> Returns the message associated with the error instance. </p>
+             * Returns the message associated with the error instance.
              *
-             * <p> Error messages are defined by the {@link category} the error instance belongs to. </p>
+             * Error messages are defined by the {@link category} the error instance belongs to.
              *
-             * <p> This function returns the same as if the following member was called: </p>
+             * This function returns the same as if the following member was called:
              *
-             * <p> <code>category().message(value())</code> </p>
+             * <code>category().message(value())</code>
              *
              * @return A string object with the message associated with the {@link ErrorCode}.
              */
@@ -2006,16 +2649,16 @@ var std;
                     return this.category_.message(this.value_);
             };
             /**
-             * <p> Default error condition. </p>
+             * Default error condition.
              *
-             * <p> Returns the default {@link ErrorCondition}object associated with the {@link ErrorCode} object. </p>
+             * Returns the default {@link ErrorCondition}object associated with the {@link ErrorCode} object.
              *
-             * <p> This function returns the same as if the following member was called: </p>
+             * This function returns the same as if the following member was called:
              *
-             * <p> <code>category().default_error_condition(value())</code> </p>
+             * <code>category().default_error_condition(value())</code>
              *
-             * <p> {@link ErrorCategory.default_error_condition ErrorCategory.default_error_condition()}
-             * is a virtual member function, that can operate differently for each category. </p>
+             * {@link ErrorCategory.default_error_condition ErrorCategory.default_error_condition()}
+             * is a virtual member function, that can operate differently for each category.
              *
              * @return An {@link ErrorCondition}object that corresponds to the {@link ErrorCode} object.
              */
@@ -2029,11 +2672,11 @@ var std;
                 OPERATORS
             --------------------------------------------------------- */
             /**
-             * <p> Convert to bool. </p>
+             * Convert to bool.
              *
-             * <p> Returns whether the error instance has a numerical {@link value} other than 0. </p>
+             * Returns whether the error instance has a numerical {@link value} other than 0.
              *
-             * <p> If it is zero (which is generally used to represent no error), the function returns false, otherwise it returns true. </p>
+             * If it is zero (which is generally used to represent no error), the function returns false, otherwise it returns true.
              *
              * @return <code>true</code> if the error's numerical value is not zero.
              *		   <code>false</code> otherwise.
@@ -2140,14 +2783,14 @@ var std;
         /**
          * @hidden
          */
-        var MapHashBuckets = (function (_super) {
-            __extends(MapHashBuckets, _super);
-            function MapHashBuckets(map) {
+        var _MapHashBuckets = (function (_super) {
+            __extends(_MapHashBuckets, _super);
+            function _MapHashBuckets(map) {
                 var _this = _super.call(this) || this;
                 _this.map_ = map;
                 return _this;
             }
-            MapHashBuckets.prototype.find = function (key) {
+            _MapHashBuckets.prototype.find = function (key) {
                 var index = std.hash(key) % this.size();
                 var bucket = this.at(index);
                 for (var i = 0; i < bucket.size(); i++)
@@ -2155,9 +2798,9 @@ var std;
                         return bucket.at(i);
                 return this.map_.end();
             };
-            return MapHashBuckets;
+            return _MapHashBuckets;
         }(base._HashBuckets));
-        base.MapHashBuckets = MapHashBuckets;
+        base._MapHashBuckets = _MapHashBuckets;
     })(base = std.base || (std.base = {}));
 })(std || (std = {}));
 /// <reference path="../../API.ts" />
@@ -2169,14 +2812,14 @@ var std;
         /**
          * @hidden
          */
-        var SetHashBuckets = (function (_super) {
-            __extends(SetHashBuckets, _super);
-            function SetHashBuckets(set) {
+        var _SetHashBuckets = (function (_super) {
+            __extends(_SetHashBuckets, _super);
+            function _SetHashBuckets(set) {
                 var _this = _super.call(this) || this;
                 _this.set_ = set;
                 return _this;
             }
-            SetHashBuckets.prototype.find = function (val) {
+            _SetHashBuckets.prototype.find = function (val) {
                 var index = std.hash(val) % this.size();
                 var bucket = this.at(index);
                 for (var i = 0; i < bucket.size(); i++)
@@ -2184,743 +2827,171 @@ var std;
                         return bucket.at(i);
                 return this.set_.end();
             };
-            return SetHashBuckets;
+            return _SetHashBuckets;
         }(base._HashBuckets));
-        base.SetHashBuckets = SetHashBuckets;
+        base._SetHashBuckets = _SetHashBuckets;
     })(base = std.base || (std.base = {}));
 })(std || (std = {}));
-/// <reference path="API.ts" />
-// Iterator definitions.
-//
-// @reference http://www.cplusplus.com/reference/iterator
-// @author Jeongho Nam <http://samchon.org>
-var std;
-(function (std) {
-    /**
-     * <p> Bi-directional iterator. </p>
-     *
-     * <p> {@link Iterator Bidirectional iterators} are iterators that can be used to access the sequence of elements
-     * in a range in both directions (towards the end and towards the beginning). </p>
-     *
-     * <p> All {@link IArrayIterator random-access iterators} are also valid {@link Iterrator bidirectional iterators}.
-     * </p>
-     *
-     * <p> There is not a single type of {@link Iterator bidirectional iterator}: {@link IContainer Each container}
-     * may define its own specific iterator type able to iterate through it and access its elements. </p>
-     *
-     * <p> <a href="http://samchon.github.io/tstl/images/class_diagram/abstract_containers.png" target="_blank">
-     * <img src="http://samchon.github.io/tstl/images/class_diagram/abstract_containers.png" style="max-width: 100%" /></a>
-     * </p>
-     *
-     * @reference http://www.cplusplus.com/reference/iterator/BidirectionalIterator
-     * @author Jeongho Nam <http://samchon.org>
-     */
-    var Iterator = (function () {
-        /* ---------------------------------------------------------
-            CONSTRUCTORS
-        --------------------------------------------------------- */
-        /**
-         * Construct from the source {@link IContainer container}.
-         *
-         * @param source The source container.
-         */
-        function Iterator(source) {
-            this.source_ = source;
-        }
-        /**
-         * Advances the {@link Iterator} by <i>n</i> element positions.
-         *
-         * @param n Number of element positions to advance.
-         * @return An advanced iterator.
-         */
-        Iterator.prototype.advance = function (n) {
-            var it = this;
-            var i;
-            if (n >= 0) {
-                for (i = 0; i < n; i++)
-                    if (it.equals(this.source_.end()))
-                        return this.source_.end();
-                    else
-                        it = it.next();
-            }
-            else {
-                n = n * -1;
-                for (i = 0; i < n; i++)
-                    if (it.equals(this.source_.end()))
-                        return this.source_.end();
-                    else
-                        it = it.prev();
-            }
-            return it;
-        };
-        /* ---------------------------------------------------------
-            ACCESSORS
-        --------------------------------------------------------- */
-        /**
-         * Get source container.
-         */
-        Iterator.prototype.source = function () {
-            return this.source_;
-        };
-        /**
-         * <p> Whether an iterator is equal with the iterator. </p>
-         *
-         * <p> Compare two iterators and returns whether they are equal or not. </p>
-         *
-         * <h4> Note </h4>
-         * <p> Iterator's {@link equals equals()} only compare souce container and index number. </p>
-         *
-         * <p> Although elements in a pair, key and value are {@link std.equal_to equal_to}, if the source map or
-         * index number is different, then the {@link equals equals()} will return false. If you want to
-         * compare the elements of a pair, compare them directly by yourself. </p>
-         *
-         * @param obj An iterator to compare
-         * @return Indicates whether equal or not.
-         */
-        Iterator.prototype.equals = function (obj) {
-            return this.source_ == obj.source_;
-        };
-        return Iterator;
-    }());
-    std.Iterator = Iterator;
-})(std || (std = {}));
-(function (std) {
-    /**
-     * <p> This class reverses the direction in which a bidirectional or random-access iterator iterates through a range.
-     * </p>
-     *
-     * <p> A copy of the original iterator (the {@link Iterator base iterator}) is kept internally and used to reflect
-     * the operations performed on the {@link ReverseIterator}: whenever the {@link ReverseIterator} is incremented, its
-     * {@link Iterator base iterator} is decreased, and vice versa. A copy of the {@link Iterator base iterator} with the
-     * current state can be obtained at any time by calling member {@link base}. </p>
-     *
-     * <p> Notice however that when an iterator is reversed, the reversed version does not point to the same element in
-     * the range, but to <b>the one preceding it</b>. This is so, in order to arrange for the past-the-end element of a
-     * range: An iterator pointing to a past-the-end element in a range, when reversed, is pointing to the last element
-     * (not past it) of the range (this would be the first element of the reversed range). And if an iterator to the
-     * first element in a range is reversed, the reversed iterator points to the element before the first element (this
-     * would be the past-the-end element of the reversed range). </p>
-     *
-     * <p> <a href="http://samchon.github.io/tstl/images/class_diagram/abstract_containers.png" target="_blank">
-     * <img src="http://samchon.github.io/tstl/images/class_diagram/abstract_containers.png" style="max-width: 100%" /></a>
-     * </p>
-     *
-     * @reference http://www.cplusplus.com/reference/iterator/reverse_iterator
-     * @author Jeongho Nam <http://samchon.org>
-     */
-    var ReverseIterator = (function (_super) {
-        __extends(ReverseIterator, _super);
-        /* ---------------------------------------------------------
-            CONSTRUCTORS
-        --------------------------------------------------------- */
-        /**
-         * Construct from base iterator.
-         *
-         * @param base A reference of the base iterator, which iterates in the opposite direction.
-         */
-        function ReverseIterator(base) {
-            var _this;
-            if (base == null)
-                _this = _super.call(this, null) || this;
-            else {
-                _this = _super.call(this, base.source()) || this;
-                _this.base_ = base.prev();
-            }
-            return _this;
-        }
-        /**
-         * <p> Return base iterator. </p>
-         *
-         * <p> Return a reference of the base iteraotr. </p>
-         *
-         * <p> The base iterator is an iterator of the same type as the one used to construct the {@link ReverseIterator},
-         * but pointing to the element next to the one the {@link ReverseIterator} is currently pointing to
-         * (a {@link ReverseIterator} has always an offset of -1 with respect to its base iterator).
-         *
-         * @return A reference of the base iterator, which iterates in the opposite direction.
-         */
-        ReverseIterator.prototype.base = function () {
-            return this.base_.next();
-        };
-        Object.defineProperty(ReverseIterator.prototype, "value", {
-            /* ---------------------------------------------------------
-                ACCESSORS
-            --------------------------------------------------------- */
-            /**
-             * <p> Get value of the iterator is pointing. </p>
-             *
-             * @return A value of the reverse iterator.
-             */
-            get: function () {
-                return this.base_.value;
-            },
-            enumerable: true,
-            configurable: true
-        });
-        /* ---------------------------------------------------------
-            MOVERS
-        --------------------------------------------------------- */
-        /**
-         * @inheritdoc
-         */
-        ReverseIterator.prototype.prev = function () {
-            return this._Create_neighbor(this.base().next());
-        };
-        /**
-         * @inheritdoc
-         */
-        ReverseIterator.prototype.next = function () {
-            return this._Create_neighbor(this.base().prev());
-        };
-        /**
-         * @inheritdoc
-         */
-        ReverseIterator.prototype.advance = function (n) {
-            return this._Create_neighbor(this.base().advance(-n));
-        };
-        /* ---------------------------------------------------------
-            COMPARES
-        --------------------------------------------------------- */
-        /**
-         * @inheritdoc
-         */
-        ReverseIterator.prototype.equals = function (obj) {
-            return this.base_.equals(obj.base_);
-        };
-        /**
-         * @inheritdoc
-         */
-        ReverseIterator.prototype.swap = function (obj) {
-            this.base_.swap(obj.base_);
-        };
-        return ReverseIterator;
-    }(std.Iterator));
-    std.ReverseIterator = ReverseIterator;
-    /* =========================================================
-        GLOBAL FUNCTIONS
-            - MOVERS
-            - BEGIN
-            - END
-    ============================================================
-        MOVERS
-    --------------------------------------------------------- */
-    /**
-     * <p> Return distance between {@link Iterator iterators}. </p>
-     *
-     * <p> Calculates the number of elements between <i>first</i> and <i>last</i>. </p>
-     *
-     * <p> If it is a {@link IArrayIterator random-access iterator}, the function uses operator- to calculate this.
-     * Otherwise, the function uses the increase operator {@link Iterator.next next()} repeatedly. </p>
-     *
-     * @param first Iterator pointing to the initial element.
-     * @param last Iterator pointing to the final element. This must be reachable from first.
-     *
-     * @return The number of elements between first and last.
-     */
-    function distance(first, last) {
-        if (first.index != undefined) {
-            // WHEN IARRAY_ITERATOR
-            // ABS FOR REVERSE_ITERATOR
-            return Math.abs(last.index - first.index);
-        }
-        var length = 0;
-        for (; !first.equals(last); first = first.next())
-            length++;
-        return length;
-    }
-    std.distance = distance;
-    /**
-     * <p> Advance iterator. </p>
-     *
-     * <p> Advances the iterator <i>it</i> by <i>n</i> elements positions. </p>
-     *
-     * @param it Iterator to be advanced.
-     * @param n Number of element positions to advance.
-     *
-     * @return An iterator to the element <i>n</i> positions before <i>it</i>.
-     */
-    function advance(it, n) {
-        return it.advance(n);
-    }
-    std.advance = advance;
-    /**
-     * <p> Get iterator to previous element. </p>
-     *
-     * <p> Returns an iterator pointing to the element that <i>it</i> would be pointing to if advanced <i>-n</i> positions. </p>
-     *
-     * @param it Iterator to base position.
-     * @param n Number of element positions offset (1 by default).
-     *
-     * @return An iterator to the element <i>n</i> positions before <i>it</i>.
-     */
-    function prev(it, n) {
-        if (n === void 0) { n = 1; }
-        return it.advance(n);
-    }
-    std.prev = prev;
-    /**
-     * <p> Get iterator to next element. </p>
-     *
-     * <p> Returns an iterator pointing to the element that <i>it</i> would be pointing to if advanced <i>n</i> positions. </p>
-     *
-     * @param it Iterator to base position.
-     * @param n Number of element positions offset (1 by default).
-     *
-     * @return An iterator to the element <i>n</i> positions away from <i>it</i>.
-     */
-    function next(it, n) {
-        if (n === void 0) { n = 1; }
-        return it.advance(n);
-    }
-    std.next = next;
-    // typedef is not specified in TypeScript yet.
-    // Instead, I listed all the containers and its iterators as overloaded functions
-    function begin(container) {
-        return container.begin();
-    }
-    std.begin = begin;
-    // typedef is not specified in TypeScript yet.
-    // Instead, I listed all the containers and its iterators as overloaded functions
-    function end(container) {
-        return container.end();
-    }
-    std.end = end;
-})(std || (std = {}));
-/// <reference path="../API.ts" />
-/// <reference path="Container.ts" />
-/// <reference path="../Iterator.ts" />
+/// <reference path="../../Iterator.ts" />
 var std;
 (function (std) {
     var base;
     (function (base) {
         /**
-         * An abstract list.
-         *
-         * <p> {@link ListContainer}s are sequence containers that allow constant time insert and erase operations anywhere
-         * within the sequence, and iteration in both directions. </p>
-         *
-         * <p> List containers are implemented as doubly-linked lists; Doubly linked lists can store each of the elements they
-         * contain in different and unrelated storage locations. The ordering is kept internally by the association to each
-         * element of a link to the element preceding it and a link to the element following it. </p>
-         *
-         * <p> Compared to other base standard sequence containers (array, vector and deque), lists perform generally better
-         * in inserting, extracting and moving elements in any position within the container for which an iterator has already
-         * been obtained, and therefore also in algorithms that make intensive use of these, like sorting algorithms. </p>
-         *
-         * <p> The main drawback of lists and forward_lists compared to these other sequence containers is that they lack
-         * direct access to the elements by their position; For example, to access the sixth element in a list, one has to
-         * iterate from a known position (like the beginning or the end) to that position, which takes linear time in the
-         * distance between these. They also consume some extra memory to keep the linking information associated to each
-         * element (which may be an important factor for large lists of small-sized elements). </p>
-         *
-         * <h3> Container properties </h3>
-         * <dl>
-         * 	<dt> Sequence </dt>
-         * 	<dd> Elements in sequence containers are ordered in a strict linear sequence. Individual elements are accessed by
-         *		 their position in this sequence. </dd>
-         *
-         * 	<dt> Doubly-linked list </dt>
-         *	<dd> Each element keeps information on how to locate the next and the previous elements, allowing constant time
-         *		 insert and erase operations before or after a specific element (even of entire ranges), but no direct random
-         *		 access. </dd>
-         * </dl>
-         *
-         * @param <T> Type of the elements.
-         *
-         * @reference http://www.cplusplus.com/reference/list/list/
-         *
-         * @author Jeongho Nam <http://samchon.org>
+         * @hidden
          */
-        var ListContainer = (function (_super) {
-            __extends(ListContainer, _super);
+        var _ArrayIterator = (function (_super) {
+            __extends(_ArrayIterator, _super);
             /* ---------------------------------------------------------
                 CONSTRUCTORS
             --------------------------------------------------------- */
-            /**
-             * Default Constructor.
-             */
-            function ListContainer() {
-                var _this = _super.call(this) || this;
-                // INIT MEMBERS
-                _this.end_ = _this._Create_iterator(null, null, null);
-                _this.end_.prev_ = _this.end_;
-                _this.end_.next_ = _this.end_;
-                _this._Set_begin(_this.end_);
-                _this.size_ = 0;
+            function _ArrayIterator(data, index) {
+                var _this = _super.call(this, null) || this;
+                _this.data_ = data;
+                _this.index_ = index;
                 return _this;
             }
-            /**
-             * @hidden
-             */
-            ListContainer.prototype._Set_begin = function (it) {
-                this.begin_ = it;
-            };
-            /**
-             * @inheritdoc
-             */
-            ListContainer.prototype.assign = function (first, last) {
-                this.clear();
-                this.insert(this.end(), first, last);
-            };
-            /**
-             * @inheritdoc
-             */
-            ListContainer.prototype.clear = function () {
-                // DISCONNECT NODES
-                this._Set_begin(this.end_);
-                this.end_.prev_ = (this.end_);
-                this.end_.next_ = (this.end_);
-                // RE-SIZE -> 0
-                this.size_ = 0;
-            };
             /* ---------------------------------------------------------
                 ACCESSORS
             --------------------------------------------------------- */
-            /**
-             * @inheritdoc
-             */
-            ListContainer.prototype.begin = function () {
-                return this.begin_;
+            _ArrayIterator.prototype.source = function () {
+                return null;
             };
-            /**
-             * @inheritdoc
-             */
-            ListContainer.prototype.end = function () {
-                return this.end_;
+            _ArrayIterator.prototype.index = function () {
+                return this.index_;
             };
-            /**
-             * @inheritdoc
-             */
-            ListContainer.prototype.size = function () {
-                return this.size_;
-            };
-            /**
-             * @inheritdoc
-             */
-            ListContainer.prototype.front = function () {
-                return this.begin_.value;
-            };
-            /**
-             * @inheritdoc
-             */
-            ListContainer.prototype.back = function () {
-                return this.end_.prev().value;
-            };
-            /* =========================================================
-                ELEMENTS I/O
-                    - PUSH & POP
-                    - INSERT
-                    - ERASE
-                    - POST-PROCESS
-            ============================================================
-                PUSH & POP
+            Object.defineProperty(_ArrayIterator.prototype, "value", {
+                get: function () {
+                    return this.data_[this.index_];
+                },
+                enumerable: true,
+                configurable: true
+            });
+            /* ---------------------------------------------------------
+                MOVERS
             --------------------------------------------------------- */
-            /**
-             * @inheritdoc
-             */
-            ListContainer.prototype.push_front = function (val) {
-                this.insert(this.begin_, val);
+            _ArrayIterator.prototype.prev = function () {
+                this.index_--;
+                return this;
             };
-            /**
-             * @inheritdoc
-             */
-            ListContainer.prototype.push_back = function (val) {
-                this.insert(this.end_, val);
+            _ArrayIterator.prototype.next = function () {
+                this.index_++;
+                return this;
             };
-            /**
-             * @inheritdoc
-             */
-            ListContainer.prototype.pop_front = function () {
-                this.erase(this.begin_);
-            };
-            /**
-             * @inheritdoc
-             */
-            ListContainer.prototype.pop_back = function () {
-                this.erase(this.end_.prev());
+            _ArrayIterator.prototype.advance = function (n) {
+                this.index_ += n;
+                return this;
             };
             /* ---------------------------------------------------------
-                INSERT
+                COMPARES
             --------------------------------------------------------- */
-            /**
-             * @inheritdoc
-             */
-            ListContainer.prototype.push = function () {
-                var items = [];
-                for (var _i = 0; _i < arguments.length; _i++) {
-                    items[_i] = arguments[_i];
-                }
-                var prev = this.end().prev();
-                var first = null;
-                for (var i = 0; i < items.length; i++) {
-                    // CONSTRUCT ITEM, THE NEW ELEMENT
-                    var item = this._Create_iterator(prev, null, items[i]);
-                    if (i == 0)
-                        first = item;
-                    prev.next_ = (item);
-                    prev = item;
-                }
-                // IF WAS EMPTY, VAL IS THE BEGIN
-                if (this.empty() == true || first.prev().equals(this.end()) == true)
-                    this._Set_begin(first);
-                // CONNECT BETWEEN LAST INSERTED ITEM AND POSITION
-                prev.next_ = (this.end_);
-                this.end_.prev_ = (prev);
-                this.size_ += items.length;
-                return this.size();
+            _ArrayIterator.prototype.equals = function (obj) {
+                return this.data_ == obj.data_ && this.index_ == obj.index_;
             };
-            ListContainer.prototype.insert = function () {
-                var args = [];
-                for (var _i = 0; _i < arguments.length; _i++) {
-                    args[_i] = arguments[_i];
-                }
-                var ret;
-                // BRANCHES
-                if (args.length == 2)
-                    ret = this._Insert_by_val(args[0], args[1]);
-                else if (args.length == 3 && typeof args[1] == "number")
-                    ret = this._Insert_by_repeating_val(args[0], args[1], args[2]);
-                else
-                    ret = this._Insert_by_range(args[0], args[1], args[2]);
-                // RETURNS
-                return ret;
+            _ArrayIterator.prototype.swap = function (obj) {
+                _a = [obj.data_, this.data_], this.data_ = _a[0], obj.data_ = _a[1];
+                _b = [obj.index_, this.index_], this.index_ = _b[0], obj.index_ = _b[1];
+                var _a, _b;
             };
-            /**
-             * @hidden
-             */
-            ListContainer.prototype._Insert_by_val = function (position, val) {
-                // SHIFT TO INSERT OF THE REPEATING VAL
-                return this._Insert_by_repeating_val(position, 1, val);
-            };
-            /**
-             * @hidden
-             */
-            ListContainer.prototype._Insert_by_repeating_val = function (position, size, val) {
-                // INVALID ITERATOR
-                if (this != position.source_)
-                    throw new std.InvalidArgument("Parametric iterator is not this container's own.");
-                var prev = position.prev();
-                var first = null;
-                for (var i = 0; i < size; i++) {
-                    // CONSTRUCT ITEM, THE NEW ELEMENT
-                    var item = this._Create_iterator(prev, null, val);
-                    if (i == 0)
-                        first = item;
-                    prev.next_ = (item);
-                    // SHIFT ITEM LEFT TO BE PREV
-                    prev = item;
-                }
-                // IF WAS EMPTY, VAL IS THE BEGIN
-                if (this.empty() == true || first.prev().equals(this.end()) == true)
-                    this._Set_begin(first);
-                // CONNECT BETWEEN LAST INSERTED ITEM AND POSITION
-                prev.next_ = (position);
-                position.prev_ = (prev);
-                this.size_ += size;
-                return first;
-            };
-            /**
-             * @hidden
-             */
-            ListContainer.prototype._Insert_by_range = function (position, begin, end) {
-                // INVALID ITERATOR
-                if (this != position.source_)
-                    throw new std.InvalidArgument("Parametric iterator is not this container's own.");
-                var prev = position.prev();
-                var first = null;
-                var size = 0;
-                for (var it = begin; it.equals(end) == false; it = it.next()) {
-                    // CONSTRUCT ITEM, THE NEW ELEMENT
-                    var item = this._Create_iterator(prev, null, it.value);
-                    if (size == 0)
-                        first = item;
-                    if (prev != null)
-                        prev.next_ = (item);
-                    // SHIFT CURRENT ITEM TO PREVIOUS
-                    prev = item;
-                    size++;
-                }
-                // IF WAS EMPTY, FIRST ELEMENT IS THE BEGIN
-                if (this.empty() == true)
-                    this._Set_begin(first);
-                // CONNECT BETWEEN LAST AND POSITION
-                prev.next_ = (position);
-                position.prev_ = (prev);
-                this.size_ += size;
-                return first;
-            };
-            ListContainer.prototype.erase = function (first, last) {
-                if (last === void 0) { last = first.next(); }
-                return this._Erase_by_range(first, last);
-            };
-            /**
-             * @hidden
-             */
-            ListContainer.prototype._Erase_by_range = function (first, last) {
-                // FIND PREV AND NEXT
-                var prev = first.prev();
-                // CALCULATE THE SIZE
-                var size = std.distance(first, last);
-                // SHRINK
-                prev.next_ = (last);
-                last.prev_ = (prev);
-                this.size_ -= size;
-                if (first == this.begin_)
-                    this._Set_begin(last);
-                return last;
-            };
-            ListContainer.prototype.swap = function (obj) {
-                if (obj instanceof ListContainer) {
-                    _a = [obj.begin_, this.begin_], this.begin_ = _a[0], obj.begin_ = _a[1];
-                    _b = [obj.end_, this.end_], this.end_ = _b[0], obj.end_ = _b[1];
-                    _c = [obj.size_, this.size_], this.size_ = _c[0], obj.size_ = _c[1];
-                }
-                else
-                    _super.prototype.swap.call(this, obj);
-                var _a, _b, _c;
-            };
-            return ListContainer;
-        }(base.Container));
-        base.ListContainer = ListContainer;
+            return _ArrayIterator;
+        }(std.Iterator));
+        base._ArrayIterator = _ArrayIterator;
     })(base = std.base || (std.base = {}));
 })(std || (std = {}));
+/// <reference path="../../Iterator.ts" />
+var std;
 (function (std) {
     var base;
     (function (base) {
         /**
-         * An iterator, node of a List-based container.
-         *
-         * <a href="http://samchon.github.io/tstl/images/design/class_diagram/linear_containers.png" target="_blank">
-         *	<img src="http://samchon.github.io/tstl/images/design/class_diagram/linear_containers.png" style="max-width: 100%" />
-         * </a>
-         *
-         * @author Jeongho Nam <http://samchon.org>
+         * @hidden
          */
-        var ListIteratorBase = (function (_super) {
-            __extends(ListIteratorBase, _super);
-            /**
-             * Initializer Constructor.
-             *
-             * @param source The source {@link Container} to reference.
-             * @param prev A refenrece of previous node ({@link ListIterator iterator}).
-             * @param next A refenrece of next node ({@link ListIterator iterator}).
-             * @param value Value to be stored in the node (iterator).
-             */
-            function ListIteratorBase(source, prev, next, value) {
-                var _this = _super.call(this, source) || this;
-                _this.prev_ = prev;
-                _this.next_ = next;
+        var _Repeater = (function (_super) {
+            __extends(_Repeater, _super);
+            /* ---------------------------------------------------------
+                CONSTRUCTORS
+            --------------------------------------------------------- */
+            function _Repeater(index, value) {
+                if (value === void 0) { value = null; }
+                var _this = _super.call(this, null) || this;
+                _this.index_ = index;
                 _this.value_ = value;
                 return _this;
             }
-            /* ---------------------------------------------------------------
+            /* ---------------------------------------------------------
                 ACCESSORS
-            --------------------------------------------------------------- */
-            /**
-             * @inheritdoc
-             */
-            ListIteratorBase.prototype.prev = function () {
-                return this.prev_;
+            --------------------------------------------------------- */
+            _Repeater.prototype.source = function () {
+                return null;
             };
-            /**
-             * @inheritdoc
-             */
-            ListIteratorBase.prototype.next = function () {
-                return this.next_;
+            _Repeater.prototype.index = function () {
+                return this.index_;
             };
-            /**
-             * @inheritdoc
-             */
-            ListIteratorBase.prototype.advance = function (step) {
-                var it = this;
-                if (step >= 0) {
-                    for (var i = 0; i < step; i++) {
-                        it = it.next();
-                        if (it.equals(this.source_.end()))
-                            return it;
-                    }
-                }
-                else {
-                    for (var i = 0; i < step; i++) {
-                        it = it.prev();
-                        if (it.equals(this.source_.end()))
-                            return it;
-                    }
-                }
-                return it;
-            };
-            Object.defineProperty(ListIteratorBase.prototype, "value", {
-                /**
-                 * @inheritdoc
-                 */
+            Object.defineProperty(_Repeater.prototype, "value", {
                 get: function () {
                     return this.value_;
                 },
                 enumerable: true,
                 configurable: true
             });
-            /* ---------------------------------------------------------------
-                COMPARISON
-            --------------------------------------------------------------- */
-            /**
-             * @inheritdoc
-             */
-            ListIteratorBase.prototype.equals = function (obj) {
-                return this == obj;
+            /* ---------------------------------------------------------
+                MOVERS
+            --------------------------------------------------------- */
+            _Repeater.prototype.prev = function () {
+                this.index_--;
+                return this;
             };
-            /**
-             * @inheritdoc
-             */
-            ListIteratorBase.prototype.swap = function (obj) {
-                var source = this.source_;
-                var supp_prev = this.prev_;
-                var supp_next = this.next_;
-                this.prev_ = obj.prev_;
-                this.next_ = obj.next_;
-                obj.prev_ = supp_prev;
-                obj.next_ = supp_next;
-                if (source.end() == this)
-                    source.end_ = obj;
-                else if (source.end() == obj)
-                    source.end_ = this;
-                if (source.begin() == this)
-                    source.begin_ = obj;
-                else if (source.begin() == obj)
-                    source.begin_ = this;
+            _Repeater.prototype.next = function () {
+                this.index_++;
+                return this;
             };
-            return ListIteratorBase;
+            _Repeater.prototype.advance = function (n) {
+                this.index_ += n;
+                return this;
+            };
+            /* ---------------------------------------------------------
+                COMPARES
+            --------------------------------------------------------- */
+            _Repeater.prototype.equals = function (obj) {
+                return this.index_ == obj.index_;
+            };
+            _Repeater.prototype.swap = function (obj) {
+                _a = [obj.index_, this.index_], this.index_ = _a[0], obj.index_ = _a[1];
+                var _a;
+            };
+            return _Repeater;
         }(std.Iterator));
-        base.ListIteratorBase = ListIteratorBase;
+        base._Repeater = _Repeater;
     })(base = std.base || (std.base = {}));
 })(std || (std = {}));
 /// <reference path="../API.ts" />
-/// <reference path="ListContainer.ts" />
+/// <reference path="_ListContainer.ts" />
 var std;
 (function (std) {
     var base;
     (function (base) {
         /**
-         * <p> An abstract map. </p>
+         * An abstract map.
          *
-         * <p> {@link MapContainer MapContainers} are associative containers that store elements formed by a combination
+         * {@link MapContainer MapContainers} are associative containers that store elements formed by a combination
          * of a <i>key value</i> (<i>Key</i>) and a <i>mapped value</i> (<i>T</i>), and which allows for fast retrieval
-         * of individual elements based on their keys. </p>
+         * of individual elements based on their keys.
          *
-         * <p> In a {@link MapContainer}, the <i>key values</i> are generally used to identify the elements, while the
+         * In a {@link MapContainer}, the <i>key values</i> are generally used to identify the elements, while the
          * <i>mapped values</i> store the content associated to this key. The types of <i>key</i> and
          * <i>mapped value</i> may differ, and are grouped together in member type <i>value_type</i>, which is a
-         * {@link Pair} type combining both: </p>
+         * {@link Pair} type combining both:
          *
-         * <p> <code>typedef pair<const Key, T> value_type;</code> </p>
+         * <code>typedef pair<const Key, T> value_type;</code>
          *
-         * <p> {@link MapContainer} stores elements, keeps sequence and enables indexing by inserting elements into a
+         * {@link MapContainer} stores elements, keeps sequence and enables indexing by inserting elements into a
          * {@link List} and registering {@link ListIterator iterators} of the {@link data_ list container} to an index
-         * table like {@link RBTree tree} or {@link HashBuckets hash-table}. </p>
+         * table like {@link RBTree tree} or {@link HashBuckets hash-table}.
          *
-         * <p> <a href="http://samchon.github.io/tstl/images/design/class_diagram" target="_blank">
-         * <img src="http://samchon.github.io/tstl/images/design/class_diagram" style="max-width: 100%" /></a> </p>
+         * <a href="http://samchon.github.io/tstl/images/design/class_diagram" target="_blank">
+         * <img src="http://samchon.github.io/tstl/images/design/class_diagram" style="max-width: 100%" /></a>
          *
-         * <h3> Container properties </h3>
+         * ### Container properties
          * <dl>
          *	<dt> Associative </dt>
          *	<dd>
@@ -2950,7 +3021,7 @@ var std;
              */
             function MapContainer() {
                 var _this = _super.call(this) || this;
-                _this.data_ = new MapElementList(_this);
+                _this.data_ = new _MapElementList(_this);
                 return _this;
             }
             /**
@@ -2969,12 +3040,12 @@ var std;
                 this.data_.clear();
             };
             /**
-             * <p> Return iterator to beginning. </p>
+             * Return iterator to beginning.
              *
-             * <p> Returns an iterator referring the first element in the  </p>
+             * Returns an iterator referring the first element in the
              *
-             * <h4> Note </h4>
-             * <p> If the container is {@link empty}, the returned iterator is same with {@link end end()}. </p>
+             * #### Note
+             * If the container is {@link empty}, the returned iterator is same with {@link end end()}.
              *
              * @return An iterator to the first element in the  The iterator containes the first element's value.
              */
@@ -2982,21 +3053,21 @@ var std;
                 return this.data_.begin();
             };
             /**
-             * <p> Return iterator to end. </p>
-             * <p> Returns an iterator referring to the past-the-end element in the  </p>
+             * Return iterator to end.
+             * Returns an iterator referring to the past-the-end element in the
              *
-             * <p> The past-the-end element is the theoretical element that would follow the last element in the
-             *  It does not point to any element, and thus shall not be dereferenced. </p>
+             * The past-the-end element is the theoretical element that would follow the last element in the
+             *  It does not point to any element, and thus shall not be dereferenced.
              *
-             * <p> Because the ranges used by functions of the container do not include the element reference by their
+             * Because the ranges used by functions of the container do not include the element reference by their
              * closing iterator, this function is often used in combination with {@link MapContainer}.{@link begin} to
-             * specify a range including all the elements in the  </p>
+             * specify a range including all the elements in the
              *
-             * <h4> Note </h4>
-             * <p> Returned iterator from {@link MapContainer}.{@link end} does not refer any element. Trying to accessing
-             * element by the iterator will cause throwing exception ({@link OutOfRange}). </p>
+             * #### Note
+             * Returned iterator from {@link MapContainer}.{@link end} does not refer any element. Trying to accessing
+             * element by the iterator will cause throwing exception ({@link OutOfRange}).
              *
-             * <p> If the container is {@link empty}, this function returns the same as {@link begin}. </p>
+             * If the container is {@link empty}, this function returns the same as {@link begin}.
              *
              * @return An iterator to the end element in the
              */
@@ -3004,16 +3075,16 @@ var std;
                 return this.data_.end();
             };
             /**
-             * <p> Return {@link MapReverseIterator reverse iterator} to <i>reverse beginning</i>. </p>
+             * Return {@link MapReverseIterator reverse iterator} to <i>reverse beginning</i>.
              *
-             * <p> Returns a {@link MapReverseIterator reverse iterator} pointing to the last element in the container
-             * (i.e., its <i>reverse beginning</i>). </p>
+             * Returns a {@link MapReverseIterator reverse iterator} pointing to the last element in the container
+             * (i.e., its <i>reverse beginning</i>).
              *
              * {@link MapReverseIterator Reverse iterators} iterate backwards: increasing them moves them towards the
-             * beginning of the container. </p>
+             * beginning of the container.
              *
-             * <p> {@link rbegin} points to the element preceding the one that would be pointed to by member {@link end}.
-             * </p>7
+             * {@link rbegin} points to the element preceding the one that would be pointed to by member {@link end}.
+             *7
              *
              * @return A {@link MapReverseIterator reverse iterator} to the <i>reverse beginning</i> of the sequence
              *
@@ -3022,14 +3093,14 @@ var std;
                 return this.data_.rbegin();
             };
             /**
-             * <p> Return {@link MapReverseIterator reverse iterator} to <i>reverse end</i>. </p>
+             * Return {@link MapReverseIterator reverse iterator} to <i>reverse end</i>.
              *
-             * <p> Returns a {@link MapReverseIterator reverse iterator} pointing to the theoretical element right before
+             * Returns a {@link MapReverseIterator reverse iterator} pointing to the theoretical element right before
              * the first element in the {@link MapContainer map container} (which is considered its <i>reverse end</i>).
-             * </p>
              *
-             * <p> The range between {@link MapContainer}.{@link rbegin} and {@link MapContainer}.{@link rend} contains
-             * all the elements of the container (in reverse order). </p>
+             *
+             * The range between {@link MapContainer}.{@link rbegin} and {@link MapContainer}.{@link rend} contains
+             * all the elements of the container (in reverse order).
              *
              * @return A {@link MapReverseIterator reverse iterator} to the <i>reverse end</i> of the sequence
              */
@@ -3040,9 +3111,9 @@ var std;
                 ELEMENTS
             --------------------------------------------------------- */
             /**
-             * <p> Whether have the item or not. </p>
+             * Whether have the item or not.
              *
-             * <p> Indicates whether a map has an item having the specified identifier. </p>
+             * Indicates whether a map has an item having the specified identifier.
              *
              * @param key Key value of the element whose mapped value is accessed.
              *
@@ -3058,16 +3129,25 @@ var std;
                 return this.data_.size();
             };
             MapContainer.prototype.push = function () {
-                var args = [];
+                var items = [];
                 for (var _i = 0; _i < arguments.length; _i++) {
-                    args[_i] = arguments[_i];
+                    items[_i] = arguments[_i];
                 }
-                // TO BE ABSTRACT
-                for (var i = 0; i < args.length; i++)
-                    if (args[i] instanceof std.Pair)
-                        this._Insert_by_pair(args[i]);
-                    else if (args[i] instanceof Array)
-                        this._Insert_by_tuple(args[i]);
+                // CONVERT ALL ITEMS TO PAIR
+                var elements = [];
+                for (var i = 0; i < items.length; i++) {
+                    var elem = void 0;
+                    if (items[i] instanceof Array)
+                        elem = std.make_pair(items[i][0], items[i][1]);
+                    else
+                        elem = items[i];
+                    elements.push(elem);
+                }
+                // INSERT BY RANGE
+                var first = new base._ArrayIterator(elements, 0);
+                var last = new base._ArrayIterator(elements, elements.length);
+                this.insert(first, last);
+                // RETURN SIZE
                 return this.size();
             };
             MapContainer.prototype.emplace_hint = function (hint) {
@@ -3197,40 +3277,40 @@ var std;
         /**
          * @hidden
          */
-        var MapElementList = (function (_super) {
-            __extends(MapElementList, _super);
-            function MapElementList(associative) {
+        var _MapElementList = (function (_super) {
+            __extends(_MapElementList, _super);
+            function _MapElementList(associative) {
                 var _this = _super.call(this) || this;
                 _this.associative_ = associative;
                 return _this;
             }
-            MapElementList.prototype._Create_iterator = function (prev, next, val) {
+            _MapElementList.prototype._Create_iterator = function (prev, next, val) {
                 return new std.MapIterator(this, prev, next, val);
             };
-            MapElementList.prototype._Set_begin = function (it) {
+            _MapElementList.prototype._Set_begin = function (it) {
                 _super.prototype._Set_begin.call(this, it);
                 this.rend_ = new std.MapReverseIterator(it);
             };
-            MapElementList.prototype.get_associative = function () {
+            _MapElementList.prototype.associative = function () {
                 return this.associative_;
             };
-            MapElementList.prototype.rbegin = function () {
+            _MapElementList.prototype.rbegin = function () {
                 return new std.MapReverseIterator(this.end());
             };
-            MapElementList.prototype.rend = function () {
+            _MapElementList.prototype.rend = function () {
                 return this.rend_;
             };
-            return MapElementList;
-        }(base.ListContainer));
-        base.MapElementList = MapElementList;
+            return _MapElementList;
+        }(base._ListContainer));
+        base._MapElementList = _MapElementList;
     })(base = std.base || (std.base = {}));
 })(std || (std = {}));
 (function (std) {
     /**
-     * <p> An iterator of {@link MapContainer map container}. </p>
+     * An iterator of {@link MapContainer map container}.
      *
-     * <p> <a href="http://samchon.github.io/tstl/images/design/class_diagram" target="_blank">
-     * <img src="http://samchon.github.io/tstl/images/design/class_diagram" style="max-width: 100%" /></a> </p>
+     * <a href="http://samchon.github.io/tstl/images/design/class_diagram" target="_blank">
+     * <img src="http://samchon.github.io/tstl/images/design/class_diagram" style="max-width: 100%" /></a>
      *
      * @author Jeongho Nam <http://samchon.org>
      */
@@ -3279,7 +3359,7 @@ var std;
          * @hidden
          */
         MapIterator.prototype.source = function () {
-            return _super.prototype.source.call(this).get_associative();
+            return this.source_.associative();
         };
         Object.defineProperty(MapIterator.prototype, "first", {
             /**
@@ -3335,13 +3415,13 @@ var std;
             _super.prototype.swap.call(this, obj);
         };
         return MapIterator;
-    }(std.base.ListIteratorBase));
+    }(std.base._ListIteratorBase));
     std.MapIterator = MapIterator;
     /**
-     * <p> A reverse-iterator of {@link MapContainer map container}. </p>
+     * A reverse-iterator of {@link MapContainer map container}.
      *
-     * <p> <a href="http://samchon.github.io/tstl/images/design/class_diagram" target="_blank">
-     * <img src="http://samchon.github.io/tstl/images/design/class_diagram" style="max-width: 100%" /></a> </p>
+     * <a href="http://samchon.github.io/tstl/images/design/class_diagram" target="_blank">
+     * <img src="http://samchon.github.io/tstl/images/design/class_diagram" style="max-width: 100%" /></a>
      *
      * @author Jeongho Nam <http://samchon.org>
      */
@@ -3404,27 +3484,27 @@ var std;
     var base;
     (function (base) {
         /**
-         * <p> An abstract multi-map. </p>
+         * An abstract multi-map.
          *
-         * <p> {@link MultiMap MultiMaps} are associative containers that store elements formed by a combination of a
+         * {@link MultiMap MultiMaps} are associative containers that store elements formed by a combination of a
          * <i>key value</i> (<i>Key</i>) and a <i>mapped value</i> (<i>T</i>), and which allows for fast retrieval of
-         * individual elements based on their keys. </p>
+         * individual elements based on their keys.
          *
-         * <p> In a {@link MapContainer}, the <i>key values</i> are generally used to identify the elements, while the
+         * In a {@link MapContainer}, the <i>key values</i> are generally used to identify the elements, while the
          * <i>mapped values</i> store the content associated to this <i>key</i>. The types of <i>key</i> and
          * <i>mapped value</i> may differ, and are grouped together in member type <i>value_type</i>, which is a
-         * {@link Pair} type combining both: </p>
+         * {@link Pair} type combining both:
          *
-         * <p> <code>typedef pair<const Key, T> value_type;</code> </p>
+         * <code>typedef pair<const Key, T> value_type;</code>
          *
-         * <p> {@link UniqueMap} stores elements, keeps sequence and enables indexing by inserting elements into a
+         * {@link UniqueMap} stores elements, keeps sequence and enables indexing by inserting elements into a
          * {@link List} and registering {@link ListIterator iterators} of the {@link data_ list container} to an index
-         * table like {@link RBTree tree} or {@link HashBuckets hash-table}. </p>
+         * table like {@link RBTree tree} or {@link HashBuckets hash-table}.
          *
-         * <p> <a href="http://samchon.github.io/tstl/images/design/class_diagram/map_containers.png" target="_blank">
-         * <img src="http://samchon.github.io/tstl/images/design/class_diagram/map_containers.png" style="max-width: 100%" /></a> </p>
+         * <a href="http://samchon.github.io/tstl/images/design/class_diagram/map_containers.png" target="_blank">
+         * <img src="http://samchon.github.io/tstl/images/design/class_diagram/map_containers.png" style="max-width: 100%" /></a>
          *
-         * <h3> Container properties </h3>
+         * ### Container properties
          * <dl>
          *	<dt> Associative </dt>
          *	<dd>
@@ -3450,7 +3530,7 @@ var std;
         var MultiMap = (function (_super) {
             __extends(MultiMap, _super);
             function MultiMap() {
-                return _super.apply(this, arguments) || this;
+                return _super !== null && _super.apply(this, arguments) || this;
             }
             MultiMap.prototype.emplace = function () {
                 var args = [];
@@ -3485,29 +3565,29 @@ var std;
     })(base = std.base || (std.base = {}));
 })(std || (std = {}));
 /// <reference path="../API.ts" />
-/// <reference path="ListContainer.ts" />
+/// <reference path="_ListContainer.ts" />
 var std;
 (function (std) {
     var base;
     (function (base) {
         /**
-         * <p> An abstract set. </p>
+         * An abstract set.
          *
-         * <p> {@link SetContainer SetContainers} are containers that store elements allowing fast retrieval of
-         * individual elements based on their value. </p>
+         * {@link SetContainer SetContainers} are containers that store elements allowing fast retrieval of
+         * individual elements based on their value.
          *
-         * <p> In an {@link SetContainer}, the value of an element is at the same time its <i>key</i>, used to
+         * In an {@link SetContainer}, the value of an element is at the same time its <i>key</i>, used to
          * identify it. <i>Keys</i> are immutable, therefore, the elements in an {@link SetContainer} cannot be
-         * modified once in the container - they can be inserted and removed, though. </p>
+         * modified once in the container - they can be inserted and removed, though.
          *
-         * <p> {@link SetContainer} stores elements, keeps sequence and enables indexing by inserting elements into a
+         * {@link SetContainer} stores elements, keeps sequence and enables indexing by inserting elements into a
          * {@link List} and registering {@link ListIterator iterators} of the {@link data_ list container} to an index
-         * table like {@link RBTree tree} or {@link HashBuckets hash-table}. </p>
+         * table like {@link RBTree tree} or {@link HashBuckets hash-table}.
          *
-         * <p> <a href="http://samchon.github.io/tstl/images/class_diagram/set_containers.png" target="_blank">
-         * <img src="http://samchon.github.io/tstl/images/class_diagram/set_containers.png" style="max-width: 100%" /></a> </p>
+         * <a href="http://samchon.github.io/tstl/images/class_diagram/set_containers.png" target="_blank">
+         * <img src="http://samchon.github.io/tstl/images/class_diagram/set_containers.png" style="max-width: 100%" /></a>
          *
-         * <h3> Container properties </h3>
+         * ### Container properties
          * <dl>
          *	<dt> Associative </dt>
          *	<dd>
@@ -3534,7 +3614,7 @@ var std;
              */
             function SetContainer() {
                 var _this = _super.call(this) || this;
-                _this.data_ = new SetElementList(_this);
+                _this.data_ = new _SetElementList(_this);
                 return _this;
             }
             /**
@@ -3580,9 +3660,9 @@ var std;
                 ELEMENTS
             --------------------------------------------------------- */
             /**
-             * <p> Whether have the item or not. </p>
+             * Whether have the item or not.
              *
-             * <p> Indicates whether a set has an item having the specified identifier. </p>
+             * Indicates whether a set has an item having the specified identifier.
              *
              * @param key Key value of the element whose mapped value is accessed.
              *
@@ -3617,13 +3697,17 @@ var std;
              * @inheritdoc
              */
             SetContainer.prototype.push = function () {
-                var args = [];
+                var items = [];
                 for (var _i = 0; _i < arguments.length; _i++) {
-                    args[_i] = arguments[_i];
+                    items[_i] = arguments[_i];
                 }
-                // TO BE ABSTRACT
-                for (var i = 0; i < args.length; i++)
-                    this._Insert_by_val(args[i]);
+                if (items.length == 0)
+                    return this.size();
+                // INSERT BY RANGE
+                var first = new base._ArrayIterator(items, 0);
+                var last = new base._ArrayIterator(items, items.length);
+                this._Insert_by_range(first, last);
+                // RETURN SIZE
                 return this.size();
             };
             SetContainer.prototype.insert = function () {
@@ -3730,40 +3814,40 @@ var std;
         /**
          * @hidden
          */
-        var SetElementList = (function (_super) {
-            __extends(SetElementList, _super);
-            function SetElementList(associative) {
+        var _SetElementList = (function (_super) {
+            __extends(_SetElementList, _super);
+            function _SetElementList(associative) {
                 var _this = _super.call(this) || this;
                 _this.associative_ = associative;
                 return _this;
             }
-            SetElementList.prototype._Create_iterator = function (prev, next, val) {
+            _SetElementList.prototype._Create_iterator = function (prev, next, val) {
                 return new std.SetIterator(this, prev, next, val);
             };
-            SetElementList.prototype._Set_begin = function (it) {
+            _SetElementList.prototype._Set_begin = function (it) {
                 _super.prototype._Set_begin.call(this, it);
                 this.rend_ = new std.SetReverseIterator(it);
             };
-            SetElementList.prototype.get_associative = function () {
+            _SetElementList.prototype.associative = function () {
                 return this.associative_;
             };
-            SetElementList.prototype.rbegin = function () {
+            _SetElementList.prototype.rbegin = function () {
                 return new std.SetReverseIterator(this.end());
             };
-            SetElementList.prototype.rend = function () {
+            _SetElementList.prototype.rend = function () {
                 return this.rend_;
             };
-            return SetElementList;
-        }(base.ListContainer));
-        base.SetElementList = SetElementList;
+            return _SetElementList;
+        }(base._ListContainer));
+        base._SetElementList = _SetElementList;
     })(base = std.base || (std.base = {}));
 })(std || (std = {}));
 (function (std) {
     /**
-     * <p> An iterator of a Set. </p>
+     * An iterator of a Set.
      *
-     * <p> <a href="http://samchon.github.io/tstl/images/class_diagram/set_containers.png" target="_blank">
-     * <img src="http://samchon.github.io/tstl/images/class_diagram/set_containers.png" style="max-width: 100%" /></a> </p>
+     * <a href="http://samchon.github.io/tstl/images/class_diagram/set_containers.png" target="_blank">
+     * <img src="http://samchon.github.io/tstl/images/class_diagram/set_containers.png" style="max-width: 100%" /></a>
      *
      * @author Jeongho Nam <http://samchon.org>
      */
@@ -3773,11 +3857,12 @@ var std;
             CONSTRUCTORS
         --------------------------------------------------------- */
         /**
-         * <p> Construct from source and index number. </p>
+         * Construct from source and index number.
          *
-         * <h4> Note </h4>
-         * <p> Do not create iterator directly. </p>
-         * <p> Use begin(), find() or end() in Map instead. </p>
+         * #### Note
+         * Do not create iterator directly.
+         *
+         * Use begin(), find() or end() in Map instead.
          *
          * @param map The source Set to reference.
          * @param index Sequence number of the element in the source Set.
@@ -3792,7 +3877,7 @@ var std;
          * @inheritdoc
          */
         SetIterator.prototype.source = function () {
-            return _super.prototype.source.call(this).get_associative();
+            return this.source_.associative();
         };
         /**
          * @inheritdoc
@@ -3840,13 +3925,13 @@ var std;
             _super.prototype.swap.call(this, obj);
         };
         return SetIterator;
-    }(std.base.ListIteratorBase));
+    }(std.base._ListIteratorBase));
     std.SetIterator = SetIterator;
     /**
-     * <p> A reverse-iterator of Set. </p>
+     * A reverse-iterator of Set.
      *
-     * <p> <a href="http://samchon.github.io/tstl/images/class_diagram/set_containers.png" target="_blank">
-     * <img src="http://samchon.github.io/tstl/images/class_diagram/set_containers.png" style="max-width: 100%" /></a> </p>
+     * <a href="http://samchon.github.io/tstl/images/class_diagram/set_containers.png" target="_blank">
+     * <img src="http://samchon.github.io/tstl/images/class_diagram/set_containers.png" style="max-width: 100%" /></a>
      *
      * @param <T> Type of the elements.
      *
@@ -3882,23 +3967,23 @@ var std;
     var base;
     (function (base) {
         /**
-         * <p> An abstract set. </p>
+         * An abstract set.
          *
-         * <p> {@link SetContainer SetContainers} are containers that store elements allowing fast retrieval of
-         * individual elements based on their value. </p>
+         * {@link SetContainer SetContainers} are containers that store elements allowing fast retrieval of
+         * individual elements based on their value.
          *
-         * <p> In an {@link SetContainer}, the value of an element is at the same time its <i>key</i>, used to
+         * In an {@link SetContainer}, the value of an element is at the same time its <i>key</i>, used to
          * identify it. <i>Keys</i> are immutable, therefore, the elements in an {@link SetContainer} cannot be
-         * modified once in the container - they can be inserted and removed, though. </p>
+         * modified once in the container - they can be inserted and removed, though.
          *
-         * <p> {@link SetContainer} stores elements, keeps sequence and enables indexing by inserting elements into a
+         * {@link SetContainer} stores elements, keeps sequence and enables indexing by inserting elements into a
          * {@link List} and registering {@link ListIterator iterators} of the {@link data_ list container} to an index
-         * table like {@link RBTree tree} or {@link HashBuckets hash-table}. </p>
+         * table like {@link RBTree tree} or {@link HashBuckets hash-table}.
          *
-         * <p> <a href="http://samchon.github.io/tstl/images/design/class_diagram/set_containers.png" target="_blank">
-         * <img src="http://samchon.github.io/tstl/images/design/class_diagram/set_containers.png" style="max-width: 100%" /></a> </p>
+         * <a href="http://samchon.github.io/tstl/images/design/class_diagram/set_containers.png" target="_blank">
+         * <img src="http://samchon.github.io/tstl/images/design/class_diagram/set_containers.png" style="max-width: 100%" /></a>
          *
-         * <h3> Container properties </h3>
+         * ### Container properties
          * <dl>
          *	<dt> Associative </dt>
          *	<dd>
@@ -3921,7 +4006,7 @@ var std;
         var MultiSet = (function (_super) {
             __extends(MultiSet, _super);
             function MultiSet() {
-                return _super.apply(this, arguments) || this;
+                return _super !== null && _super.apply(this, arguments) || this;
             }
             MultiSet.prototype.insert = function () {
                 var args = [];
@@ -4241,7 +4326,7 @@ var std;
                 return _this;
             }
             _MapTree.prototype.find = function (val) {
-                if (val instanceof std.MapIterator && val.first instanceof std.SetIterator == false)
+                if (val instanceof std.MapIterator && val.first instanceof std.MapIterator == false)
                     return _super.prototype.find.call(this, val);
                 else
                     return this._Find_by_key(val);
@@ -4475,27 +4560,27 @@ var std;
     var base;
     (function (base) {
         /**
-         * <p> An abstract unique-map. </p>
+         * An abstract unique-map.
          *
-         * <p> {@link UniqueMap UniqueMaps} are associative containers that store elements formed by a combination of a
+         * {@link UniqueMap UniqueMaps} are associative containers that store elements formed by a combination of a
          * <i>key value</i> (<i>Key</i>) and a <i>mapped value</i> (<i>T</i>), and which allows for fast retrieval of
-         * individual elements based on their keys. </p>
+         * individual elements based on their keys.
          *
-         * <p> In a {@link MapContainer}, the <i>key values</i> are generally used to uniquely identify the elements,
+         * In a {@link MapContainer}, the <i>key values</i> are generally used to uniquely identify the elements,
          * while the <i>mapped values</i> store the content associated to this key. The types of <i>key</i> and
          * <i>mapped value</i> may differ, and are grouped together in member type <i>value_type</i>, which is a
-         * {@link Pair} type combining both: </p>
+         * {@link Pair} type combining both:
          *
-         * <p> <code>typedef pair<const Key, T> value_type;</code> </p>
+         * <code>typedef pair<const Key, T> value_type;</code>
          *
-         * <p> {@link UniqueMap} stores elements, keeps sequence and enables indexing by inserting elements into a
+         * {@link UniqueMap} stores elements, keeps sequence and enables indexing by inserting elements into a
          * {@link List} and registering {@link ListIterator iterators} of the {@link data_ list container} to an index
-         * table like {@link RBTree tree} or {@link HashBuckets hash-table}. </p>
+         * table like {@link RBTree tree} or {@link HashBuckets hash-table}.
          *
-         * <p> <a href="http://samchon.github.io/tstl/images/design/class_diagram" target="_blank">
-         * <img src="http://samchon.github.io/tstl/images/design/class_diagram" style="max-width: 100%" /></a> </p>
+         * <a href="http://samchon.github.io/tstl/images/design/class_diagram" target="_blank">
+         * <img src="http://samchon.github.io/tstl/images/design/class_diagram" style="max-width: 100%" /></a>
          *
-         * <h3> Container properties </h3>
+         * ### Container properties
          * <dl>
          *	<dt> Associative </dt>
          *	<dd>
@@ -4521,7 +4606,7 @@ var std;
         var UniqueMap = (function (_super) {
             __extends(UniqueMap, _super);
             function UniqueMap() {
-                return _super.apply(this, arguments) || this;
+                return _super !== null && _super.apply(this, arguments) || this;
             }
             /* ---------------------------------------------------------
                 ACCESSORS
@@ -4533,9 +4618,9 @@ var std;
                 return this.find(key).equals(this.end()) ? 0 : 1;
             };
             /**
-             * <p> Get an element </p>
+             * Get an element
              *
-             * <p> Returns a reference to the mapped value of the element identified with <i>key</i>. </p>
+             * Returns a reference to the mapped value of the element identified with <i>key</i>.
              *
              * @param key Key value of the element whose mapped value is accessed.
              *
@@ -4550,10 +4635,10 @@ var std;
                 return it.second;
             };
             /**
-             * <p> Set an item as the specified identifier. </p>
+             * Set an item as the specified identifier.
              *
-             * <p>If the identifier is already in map, change value of the identifier. If not, then insert the object
-             * with the identifier. </p>
+             * If the identifier is already in map, change value of the identifier. If not, then insert the object
+             * with the identifier.
              *
              * @param key Key value of the element whose mapped value is accessed.
              * @param val Value, the item.
@@ -4691,23 +4776,23 @@ var std;
     var base;
     (function (base) {
         /**
-         * <p> An abstract set. </p>
+         * An abstract set.
          *
-         * <p> {@link SetContainer SetContainers} are containers that store elements allowing fast retrieval of
-         * individual elements based on their value. </p>
+         * {@link SetContainer SetContainers} are containers that store elements allowing fast retrieval of
+         * individual elements based on their value.
          *
-         * <p> In an {@link SetContainer}, the value of an element is at the same time its <i>key</i>, used to uniquely
+         * In an {@link SetContainer}, the value of an element is at the same time its <i>key</i>, used to uniquely
          * identify it. <i>Keys</i> are immutable, therefore, the elements in an {@link SetContainer} cannot be modified
-         * once in the container - they can be inserted and removed, though. </p>
+         * once in the container - they can be inserted and removed, though.
          *
-         * <p> {@link SetContainer} stores elements, keeps sequence and enables indexing by inserting elements into a
+         * {@link SetContainer} stores elements, keeps sequence and enables indexing by inserting elements into a
          * {@link List} and registering {@link ListIterator iterators} of the {@link data_ list container} to an index
-         * table like {@link RBTree tree} or {@link HashBuckets hash-table}. </p>
+         * table like {@link RBTree tree} or {@link HashBuckets hash-table}.
          *
-         * <p> <a href="http://samchon.github.io/tstl/images/class_diagram/set_containers.png" target="_blank">
-         * <img src="http://samchon.github.io/tstl/images/class_diagram/set_containers.png" style="max-width: 100%" /></a> </p>
+         * <a href="http://samchon.github.io/tstl/images/class_diagram/set_containers.png" target="_blank">
+         * <img src="http://samchon.github.io/tstl/images/class_diagram/set_containers.png" style="max-width: 100%" /></a>
          *
-         * <h3> Container properties </h3>
+         * ### Container properties
          * <dl>
          *	<dt> Associative </dt>
          *	<dd>
@@ -4730,7 +4815,7 @@ var std;
         var UniqueSet = (function (_super) {
             __extends(UniqueSet, _super);
             function UniqueSet() {
-                return _super.apply(this, arguments) || this;
+                return _super !== null && _super.apply(this, arguments) || this;
             }
             /* ---------------------------------------------------------
                 ACCESSOR
@@ -4816,39 +4901,39 @@ var std;
 var std;
 (function (std) {
     /**
-     * <p> Double ended queue. </p>
+     * Double ended queue.
      *
-     * <p> {@link Deque} (usually pronounced like "<i>deck</i>") is an irregular acronym of
+     * {@link Deque} (usually pronounced like "<i>deck</i>") is an irregular acronym of
      * <b>d</b>ouble-<b>e</b>nded <b>q</b>ueue. Double-ended queues are sequence containers with dynamic sizes that can be
-     * expanded or contracted on both ends (either its front or its back). </p>
+     * expanded or contracted on both ends (either its front or its back).
      *
-     * <p> Specific libraries may implement deques in different ways, generally as some form of dynamic array. But in any
+     * Specific libraries may implement deques in different ways, generally as some form of dynamic array. But in any
      * case, they allow for the individual elements to be accessed directly through random access iterators, with storage
-     * handled automatically by expanding and contracting the container as needed. </p>
+     * handled automatically by expanding and contracting the container as needed.
      *
-     * <p> Therefore, they provide a functionality similar to vectors, but with efficient insertion and deletion of
+     * Therefore, they provide a functionality similar to vectors, but with efficient insertion and deletion of
      * elements also at the beginning of the sequence, and not only at its end. But, unlike {@link Vector Vectors},
      * {@link Deque Deques} are not guaranteed to store all its elements in contiguous storage locations: accessing
-     * elements in a <u>deque</u> by offsetting a pointer to another element causes undefined behavior. </p>
+     * elements in a <u>deque</u> by offsetting a pointer to another element causes undefined behavior.
      *
-     * <p> Both {@link Vector}s and {@link Deque}s provide a very similar interface and can be used for similar purposes,
+     * Both {@link Vector}s and {@link Deque}s provide a very similar interface and can be used for similar purposes,
      * but internally both work in quite different ways: While {@link Vector}s use a single array that needs to be
      * occasionally reallocated for growth, the elements of a {@link Deque} can be scattered in different chunks of
      * storage, with the container keeping the necessary information internally to provide direct access to any of its
      * elements in constant time and with a uniform sequential interface (through iterators). Therefore,
      * {@link Deque Deques} are a little more complex internally than {@link Vector}s, but this allows them to grow more
      * efficiently under certain circumstances, especially with very long sequences, where reallocations become more
-     * expensive. </p>
+     * expensive.
      *
-     * <p> For operations that involve frequent insertion or removals of elements at positions other than the beginning or
+     * For operations that involve frequent insertion or removals of elements at positions other than the beginning or
      * the end, {@link Deque Deques} perform worse and have less consistent iterators and references than
-     * {@link List Lists}. </p>
+     * {@link List Lists}.
      *
-     * <p> <a href="http://samchon.github.io/tstl/images/design/class_diagram/linear_containers.png" target="_blank">
+     * <a href="http://samchon.github.io/tstl/images/design/class_diagram/linear_containers.png" target="_blank">
      * <img src="http://samchon.github.io/tstl/images/design/class_diagram/linear_containers.png" style="max-width: 100%" /> </a>
-     * </p>
      *
-     * <h3> Container properties </h3>
+     *
+     * ### Container properties
      * <dl>
      *	<dt> Sequence </dt>
      *	<dd> Elements in sequence containers are ordered in a strict linear sequence. Individual elements
@@ -4883,153 +4968,141 @@ var std;
             }
             if (args.length == 1 && args[0] instanceof Array) {
                 var array = args[0];
-                _this.clear();
-                _this.push.apply(_this, array);
+                var first = new std.base._ArrayIterator(array, 0);
+                var last = new std.base._ArrayIterator(array, array.length);
+                _this.assign(first, last);
             }
             else if (args.length == 1 && args[0] instanceof Deque) {
                 var container = args[0];
                 _this.assign(container.begin(), container.end());
             }
-            else if (args.length == 2 &&
-                args[0] instanceof std.Iterator && args[1] instanceof std.Iterator) {
-                var begin_1 = args[0];
-                var end_1 = args[1];
-                _this.assign(begin_1, end_1);
+            else if (args.length == 2 && args[0] instanceof std.Iterator && args[1] instanceof std.Iterator) {
+                var first = args[0];
+                var last = args[1];
+                _this.assign(first, last);
             }
             return _this;
         }
-        Object.defineProperty(Deque, "ROW", {
-            ///
-            // Row size of the {@link matrix_ matrix} which contains elements.
-            // 
-            // Note that the {@link ROW} affects on time complexity of accessing and inserting element. 
-            // Accessing element is {@link ROW} times slower than ordinary {@link Vector} and inserting element 
-            // in middle position is {@link ROW} times faster than ordinary {@link Vector}.
-            // 
-            // When the {@link ROW} returns 8, time complexity of accessing element is O(8) and inserting 
-            // element in middle position is O(N/8). ({@link Vector}'s time complexity of accessement is O(1)
-            // and inserting element is O(N)).
-            /**
-             * @hidden
-             */
-            get: function () { return 8; },
-            enumerable: true,
-            configurable: true
-        });
-        Object.defineProperty(Deque, "MIN_CAPACITY", {
-            ///
-            // Minimum {@link capacity}.
-            // 
-            // Although a {@link Deque} has few elements, even no element is belonged to, the {@link Deque} 
-            // keeps the minimum {@link capacity} at least.
-            /**
-             * @hidden
-             */
-            get: function () { return 100; },
-            enumerable: true,
-            configurable: true
-        });
-        /**
-         * @hidden
-         */
-        Deque.prototype._Get_col_size = function () {
-            // Get column size; {@link capacity_ capacity} / {@link ROW row}.
-            return Math.floor(this.capacity_ / Deque.ROW);
-        };
         Deque.prototype.assign = function (first, second) {
             // CLEAR PREVIOUS CONTENTS
             this.clear();
-            if (first instanceof std.Iterator && second instanceof std.Iterator) {
-                var begin_2 = first;
-                var end_2 = second;
-                var size = 0;
-                for (var it = begin_2; !it.equals(end_2); it = it.next())
-                    size++;
-                // RESERVE
-                this.reserve(size);
-                this.size_ = size;
-                // ASSIGN CONTENTS
-                var array = this.matrix_[0];
-                for (var it = begin_2; !it.equals(end_2); it = it.next()) {
-                    if (array.length >= this._Get_col_size()) {
-                        array = new Array();
-                        this.matrix_.push(array);
-                    }
-                    array.push(it.value);
-                }
-            }
-            else {
-                var size = first;
-                var val = second;
-                // RESERVE
-                this.reserve(size);
-                this.size_ = size;
-                // ASSIGN CONTENTS
-                var array = this.matrix_[0];
-                for (var i = 0; i < size; i++) {
-                    if (array.length >= this._Get_col_size()) {
-                        array = new Array();
-                        this.matrix_.push(array);
-                    }
-                    array.push(val);
-                }
-            }
+            // INSERT ITEMS
+            this.insert(this.end(), first, second);
         };
         /**
-         * <p> Request a change in capacity. </p>
+         * Request a change in capacity.
          *
-         * <p> Requests that the {@link Deque container} {@link capacity} be at least enough to contain
-         * <i>n</i> elements. </p>
+         * Requests that the {@link Deque container} {@link capacity} be at least enough to contain
+         * <i>n</i> elements.
          *
-         * <p> If <i>n</i> is greater than the current {@link Deque container} {@link capacity}, the
+         * If <i>n</i> is greater than the current {@link Deque container} {@link capacity}, the
          * function causes the {@link Deque container} to reallocate its storage increasing its
-         * {@link capacity} to <i>n</i> (or greater). </p>
+         * {@link capacity} to <i>n</i> (or greater).
          *
-         * <p> In all other cases, the function call does not cause a reallocation and the
-         * {@link Deque container} {@link capacity} is not affected. </p>
+         * In all other cases, the function call does not cause a reallocation and the
+         * {@link Deque container} {@link capacity} is not affected.
          *
-         * <p> This function has no effect on the {@link Deque container} {@link size} and cannot alter
-         * its elements. </p>
+         * This function has no effect on the {@link Deque container} {@link size} and cannot alter
+         * its elements.
          *
          * @param n Minimum {@link capacity} for the {@link Deque container}.
          *			Note that the resulting {@link capacity} may be equal or greater than <i>n</i>.
          */
         Deque.prototype.reserve = function (capacity) {
-            // MEMORIZE
-            var prevMatrix = this.matrix_;
-            var prevSize = this.size_;
-            // REFRESH
-            this.matrix_ = new Array();
-            this.matrix_.push(new Array());
-            /////
+            if (capacity < this.capacity_)
+                return;
+            // NEW MEMBERS TO BE ASSSIGNED
+            var matrix = [[]];
+            var col_size = this._Compute_col_size(capacity);
+            //--------
             // RE-FILL
-            /////
-            var array = this.matrix_[0];
-            for (var i = 0; i < prevMatrix.length; i++)
-                for (var j = 0; j < prevMatrix[i].length; j++) {
-                    if (array.length >= this._Get_col_size()) {
-                        array = new Array();
-                        this.matrix_.push(array);
+            //--------
+            for (var r = 0; r < this.matrix_.length; r++) {
+                var row = this.matrix_[r];
+                for (var c = 0; c < row.length; c++) {
+                    var new_row = matrix[matrix.length - 1];
+                    if (matrix.length < Deque.ROW_SIZE && new_row.length == col_size) {
+                        new_row = [];
+                        matrix.push(new_row);
                     }
-                    array.push(prevMatrix[i][j]);
+                    new_row.push(row[c]);
                 }
+            }
+            // ASSIGN MEMBERS
+            this.matrix_ = matrix;
+            this.capacity_ = capacity;
         };
         /**
          * @inheritdoc
          */
         Deque.prototype.clear = function () {
             // CLEAR CONTENTS
-            this.matrix_ = new Array();
-            this.matrix_.push(new Array());
+            this.matrix_ = [[]];
             // RE-INDEX
             this.size_ = 0;
             this.capacity_ = Deque.MIN_CAPACITY;
         };
         /* =========================================================
             ACCESSORS
-                - GETTERS & SETTERS
+                - BASIC ELEMENTS
                 - ITERATORS
-        ========================================================= */
+                - INDEX ACCESSORS
+        ============================================================
+            BASIC ELEMENTS
+        --------------------------------------------------------- */
+        /**
+         * @inheritdoc
+         */
+        Deque.prototype.size = function () {
+            return this.size_;
+        };
+        /**
+         * @inheritdoc
+         */
+        Deque.prototype.empty = function () {
+            return this.size_ == 0;
+        };
+        /**
+         * Return size of allocated storage capacity.
+         *
+         * Returns the size of the storage space currently allocated for the {@link Deque container},
+         * expressed in terms of elements.
+         *
+         * This {@link capacity} is not necessarily equal to the {@link Deque container} {@link size}.
+         * It can be equal or greater, with the extra space allowing to accommodate for growth without the
+         * need to reallocate on each insertion.
+         *
+         * Notice that this {@link capacity} does not suppose a limit on the {@link size} of the
+         * {@link Deque container}. When this {@link capacity} is exhausted and more is needed, it is
+         * automatically expanded by the {@link Deque container} (reallocating it storage space).
+         * The theoretical limit on the {@link size} of a {@link Deque container} is given by member
+         * {@link max_size}.
+         *
+         * The {@link capacity} of a {@link Deque container} can be explicitly altered by calling member
+         * {@link Deque.reserve}.
+         *
+         * @return The size of the currently allocated storage capacity in the {@link Deque container},
+         *		   measured in terms of the number elements it can hold.
+         */
+        Deque.prototype.capacity = function () {
+            return this.capacity_;
+        };
+        /**
+         * @inheritdoc
+         */
+        Deque.prototype.front = function () {
+            return this.matrix_[0][0];
+        };
+        /**
+         * @inheritdoc
+         */
+        Deque.prototype.back = function () {
+            var last_array = this.matrix_[this.matrix_.length - 1];
+            return last_array[last_array.length - 1];
+        };
+        /* ---------------------------------------------------------
+            ITERATORS
+        --------------------------------------------------------- */
         /**
          * @inheritdoc
          */
@@ -5060,73 +5133,28 @@ var std;
             else
                 return this.rend_;
         };
-        /**
-         * @inheritdoc
-         */
-        Deque.prototype.size = function () {
-            return this.size_;
-        };
-        /**
-         * @inheritdoc
-         */
-        Deque.prototype.empty = function () {
-            return this.size_ == 0;
-        };
-        /**
-         * <p> Return size of allocated storage capacity. </p>
-         *
-         * <p> Returns the size of the storage space currently allocated for the {@link Deque container},
-         * expressed in terms of elements. </p>
-         *
-         * <p> This {@link capacity} is not necessarily equal to the {@link Deque container} {@link size}.
-         * It can be equal or greater, with the extra space allowing to accommodate for growth without the
-         * need to reallocate on each insertion. </p>
-         *
-         * <p> Notice that this {@link capacity} does not suppose a limit on the {@link size} of the
-         * {@link Deque container}. When this {@link capacity} is exhausted and more is needed, it is
-         * automatically expanded by the {@link Deque container} (reallocating it storage space).
-         * The theoretical limit on the {@link size} of a {@link Deque container} is given by member
-         * {@link max_size}. </p>
-         *
-         * <p> The {@link capacity} of a {@link Deque container} can be explicitly altered by calling member
-         * {@link Deque.reserve}. </p>
-         *
-         * @return The size of the currently allocated storage capacity in the {@link Deque container},
-         *		   measured in terms of the number elements it can hold.
-         */
-        Deque.prototype.capacity = function () {
-            return this.capacity_;
-        };
+        /* ---------------------------------------------------------
+            INDEX ACCESSORS
+        --------------------------------------------------------- */
         /**
          * @inheritdoc
          */
         Deque.prototype.at = function (index) {
-            if (index > this.size())
+            if (index < this.size() && index >= 0) {
+                var indexPair = this._Fetch_index(index);
+                return this.matrix_[indexPair.first][indexPair.second];
+            }
+            else
                 throw new std.OutOfRange("Target index is greater than Deque's size.");
-            var indexPair = this._Fetch_index(index);
-            return this.matrix_[indexPair.first][indexPair.second];
         };
         /**
          * @inheritdoc
          */
         Deque.prototype.set = function (index, val) {
-            if (index >= this.size())
+            if (index >= this.size() || index < 0)
                 throw new std.OutOfRange("Target index is greater than Deque's size.");
             var indexPair = this._Fetch_index(index);
             this.matrix_[indexPair.first][indexPair.second] = val;
-        };
-        /**
-         * @inheritdoc
-         */
-        Deque.prototype.front = function () {
-            return this.matrix_[0][0];
-        };
-        /**
-         * @inheritdoc
-         */
-        Deque.prototype.back = function () {
-            var lastArray = this.matrix_[this.matrix_.length - 1];
-            return lastArray[lastArray.length - 1];
         };
         /**
          * @hidden
@@ -5144,12 +5172,19 @@ var std;
                 row--;
             return std.make_pair(row, index);
         };
+        /**
+         * @hidden
+         */
+        Deque.prototype._Compute_col_size = function (capacity) {
+            if (capacity === void 0) { capacity = this.capacity_; }
+            // Get column size; {@link capacity_ capacity} / {@link ROW_SIZE row}.
+            return Math.floor(capacity / Deque.ROW_SIZE);
+        };
         /* =========================================================
             ELEMENTS I/O
                 - PUSH & POP
                 - INSERT
                 - ERASE
-                - PRE & POST-PROCESS
                 - SWAP
         ============================================================
             PUSH & POP
@@ -5162,45 +5197,36 @@ var std;
             for (var _i = 0; _i < arguments.length; _i++) {
                 items[_i] = arguments[_i];
             }
-            // RE-SIZE
-            if (this.size_ + items.length > this.capacity_)
-                this.reserve(this.size_ + items.length);
-            // INSERTS
-            var array = this.matrix_[this.matrix_.length - 1];
-            for (var i = 0; i < items.length; i++) {
-                if (array.length >= this._Get_col_size()) {
-                    array = new Array();
-                    this.matrix_.push(array);
-                }
-                array.push(items[i]);
-            }
-            // INDEXING
-            this.size_ += items.length;
-            return this.size_;
+            if (items.length == 0)
+                return this.size();
+            // INSERT BY RANGE
+            var first = new std.base._ArrayIterator(items, 0);
+            var last = new std.base._ArrayIterator(items, items.length);
+            this._Insert_by_range(this.end(), first, last);
+            // RETURN SIZE
+            return this.size();
         };
         /**
          * @inheritdoc
          */
         Deque.prototype.push_front = function (val) {
-            // INSERT TO THE FRONT
+            // ADD CAPACITY & ROW
+            this._Try_expand_capacity(this.size_ + 1);
+            this._Try_add_row_at_front();
+            // INSERT VALUE
             this.matrix_[0].unshift(val);
             this.size_++;
-            if (this.size_ > this.capacity_)
-                this.reserve(this.size_ * 2);
         };
         /**
          * @inheritdoc
          */
         Deque.prototype.push_back = function (val) {
-            var lastArray = this.matrix_[this.matrix_.length - 1];
-            if (lastArray.length >= this._Get_col_size() && this.matrix_.length < Deque.ROW) {
-                lastArray = new Array();
-                this.matrix_.push(lastArray);
-            }
-            lastArray.push(val);
+            // ADD CAPACITY & ROW
+            this._Try_expand_capacity(this.size_ + 1);
+            this._Try_add_row_at_back();
+            // INSERT VALUE
+            this.matrix_[this.matrix_.length - 1].push(val);
             this.size_++;
-            if (this.size_ > this.capacity_)
-                this.reserve(this.size_ * 2);
         };
         /**
          * @inheritdoc
@@ -5210,9 +5236,10 @@ var std;
                 return; // SOMEWHERE PLACE TO THROW EXCEPTION
             // EREASE FIRST ELEMENT
             this.matrix_[0].shift();
-            this.size_--;
             if (this.matrix_[0].length == 0 && this.matrix_.length > 1)
                 this.matrix_.shift();
+            // SHRINK SIZE
+            this.size_--;
         };
         /**
          * @inheritdoc
@@ -5223,9 +5250,10 @@ var std;
             // ERASE LAST ELEMENT
             var lastArray = this.matrix_[this.matrix_.length - 1];
             lastArray.splice(lastArray.length - 1, 1);
-            this.size_--;
             if (lastArray.length == 0 && this.matrix_.length > 1)
                 this.matrix_.splice(this.matrix_.length - 1, 1);
+            // SHRINK SIZE
+            this.size_--;
         };
         Deque.prototype.insert = function () {
             var args = [];
@@ -5262,84 +5290,126 @@ var std;
          * @hidden
          */
         Deque.prototype._Insert_by_repeating_val = function (position, n, val) {
-            // CONSTRUCT ITEMS
-            var items = [];
-            items.length = n;
-            for (var i = 0; i < n; i++)
-                items[i] = val;
-            // INSERT ELEMENTS
-            if (position.equals(this.end())) {
-                this.push.apply(this, items);
-                return this.begin();
-            }
-            else
-                return this._Insert_by_items(position, items);
+            var first = new std.base._Repeater(0, val);
+            var last = new std.base._Repeater(n);
+            return this._Insert_by_range(position, first, last);
         };
         /**
          * @hidden
          */
-        Deque.prototype._Insert_by_range = function (position, begin, end) {
-            // CONSTRUCT ITEMS
-            var items = [];
-            for (var it = begin; !it.equals(end); it = it.next())
-                items.push(it.value);
-            // INSERT ELEMENTS
-            if (position.equals(this.end())) {
-                this.push.apply(this, items);
-                return this.begin();
-            }
-            else
-                return this._Insert_by_items(position, items);
-        };
-        /**
-         * @hidden
-         */
-        Deque.prototype._Insert_by_items = function (position, items) {
-            var item_size = items.length;
-            this.size_ += item_size;
-            if (this.size_ <= this.capacity_) {
-                // ------------------------------------------------------
-                // WHEN FITTING INTO RESERVED CAPACITY IS POSSIBLE
-                // ------------------------------------------------------
-                // INSERTS CAREFULLY CONSIDERING THE COL_SIZE
-                var index_pair = this._Fetch_index(position.index);
-                var index = index_pair.first;
-                var spliced_values = this.matrix_[index].splice(index_pair.second);
-                if (spliced_values.length != 0)
-                    items = items.concat.apply(items, spliced_values);
-                if (this.matrix_[index].length < Deque.ROW) {
-                    this.matrix_[index] = (_a = this.matrix_[index]).concat.apply(_a, items.splice(0, Deque.ROW - this.matrix_[index].length));
-                }
-                var splicedArray = this.matrix_.splice(index + 1);
-                // INSERTS
-                while (items.length != 0)
-                    this.matrix_.push(items.splice(0, Math.min(Deque.ROW, items.length)));
-                // CONCAT WITH BACKS
-                this.matrix_ = (_b = this.matrix_).concat.apply(_b, splicedArray);
+        Deque.prototype._Insert_by_range = function (pos, first, last) {
+            var size = this.size_ + std.distance(first, last);
+            if (size == this.size_)
+                return pos;
+            if (pos.equals(this.end()) == true) {
+                // EXPAND CAPACITY IF REQUIRED
+                this._Try_expand_capacity(size);
+                // INSERT TO END
+                this._Insert_to_end(first, last);
+                // CHANGE POS TO RETURN
+                pos = new std.DequeIterator(this, this.size_);
             }
             else {
-                // -----------------------------------------------------
-                // WHEN CANNOT BE FIT INTO THE RESERVED CAPACITY
-                // -----------------------------------------------------
-                // JUST INSERT CARELESSLY
-                // AND KEEP BLANACE BY THE RESERVE() METHOD
-                if (position.equals(this.end()) == true) {
-                    this.matrix_.push(items); // ALL TO THE LAST
+                // INSERT ITEMS IN THE MIDDLE
+                if (size > this.capacity_) {
+                    // A TEMPORARY DEQUE
+                    var deque_1 = new Deque();
+                    deque_1.reserve(Math.max(size, Math.floor(this.capacity_ * Deque.MAGNIFIER)));
+                    // INSERT ITEM SEQUENTIALLY
+                    deque_1._Insert_to_end(this.begin(), pos);
+                    deque_1._Insert_to_end(first, last);
+                    deque_1._Insert_to_end(pos, this.end());
+                    // AND SWAP THIS WITH THE TEMP
+                    this.swap(deque_1);
                 }
-                else {
-                    var indexPair = this._Fetch_index(position.index);
-                    var index = indexPair.first;
-                    var splicedValues = this.matrix_[index].splice(indexPair.second);
-                    if (splicedValues.length != 0)
-                        items = items.concat.apply(items, splicedValues);
-                    // ALL TO THE MIDDLE
-                    this.matrix_[index] = (_c = this.matrix_[index]).concat.apply(_c, items);
-                }
-                // AND KEEP BALANCE BY RESERVE()
-                this.reserve(this.size_);
+                else
+                    this._Insert_to_middle(pos, first, last);
             }
-            return position;
-            var _a, _b, _c;
+            this.size_ = size;
+            return pos;
+        };
+        /**
+         * @hidden
+         */
+        Deque.prototype._Insert_to_middle = function (pos, first, last) {
+            var col_size = this._Compute_col_size();
+            // POSITION OF MATRIX
+            var indexes = this._Fetch_index(pos.index());
+            var row = this.matrix_[indexes.first];
+            var col = indexes.second;
+            // MOVE BACK SIDE TO TEMPORARY ARRAY
+            var back_items = row.splice(col);
+            // INSERT ITEMS
+            for (; !first.equals(last); first = first.next()) {
+                if (row.length == col_size && this.matrix_.length < Deque.ROW_SIZE) {
+                    row = new Array();
+                    var spliced_array = this.matrix_.splice(++indexes.first);
+                    this.matrix_.push(row);
+                    (_a = this.matrix_).push.apply(_a, spliced_array);
+                }
+                row.push(first.value);
+            }
+            // INSERT ITEMS IN THE BACK SIDE
+            var $first = new std.base._ArrayIterator(back_items, 0);
+            var $last = new std.base._ArrayIterator(back_items, back_items.length);
+            for (var i = 0; i < back_items.length; i++) {
+                if (row.length == col_size && this.matrix_.length < Deque.ROW_SIZE) {
+                    row = new Array();
+                    var spliced_array = this.matrix_.splice(++indexes.first);
+                    this.matrix_.push(row);
+                    (_b = this.matrix_).push.apply(_b, spliced_array);
+                }
+                row.push(back_items[i]);
+            }
+            var _a, _b;
+        };
+        /**
+         * @hidden
+         */
+        Deque.prototype._Insert_to_end = function (first, last) {
+            // INSERT ITEMS IN THE BACK
+            for (; !first.equals(last); first = first.next()) {
+                // ADD ROW IF REQUIRED
+                this._Try_add_row_at_back();
+                // INSERT VALUE
+                this.matrix_[this.matrix_.length - 1].push(first.value);
+            }
+        };
+        /**
+         * @hidden
+         */
+        Deque.prototype._Try_expand_capacity = function (size) {
+            if (size <= this.capacity_)
+                return false;
+            // MAX (CAPACITY * 1.5, TARGET SIZE)
+            size = Math.max(size, Math.floor(this.capacity_ * Deque.MAGNIFIER));
+            this.reserve(size);
+            return true;
+        };
+        /**
+         * @hidden
+         */
+        Deque.prototype._Try_add_row_at_front = function () {
+            var col_size = this._Compute_col_size();
+            if (this.matrix_[0].length >= col_size && this.matrix_.length < Deque.ROW_SIZE) {
+                this.matrix_ = (_a = [[]]).concat.apply(_a, this.matrix_);
+                return true;
+            }
+            else
+                return false;
+            var _a;
+        };
+        /**
+         * @hidden
+         */
+        Deque.prototype._Try_add_row_at_back = function () {
+            var col_size = this._Compute_col_size();
+            if (this.matrix_[this.matrix_.length - 1].length >= col_size && this.matrix_.length < Deque.ROW_SIZE) {
+                this.matrix_.push([]);
+                return true;
+            }
+            else
+                return false;
         };
         Deque.prototype.erase = function (first, last) {
             if (last === void 0) { last = first.next(); }
@@ -5365,26 +5435,47 @@ var std;
          * @hidden
          */
         Deque.prototype._Erase_by_range = function (first, last) {
-            if (first.index == -1)
+            if (first.index() == -1)
                 return first;
             // INDEXING
             var size;
-            if (last.index == -1)
-                size = this.size() - first.index;
+            if (last.index() == -1)
+                size = this.size() - first.index();
             else
-                size = last.index - first.index;
+                size = last.index() - first.index();
             this.size_ -= size;
             // ERASING
+            var first_row = null;
+            var second_row = null;
+            var i = 0;
             while (size != 0) {
-                var indexPair = this._Fetch_index(first.index);
-                var array = this.matrix_[indexPair.first];
-                var myDeleteSize = Math.min(size, array.length - indexPair.second);
-                array.splice(indexPair.second, myDeleteSize);
-                if (array.length == 0 && this.matrix_.length > 1)
-                    this.matrix_.splice(indexPair.first, 1);
-                size -= myDeleteSize;
+                // FIND MATCHED ROW AND COLUMN
+                var indexes = this._Fetch_index(first.index());
+                var row = this.matrix_[indexes.first];
+                var col = indexes.second;
+                // EARSE FROM THE ROW
+                var my_delete_size = Math.min(size, row.length - col);
+                row.splice(col, my_delete_size);
+                // TO MERGE
+                if (row.length != 0)
+                    if (i == 0)
+                        first_row = row;
+                    else
+                        second_row = row;
+                // ERASE THE ENTIRE ROW IF REQUIRED
+                if (row.length == 0 && this.matrix_.length > 1)
+                    this.matrix_.splice(indexes.first, 1);
+                // TO THE NEXT STEP
+                size -= my_delete_size;
+                i++;
             }
-            if (last.index == -1)
+            // MERGE FIRST AND SECOND ROW
+            if (first_row != null && second_row != null
+                && first_row.length + second_row.length <= this._Compute_col_size()) {
+                first_row.push.apply(first_row, second_row);
+                this.matrix_.splice(this.matrix_.indexOf(second_row), 1);
+            }
+            if (last.index() == -1)
                 return this.end();
             else
                 return first;
@@ -5400,17 +5491,58 @@ var std;
                 _super.prototype.swap.call(this, obj);
             var _a, _b, _c;
         };
+        Object.defineProperty(Deque, "ROW_SIZE", {
+            /* ---------------------------------------------------------
+                STATIC MEMBERS
+            --------------------------------------------------------- */
+            ///
+            // Row size of the {@link matrix_ matrix} which contains elements.
+            // 
+            // Note that the {@link ROW_SIZE} affects on time complexity of accessing and inserting element. 
+            // Accessing element is {@link ROW_SIZE} times slower than ordinary {@link Vector} and inserting element 
+            // in middle position is {@link ROW_SIZE} times faster than ordinary {@link Vector}.
+            // 
+            // When the {@link ROW_SIZE} returns 8, time complexity of accessing element is O(8) and inserting 
+            // element in middle position is O(N/8). ({@link Vector}'s time complexity of accessement is O(1)
+            // and inserting element is O(N)).
+            /**
+             * @hidden
+             */
+            get: function () { return 8; },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(Deque, "MIN_CAPACITY", {
+            ///
+            // Minimum {@link capacity}.
+            // 
+            // Although a {@link Deque} has few elements, even no element is belonged to, the {@link Deque} 
+            // keeps the minimum {@link capacity} at least.
+            /**
+             * @hidden
+             */
+            get: function () { return 36; },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(Deque, "MAGNIFIER", {
+            /**
+             * @hidden
+             */
+            get: function () { return 1.5; },
+            enumerable: true,
+            configurable: true
+        });
         return Deque;
     }(std.base.Container));
     std.Deque = Deque;
 })(std || (std = {}));
 (function (std) {
     /**
-     * <p> An iterator of {@link Deque}. </p>
+     * An iterator of {@link Deque}.
      *
-     * <p> <a href="http://samchon.github.io/tstl/images/design/class_diagram/linear_containers.png" target="_blank">
+     * <a href="http://samchon.github.io/tstl/images/design/class_diagram/linear_containers.png" target="_blank">
      * <img src="http://samchon.github.io/tstl/images/design/class_diagram/linear_containers.png" style="max-width: 100%" /> </a>
-     * </p>
      *
      * @author Jeongho Nam <http://samchon.org>
      */
@@ -5420,11 +5552,12 @@ var std;
             CONSTRUCTORS
         --------------------------------------------------------- */
         /**
-         * <p> Construct from the source {@link Deque container}. </p>
+         * Construct from the source {@link Deque container}.
          *
-         * <h4> Note </h4>
-         * <p> Do not create the iterator directly, by yourself. </p>
-         * <p> Use {@link Deque.begin begin()}, {@link Deque.end end()} in {@link Deque container} instead. </p>
+         * #### Note
+         * Do not create the iterator directly, by yourself.
+         *
+         * Use {@link Deque.begin begin()}, {@link Deque.end end()} in {@link Deque container} instead.
          *
          * @param source The source {@link Deque container} to reference.
          * @param index Sequence number of the element in the source {@link Deque}.
@@ -5434,15 +5567,27 @@ var std;
             _this.index_ = index;
             return _this;
         }
+        /* ---------------------------------------------------------
+            ACCESSORS
+        --------------------------------------------------------- */
+        /**
+         * @inheritdoc
+         */
+        DequeIterator.prototype.source = function () {
+            return this.source_;
+        };
+        /**
+         * @inheritdoc
+         */
+        DequeIterator.prototype.index = function () {
+            return this.index_;
+        };
         Object.defineProperty(DequeIterator.prototype, "value", {
-            /* ---------------------------------------------------------
-                ACCESSORS
-            --------------------------------------------------------- */
             /**
              * @inheritdoc
              */
             get: function () {
-                return this.source_.at(this.index_);
+                return this.source().at(this.index_);
             },
             /**
              * Set value of the iterator is pointing to.
@@ -5450,17 +5595,7 @@ var std;
              * @param val Value to set.
              */
             set: function (val) {
-                this.source_.set(this.index_, val);
-            },
-            enumerable: true,
-            configurable: true
-        });
-        Object.defineProperty(DequeIterator.prototype, "index", {
-            /**
-             * @inheritdoc
-             */
-            get: function () {
-                return this.index_;
+                this.source().set(this.index_, val);
             },
             enumerable: true,
             configurable: true
@@ -5473,20 +5608,20 @@ var std;
          */
         DequeIterator.prototype.prev = function () {
             if (this.index_ == -1)
-                return new DequeIterator(this.source_, this.source_.size() - 1);
+                return new DequeIterator(this.source(), this.source_.size() - 1);
             else if (this.index_ - 1 < 0)
-                return this.source_.end();
+                return this.source().end();
             else
-                return new DequeIterator(this.source_, this.index_ - 1);
+                return new DequeIterator(this.source(), this.index_ - 1);
         };
         /**
          * @inheritdoc
          */
         DequeIterator.prototype.next = function () {
             if (this.index_ >= this.source_.size() - 1)
-                return this.source_.end();
+                return this.source().end();
             else
-                return new DequeIterator(this.source_, this.index_ + 1);
+                return new DequeIterator(this.source(), this.index_ + 1);
         };
         /**
          * @inheritdoc
@@ -5498,9 +5633,9 @@ var std;
             else
                 new_index = this.index_ + n;
             if (new_index < 0 || new_index >= this.source_.size())
-                return this.source_.end();
+                return this.source().end();
             else
-                return new DequeIterator(this.source_, new_index);
+                return new DequeIterator(this.source(), new_index);
         };
         /* ---------------------------------------------------------
             COMPARES
@@ -5524,11 +5659,10 @@ var std;
 })(std || (std = {}));
 (function (std) {
     /**
-     * <p> A reverse-iterator of Deque. </p>
+     * A reverse-iterator of Deque.
      *
-     * <p> <a href="http://samchon.github.io/tstl/images/design/class_diagram/linear_containers.png" target="_blank">
+     * <a href="http://samchon.github.io/tstl/images/design/class_diagram/linear_containers.png" target="_blank">
      * <img src="http://samchon.github.io/tstl/images/design/class_diagram/linear_containers.png" style="max-width: 100%" /> </a>
-     * </p>
      *
      * @param <T> Type of the elements.
      *
@@ -5553,10 +5687,16 @@ var std;
         DequeReverseIterator.prototype._Create_neighbor = function (base) {
             return new DequeReverseIterator(base);
         };
+        /* ---------------------------------------------------------
+            ACCESSORS
+        --------------------------------------------------------- */
+        /**
+         * @inheritdoc
+         */
+        DequeReverseIterator.prototype.index = function () {
+            return this.base_.index();
+        };
         Object.defineProperty(DequeReverseIterator.prototype, "value", {
-            /* ---------------------------------------------------------
-                ACCESSORS
-            --------------------------------------------------------- */
             /**
              * @inheritdoc
              */
@@ -5570,16 +5710,6 @@ var std;
              */
             set: function (val) {
                 this.base_.value = val;
-            },
-            enumerable: true,
-            configurable: true
-        });
-        Object.defineProperty(DequeReverseIterator.prototype, "index", {
-            /**
-             * Get index.
-             */
-            get: function () {
-                return this.base_.index;
             },
             enumerable: true,
             configurable: true
@@ -5599,19 +5729,19 @@ var std;
 var std;
 (function (std) {
     /**
-     * <p> Function handling termination on exception </p>
+     * Function handling termination on exception
      *
-     * <p> Calls the current terminate handler. </p>
+     * Calls the current terminate handler.
      *
-     * <p> By default, the terminate handler calls abort. But this behavior can be redefined by calling
-     * {@link set_terminate}. </p>
+     * By default, the terminate handler calls abort. But this behavior can be redefined by calling
+     * {@link set_terminate}.
      *
-     * <p> This function is automatically called when no <code>catch</code> handler can be found for a thrown exception,
-     * or for some other exceptional circumstance that makes impossible to continue the exception handling process. </p>
+     * This function is automatically called when no <code>catch</code> handler can be found for a thrown exception,
+     * or for some other exceptional circumstance that makes impossible to continue the exception handling process.
      *
-     * <p> This function is provided so that the terminate handler can be explicitly called by a program that needs to
+     * This function is provided so that the terminate handler can be explicitly called by a program that needs to
      * abnormally terminate, and works even if {@link set_terminate} has not been used to set a custom terminate handler
-     * (calling abort in this case). </p>
+     * (calling abort in this case).
      */
     function terminate() {
         if (_Terminate_handler != null)
@@ -5625,15 +5755,15 @@ var std;
     }
     std.terminate = terminate;
     /**
-     * <p> Set <i>terminate handler</i> function. </p>
+     * Set <i>terminate handler</i> function.
      *
-     * <p> A <i>terminate handler</i> function is a function automatically called when the exception handling process has
+     * A <i>terminate handler</i> function is a function automatically called when the exception handling process has
      * to be abandoned for some reason. This happens when no catch handler can be found for a thrown exception, or for
-     * some other exceptional circumstance that makes impossible to continue the exception handling process. </p>
+     * some other exceptional circumstance that makes impossible to continue the exception handling process.
      *
-     * <p> Before this function is called by the program for the first time, the default behavior is to call abort. </p>
+     * Before this function is called by the program for the first time, the default behavior is to call abort.
      *
-     * <p> A program may explicitly call the current terminate handler function by calling {@link terminate}. </p>
+     * A program may explicitly call the current terminate handler function by calling {@link terminate}.
      *
      * @param f Function that takes no parameters and returns no value (<i>void</i>).
      */
@@ -5651,14 +5781,14 @@ var std;
     }
     std.set_terminate = set_terminate;
     /**
-     * <p> Get <i>terminate handler</i> function. </p>
+     * Get <i>terminate handler</i> function.
      *
-     * <p> The <i>terminate handler</i> function is automatically called when no <code>catch</code> handler can be found
+     * The <i>terminate handler</i> function is automatically called when no <code>catch</code> handler can be found
      * for a thrown exception, or for some other exceptional circumstance that makes impossible to continue the exception
-     * handling process. </p>
+     * handling process.
      *
-     * <p> If no such function has been set by a previous call to {@link set_terminate}, the function returns a
-     * <i>null-pointer</i>. </p>
+     * If no such function has been set by a previous call to {@link set_terminate}, the function returns a
+     * <i>null-pointer</i>.
      *
      * @return If {@link set_terminate} has previously been called by the program, the function returns the current
      *		   <i>terminate handler</i> function. Otherwise, it returns a <i>null-pointer</i>.
@@ -5681,15 +5811,15 @@ var std;
                 - UNDERFLOW_ERROR
     ========================================================= */
     /**
-     * <p> Standard exception class. </p>
+     * Standard exception class.
      *
-     * <p> Base class for standard exceptions. </p>
+     * Base class for standard exceptions.
      *
-     * <p> All objects thrown by components of the standard library are derived from this class.
-     * Therefore, all standard exceptions can be caught by catching this type by reference. </p>
+     * All objects thrown by components of the standard library are derived from this class.
+     * Therefore, all standard exceptions can be caught by catching this type by reference.
      *
-     * <p> <a href="http://samchon.github.io/tstl/images/class_diagram/exceptions.png" target="_blank">
-     * <img src="http://samchon.github.io/tstl/images/class_diagram/exceptions.png" style="max-width: 100%" /> </a> </p>
+     * <a href="http://samchon.github.io/tstl/images/class_diagram/exceptions.png" target="_blank">
+     * <img src="http://samchon.github.io/tstl/images/class_diagram/exceptions.png" style="max-width: 100%" /> </a>
      *
      * @reference http://www.cplusplus.com/reference/exception/exception
      * @author Jeongho Nam <http://samchon.org>
@@ -5700,13 +5830,13 @@ var std;
             this.message_ = message;
         }
         /**
-         * <p> Get string identifying exception. </p>
+         * Get string identifying exception.
          *
-         * <p> Returns a string that may be used to identify the exception. </p>
+         * Returns a string that may be used to identify the exception.
          *
-         * <p> The particular representation pointed by the returned value is implementation-defined.
+         * The particular representation pointed by the returned value is implementation-defined.
          * As a virtual function, derived classes may redefine this function so that specify value are
-         * returned. </p>
+         * returned.
          */
         Exception.prototype.what = function () {
             return this.message_;
@@ -5722,17 +5852,17 @@ var std;
             - OUT_OF_RANGE
     ========================================================= */
     /**
-     * <p> Logic error exception. </p>
+     * Logic error exception.
      *
-     * <p> This class defines the type of objects thrown as exceptions to report errors in the internal
-     * logical of the program, such as violation of logical preconditions or class invariants. </p>
+     * This class defines the type of objects thrown as exceptions to report errors in the internal
+     * logical of the program, such as violation of logical preconditions or class invariants.
      *
-     * <p> These errors are presumably detectable before the program executes. </p>
+     * These errors are presumably detectable before the program executes.
      *
-     * <p> It is used as a base class for several logical error exceptions. </p>
+     * It is used as a base class for several logical error exceptions.
      *
-     * <p> <a href="http://samchon.github.io/tstl/images/class_diagram/exceptions.png" target="_blank">
-     * <img src="http://samchon.github.io/tstl/images/class_diagram/exceptions.png" style="max-width: 100%" /> </a> </p>
+     * <a href="http://samchon.github.io/tstl/images/class_diagram/exceptions.png" target="_blank">
+     * <img src="http://samchon.github.io/tstl/images/class_diagram/exceptions.png" style="max-width: 100%" /> </a>
      *
      * @reference http://www.cplusplus.com/reference/stdexcept/logic_error
      * @author Jeongho Nam <http://samchon.org>
@@ -5740,7 +5870,7 @@ var std;
     var LogicError = (function (_super) {
         __extends(LogicError, _super);
         /**
-         * <p> Construct from a message. </p>
+         * Construct from a message.
          *
          * @param message A message representing specification about the Exception.
          */
@@ -5751,18 +5881,18 @@ var std;
     }(Exception));
     std.LogicError = LogicError;
     /**
-     * <p> Domain error exception. </p>
+     * Domain error exception.
      *
-     * <p> This class defines the type of objects thrown as exceptions to report domain errors. </p>
+     * This class defines the type of objects thrown as exceptions to report domain errors.
      *
-     * <p> Generally, the domain of a mathematical function is the subset of values that it is defined for.
+     * Generally, the domain of a mathematical function is the subset of values that it is defined for.
      * For example, the square root function is only defined for non-negative numbers. Thus, a negative number
-     * for such a function would qualify as a domain error. </p>
+     * for such a function would qualify as a domain error.
      *
-     * <p> No component of the standard library throws exceptions of this type. It is designed as a standard
-     * exception to be thrown by programs. </p>
+     * No component of the standard library throws exceptions of this type. It is designed as a standard
+     * exception to be thrown by programs.
      *
-     * <p> <a href="http://samchon.github.io/tstl/images/class_diagram/exceptions.png" target="_blank">
+     * <a href="http://samchon.github.io/tstl/images/class_diagram/exceptions.png" target="_blank">
      * <img src="http://samchon.github.io/tstl/images/class_diagram/exceptions.png" style="max-width: 100%" /> </a></p>
      *
      * @reference http://www.cplusplus.com/reference/stdexcept/domain_error
@@ -5771,7 +5901,7 @@ var std;
     var DomainError = (function (_super) {
         __extends(DomainError, _super);
         /**
-         * <p> Construct from a message. </p>
+         * Construct from a message.
          *
          * @param message A message representing specification about the Exception.
          */
@@ -5782,15 +5912,15 @@ var std;
     }(LogicError));
     std.DomainError = DomainError;
     /**
-     * <p> Invalid argument exception. </p>
+     * Invalid argument exception.
      *
-     * <p> This class defines the type of objects thrown as exceptions to report an invalid argument. </p>
+     * This class defines the type of objects thrown as exceptions to report an invalid argument.
      *
-     * <p> It is a standard exception that can be thrown by programs. Some components of the standard library
-     * also throw exceptions of this type to signal invalid arguments. </p>
+     * It is a standard exception that can be thrown by programs. Some components of the standard library
+     * also throw exceptions of this type to signal invalid arguments.
      *
-     * <p> <a href="http://samchon.github.io/tstl/images/class_diagram/exceptions.png" target="_blank">
-     * <img src="http://samchon.github.io/tstl/images/class_diagram/exceptions.png" style="max-width: 100%" /> </a> </p>
+     * <a href="http://samchon.github.io/tstl/images/class_diagram/exceptions.png" target="_blank">
+     * <img src="http://samchon.github.io/tstl/images/class_diagram/exceptions.png" style="max-width: 100%" /> </a>
      *
      * @reference http://www.cplusplus.com/reference/stdexcept/invalid_argument
      * @author Jeongho Nam <http://samchon.org>
@@ -5798,7 +5928,7 @@ var std;
     var InvalidArgument = (function (_super) {
         __extends(InvalidArgument, _super);
         /**
-         * <p> Construct from a message. </p>
+         * Construct from a message.
          *
          * @param message A message representing specification about the Exception.
          */
@@ -5809,15 +5939,15 @@ var std;
     }(LogicError));
     std.InvalidArgument = InvalidArgument;
     /**
-     * <p> Length error exception. </p>
+     * Length error exception.
      *
-     * <p> This class defines the type of objects thrown as exceptions to report a length error. </p>
+     * This class defines the type of objects thrown as exceptions to report a length error.
      *
-     * <p> It is a standard exception that can be thrown by programs. Some components of the standard library,
-     * such as vector and string also throw exceptions of this type to signal errors resizing. </p>
+     * It is a standard exception that can be thrown by programs. Some components of the standard library,
+     * such as vector and string also throw exceptions of this type to signal errors resizing.
      *
-     * <p> <a href="http://samchon.github.io/tstl/images/class_diagram/exceptions.png" target="_blank">
-     * <img src="http://samchon.github.io/tstl/images/class_diagram/exceptions.png" style="max-width: 100%" /> </a> </p>
+     * <a href="http://samchon.github.io/tstl/images/class_diagram/exceptions.png" target="_blank">
+     * <img src="http://samchon.github.io/tstl/images/class_diagram/exceptions.png" style="max-width: 100%" /> </a>
      *
      * @reference http://www.cplusplus.com/reference/stdexcept/length_error
      * @author Jeongho Nam <http://samchon.org>
@@ -5825,7 +5955,7 @@ var std;
     var LengthError = (function (_super) {
         __extends(LengthError, _super);
         /**
-         * <p> Construct from a message. </p>
+         * Construct from a message.
          *
          * @param message A message representing specification about the Exception.
          */
@@ -5836,16 +5966,16 @@ var std;
     }(LogicError));
     std.LengthError = LengthError;
     /**
-     * <p> Out-of-range exception. </p>
+     * Out-of-range exception.
      *
-     * <p> This class defines the type of objects thrown as exceptions to report an out-of-range error. </p>
+     * This class defines the type of objects thrown as exceptions to report an out-of-range error.
      *
-     * <p> It is a standard exception that can be thrown by programs. Some components of the standard library,
+     * It is a standard exception that can be thrown by programs. Some components of the standard library,
      * such as vector, deque, string and bitset also throw exceptions of this type to signal arguments
-     * out of range. </p>
+     * out of range.
      *
-     * <p> <a href="http://samchon.github.io/tstl/images/class_diagram/exceptions.png" target="_blank">
-     * <img src="http://samchon.github.io/tstl/images/class_diagram/exceptions.png" style="max-width: 100%" /> </a> </p>
+     * <a href="http://samchon.github.io/tstl/images/class_diagram/exceptions.png" target="_blank">
+     * <img src="http://samchon.github.io/tstl/images/class_diagram/exceptions.png" style="max-width: 100%" /> </a>
      *
      * @reference http://www.cplusplus.com/reference/stdexcept/out_of_range
      * @author Jeongho Nam <http://samchon.org>
@@ -5853,7 +5983,7 @@ var std;
     var OutOfRange = (function (_super) {
         __extends(OutOfRange, _super);
         /**
-         * <p> Construct from a message. </p>
+         * Construct from a message.
          *
          * @param message A message representing specification about the Exception.
          */
@@ -5871,15 +6001,15 @@ var std;
             - UNDERFLOW_ERROR
     ========================================================= */
     /**
-     * <p> Runtime error exception. </p>
+     * Runtime error exception.
      *
-     * <p> This class defines the type of objects thrown as exceptions to report errors that can only be
-     * detected during runtime. </p>
+     * This class defines the type of objects thrown as exceptions to report errors that can only be
+     * detected during runtime.
      *
-     * <p> It is used as a base class for several runtime error exceptions. </p>
+     * It is used as a base class for several runtime error exceptions.
      *
-     * <p> <a href="http://samchon.github.io/tstl/images/class_diagram/exceptions.png" target="_blank">
-     * <img src="http://samchon.github.io/tstl/images/class_diagram/exceptions.png" style="max-width: 100%" /> </a> </p>
+     * <a href="http://samchon.github.io/tstl/images/class_diagram/exceptions.png" target="_blank">
+     * <img src="http://samchon.github.io/tstl/images/class_diagram/exceptions.png" style="max-width: 100%" /> </a>
      *
      * @reference http://www.cplusplus.com/reference/stdexcept/runtime_error
      * @author Jeongho Nam <http://samchon.org>
@@ -5887,7 +6017,7 @@ var std;
     var RuntimeError = (function (_super) {
         __extends(RuntimeError, _super);
         /**
-         * <p> Construct from a message. </p>
+         * Construct from a message.
          *
          * @param message A message representing specification about the Exception.
          */
@@ -5898,15 +6028,15 @@ var std;
     }(Exception));
     std.RuntimeError = RuntimeError;
     /**
-     * <p> Overflow error exception. </p>
+     * Overflow error exception.
      *
-     * <p> This class defines the type of objects thrown as exceptions to arithmetic overflow errors. </p>
+     * This class defines the type of objects thrown as exceptions to arithmetic overflow errors.
      *
-     * <p> It is a standard exception that can be thrown by programs. Some components of the standard library
-     * also throw exceptions of this type to signal range errors. </p>
+     * It is a standard exception that can be thrown by programs. Some components of the standard library
+     * also throw exceptions of this type to signal range errors.
      *
-     * <p> <a href="http://samchon.github.io/tstl/images/class_diagram/exceptions.png" target="_blank">
-     * <img src="http://samchon.github.io/tstl/images/class_diagram/exceptions.png" style="max-width: 100%" /> </a> </p>
+     * <a href="http://samchon.github.io/tstl/images/class_diagram/exceptions.png" target="_blank">
+     * <img src="http://samchon.github.io/tstl/images/class_diagram/exceptions.png" style="max-width: 100%" /> </a>
      *
      * @reference http://www.cplusplus.com/reference/stdexcept/overflow_error
      * @author Jeongho Nam <http://samchon.org>
@@ -5914,7 +6044,7 @@ var std;
     var OverflowError = (function (_super) {
         __extends(OverflowError, _super);
         /**
-         * <p> Construct from a message. </p>
+         * Construct from a message.
          *
          * @param message A message representing specification about the Exception.
          */
@@ -5925,15 +6055,15 @@ var std;
     }(RuntimeError));
     std.OverflowError = OverflowError;
     /**
-     * <p> Underflow error exception. </p>
+     * Underflow error exception.
      *
-     * <p> This class defines the type of objects thrown as exceptions to arithmetic underflow errors. </p>
+     * This class defines the type of objects thrown as exceptions to arithmetic underflow errors.
      *
-     * <p> No component of the standard library throws exceptions of this type. It is designed as a standard
-     * exception to be thrown by programs. </p>
+     * No component of the standard library throws exceptions of this type. It is designed as a standard
+     * exception to be thrown by programs.
      *
-     * <p> <a href="http://samchon.github.io/tstl/images/class_diagram/exceptions.png" target="_blank">
-     * <img src="http://samchon.github.io/tstl/images/class_diagram/exceptions.png" style="max-width: 100%" /> </a> </p>
+     * <a href="http://samchon.github.io/tstl/images/class_diagram/exceptions.png" target="_blank">
+     * <img src="http://samchon.github.io/tstl/images/class_diagram/exceptions.png" style="max-width: 100%" /> </a>
      *
      * @reference http://www.cplusplus.com/reference/stdexcept/underflow_error
      * @author Jeongho Nam <http://samchon.org>
@@ -5941,7 +6071,7 @@ var std;
     var UnderflowError = (function (_super) {
         __extends(UnderflowError, _super);
         /**
-         * <p> Construct from a message. </p>
+         * Construct from a message.
          *
          * @param message A message representing specification about the Exception.
          */
@@ -5952,16 +6082,16 @@ var std;
     }(RuntimeError));
     std.UnderflowError = UnderflowError;
     /**
-     * <p> Range error exception. </p>
+     * Range error exception.
      *
-     * <p> This class defines the type of objects thrown as exceptions to report range errors in internal
-     * computations. </p>
+     * This class defines the type of objects thrown as exceptions to report range errors in internal
+     * computations.
      *
-     * <p> It is a standard exception that can be thrown by programs. Some components of the standard library
-     * also throw exceptions of this type to signal range errors. </p>
+     * It is a standard exception that can be thrown by programs. Some components of the standard library
+     * also throw exceptions of this type to signal range errors.
      *
-     * <p> <a href="http://samchon.github.io/tstl/images/class_diagram/exceptions.png" target="_blank">
-     * <img src="http://samchon.github.io/tstl/images/class_diagram/exceptions.png" style="max-width: 100%" /> </a> </p>
+     * <a href="http://samchon.github.io/tstl/images/class_diagram/exceptions.png" target="_blank">
+     * <img src="http://samchon.github.io/tstl/images/class_diagram/exceptions.png" style="max-width: 100%" /> </a>
      *
      * @reference http://www.cplusplus.com/reference/stdexcept/range_error
      * @author Jeongho Nam <http://samchon.org>
@@ -5969,7 +6099,7 @@ var std;
     var RangeError = (function (_super) {
         __extends(RangeError, _super);
         /**
-         * <p> Construct from a message. </p>
+         * Construct from a message.
          *
          * @param message A message representing specification about the Exception.
          */
@@ -5995,13 +6125,13 @@ var std;
 var std;
 (function (std) {
     /**
-     * <p> Function object class for equality comparison. </p>
+     * Function object class for equality comparison.
      *
-     * <p> Binary function object class whose call returns whether its two arguments compare <i>equal</i> (as returned by
-     * operator ==). </p>
+     * Binary function object class whose call returns whether its two arguments compare <i>equal</i> (as returned by
+     * operator ==).
      *
-     * <p> Generically, function objects are instances of a class with member function {@link IComparable.equal_to equal_to}
-     * defined. This member function allows the object to be used with the same syntax as a function call. </p>
+     * Generically, function objects are instances of a class with member function {@link IComparable.equal_to equal_to}
+     * defined. This member function allows the object to be used with the same syntax as a function call.
      *
      * @param x First element to compare.
      * @param y Second element to compare.
@@ -6020,13 +6150,13 @@ var std;
     }
     std.equal_to = equal_to;
     /**
-     * <p> Function object class for non-equality comparison. </p>
+     * Function object class for non-equality comparison.
      *
-     * <p> Binary function object class whose call returns whether its two arguments compare <i>not equal</i> (as returned
-     * by operator operator!=). </p>
+     * Binary function object class whose call returns whether its two arguments compare <i>not equal</i> (as returned
+     * by operator operator!=).
      *
-     * <p> Generically, function objects are instances of a class with member function {@link IComparable.equal_to equal_to}
-     * defined. This member function allows the object to be used with the same syntax as a function call. </p>
+     * Generically, function objects are instances of a class with member function {@link IComparable.equal_to equal_to}
+     * defined. This member function allows the object to be used with the same syntax as a function call.
      *
      * @param x First element to compare.
      * @param y Second element to compare.
@@ -6034,20 +6164,20 @@ var std;
      * @return Whether the arguments are not equal.
      */
     function not_equal_to(x, y) {
-        return !std.equal_to(x, y);
+        return !equal_to(x, y);
     }
     std.not_equal_to = not_equal_to;
     /**
-     * <p> Function for less-than inequality comparison. </p>
+     * Function for less-than inequality comparison.
      *
-     * <p> Binary function returns whether the its first argument compares less than the second. </p>
+     * Binary function returns whether the its first argument compares less than the second.
      *
-     * <p> Generically, function objects are instances of a class with member function {@link IComparable.less less}
+     * Generically, function objects are instances of a class with member function {@link IComparable.less less}
      * defined. If an object doesn't have the method, then its own uid will be used to compare insteadly.
-     * This member function allows the object to be used with the same syntax as a function call. </p>
+     * This member function allows the object to be used with the same syntax as a function call.
      *
-     * <p> Objects of this class can be used on standard algorithms such as {@link sort sort()}</code>,
-     * {@link merge merge()} or {@link TreeMap.lower_bound lower_bound()}. </p>
+     * Objects of this class can be used on standard algorithms such as {@link sort sort()}</code>,
+     * {@link merge merge()} or {@link TreeMap.lower_bound lower_bound()}.
      *
      * @param <T> Type of arguments to compare by the function call. The type shall supporrt the operation
      *			  <i>operator<()</i> or method {@link IComparable.less less}.
@@ -6068,14 +6198,14 @@ var std;
     }
     std.less = less;
     /**
-     * <p> Function object class for less-than-or-equal-to comparison. </p>
+     * Function object class for less-than-or-equal-to comparison.
      *
-     * <p> Binary function object class whose call returns whether the its first argument compares {@link less less than} or
-     * {@link equal_to equal to} the second (as returned by operator <=). </p>
+     * Binary function object class whose call returns whether the its first argument compares {@link less less than} or
+     * {@link equal_to equal to} the second (as returned by operator <=).
      *
-     * <p> Generically, <i>function objects</i> are instances of a class with member function {@link IComparable.less less}
+     * Generically, <i>function objects</i> are instances of a class with member function {@link IComparable.less less}
      * and {@link IComparable.equal_to equal_to} defined. This member function allows the object to be used with the same
-     * syntax as a function call. </p>
+     * syntax as a function call.
      *
      * @param x First element, the standard of comparison.
      * @param y Second element compare with the first.
@@ -6083,21 +6213,21 @@ var std;
      * @return Whether the <i>x</i> is {@link less less than} or {@link equal_to equal to} the <i>y</i>.
      */
     function less_equal(x, y) {
-        return std.less(x, y) || std.equal_to(x, y);
+        return less(x, y) || equal_to(x, y);
     }
     std.less_equal = less_equal;
     /**
-     * <p> Function for greater-than inequality comparison. </p>
+     * Function for greater-than inequality comparison.
      *
-     * <p> Binary function returns whether the its first argument compares greater than the second. </p>
+     * Binary function returns whether the its first argument compares greater than the second.
      *
-     * <p> Generically, function objects are instances of a class with member function {@link less} and
+     * Generically, function objects are instances of a class with member function {@link less} and
      * {@link equal_to equal_to()} defined. If an object doesn't have those methods, then its own uid will be used
      * to compare insteadly. This member function allows the object to be used with the same syntax as a function
-     * call. </p>
+     * call.
      *
-     * <p> Objects of this class can be used on standard algorithms such as {@link sort sort()},
-     * {@link merge merge()} or {@link TreeMap.lower_bound lower_bound()}. </p>
+     * Objects of this class can be used on standard algorithms such as {@link sort sort()},
+     * {@link merge merge()} or {@link TreeMap.lower_bound lower_bound()}.
      *
      * @param <T> Type of arguments to compare by the function call. The type shall supporrt the operation
      *			  <i>operator>()</i> or method {@link IComparable.greater greater}.
@@ -6105,18 +6235,18 @@ var std;
      * @return Whether the <i>x</i> is greater than the <i>y</i>.
      */
     function greater(x, y) {
-        return !std.less_equal(x, y);
+        return !less_equal(x, y);
     }
     std.greater = greater;
     /**
-     * <p> Function object class for greater-than-or-equal-to comparison. </p>
+     * Function object class for greater-than-or-equal-to comparison.
      *
-     * <p> Binary function object class whose call returns whether the its first argument compares
-     * {@link greater greater than} or {@link equal_to equal to} the second (as returned by operator >=). </p>
+     * Binary function object class whose call returns whether the its first argument compares
+     * {@link greater greater than} or {@link equal_to equal to} the second (as returned by operator >=).
      *
-     * <p> Generically, function objects are instances of a class with member function {@link IComparable.less less}
+     * Generically, function objects are instances of a class with member function {@link IComparable.less less}
      * defined. If an object doesn't have the method, then its own uid will be used to compare insteadly.
-     * This member function allows the object to be used with the same syntax as a function call. </p>
+     * This member function allows the object to be used with the same syntax as a function call.
      *
      * @param x First element, the standard of comparison.
      * @param y Second element compare with the first.
@@ -6124,17 +6254,17 @@ var std;
      * @return Whether the <i>x</i> is {@link greater greater than} or {@link equal_to equal to} the <i>y</i>.
      */
     function greater_equal(x, y) {
-        return !std.less(x, y);
+        return !less(x, y);
     }
     std.greater_equal = greater_equal;
     /**
-     * <p> Logical AND function object class. </p>
+     * Logical AND function object class.
      *
-     * <p> Binary function object class whose call returns the result of the <i>logical "and"</i> operation between its two
-     * arguments (as returned by operator &&). </p>
+     * Binary function object class whose call returns the result of the <i>logical "and"</i> operation between its two
+     * arguments (as returned by operator &&).
      *
-     * <p> Generically, function objects are instances of a class with member function operator() defined. This member
-     * function allows the object to be used with the same syntax as a function call. </p>
+     * Generically, function objects are instances of a class with member function operator() defined. This member
+     * function allows the object to be used with the same syntax as a function call.
      *
      * @param x First element.
      * @param y Second element.
@@ -6146,13 +6276,13 @@ var std;
     }
     std.logical_and = logical_and;
     /**
-     * <p> Logical OR function object class. </p>
+     * Logical OR function object class.
      *
-     * <p> Binary function object class whose call returns the result of the <i>logical "or"</i> operation between its two
-     * arguments (as returned by operator ||). </p>
+     * Binary function object class whose call returns the result of the <i>logical "or"</i> operation between its two
+     * arguments (as returned by operator ||).
      *
-     * <p> Generically, function objects are instances of a class with member function operator() defined. This member
-     * function allows the object to be used with the same syntax as a function call. </p>
+     * Generically, function objects are instances of a class with member function operator() defined. This member
+     * function allows the object to be used with the same syntax as a function call.
      *
      * @param x First element.
      * @param y Second element.
@@ -6164,13 +6294,13 @@ var std;
     }
     std.logical_or = logical_or;
     /**
-     * <p> Logical NOT function object class. </p>
+     * Logical NOT function object class.
      *
-     * <p> Unary function object class whose call returns the result of the <i>logical "not"</i> operation on its argument
-     * (as returned by operator !). </p>
+     * Unary function object class whose call returns the result of the <i>logical "not"</i> operation on its argument
+     * (as returned by operator !).
      *
-     * <p> Generically, function objects are instances of a class with member function operator() defined. This member
-     * function allows the object to be used with the same syntax as a function call. </p>
+     * Generically, function objects are instances of a class with member function operator() defined. This member
+     * function allows the object to be used with the same syntax as a function call.
      *
      * @param x Target element.
      *
@@ -6181,10 +6311,10 @@ var std;
     }
     std.logical_not = logical_not;
     /**
-     * <p> Bitwise AND function object class. </p>
+     * Bitwise AND function object class.
      *
-     * <p> Binary function object class whose call returns the result of applying the <i>bitwise "and"</i> operation between
-     * its two arguments (as returned by operator &). </p>
+     * Binary function object class whose call returns the result of applying the <i>bitwise "and"</i> operation between
+     * its two arguments (as returned by operator &).
      *
      * @param x First element.
      * @param y Second element.
@@ -6196,10 +6326,10 @@ var std;
     }
     std.bit_and = bit_and;
     /**
-     * <p> Bitwise OR function object class. </p>
+     * Bitwise OR function object class.
      *
-     * <p> Binary function object class whose call returns the result of applying the <i>bitwise "and"</i> operation between
-     * its two arguments (as returned by operator &). </p>
+     * Binary function object class whose call returns the result of applying the <i>bitwise "and"</i> operation between
+     * its two arguments (as returned by operator &).
      *
      * @param x First element.
      * @param y Second element.
@@ -6211,10 +6341,10 @@ var std;
     }
     std.bit_or = bit_or;
     /**
-     * <p> Bitwise XOR function object class. </p>
+     * Bitwise XOR function object class.
      *
-     * <p> Binary function object class whose call returns the result of applying the <i>bitwise "exclusive or"</i>
-     * operation between its two arguments (as returned by operator ^). </p>
+     * Binary function object class whose call returns the result of applying the <i>bitwise "exclusive or"</i>
+     * operation between its two arguments (as returned by operator ^).
      *
      * @param x First element.
      * @param y Second element.
@@ -6228,17 +6358,17 @@ var std;
     function hash(par) {
         var type = typeof par;
         if (type == "number")
-            return hash_of_number(par);
+            return _Hash_number(par);
         else if (type == "string")
-            return hash_of_string(par);
+            return _Hash_string(par);
         else
-            return hash_of_object(par);
+            return _Hash_object(par);
     }
     std.hash = hash;
     /**
      * @hidden
      */
-    function hash_of_number(val) {
+    function _Hash_number(val) {
         // ------------------------------------------
         //	IN C++
         //		CONSIDER A NUMBER AS A STRING
@@ -6260,7 +6390,7 @@ var std;
     /**
      * @hidden
      */
-    function hash_of_string(str) {
+    function _Hash_string(str) {
         var code = 2166136261;
         for (var i = 0; i < str.length; i++) {
             code ^= str.charCodeAt(i);
@@ -6271,11 +6401,11 @@ var std;
     /**
      * @hidden
      */
-    function hash_of_object(obj) {
+    function _Hash_object(obj) {
         if (obj.hashCode != undefined)
             return obj.hashCode();
         else
-            return hash_of_number(obj.__get_m_iUID());
+            return _Hash_number(obj.__get_m_iUID());
     }
     /* ---------------------------------------------------------
         UNIQUE ID FOR OBJECTS
@@ -6359,7 +6489,7 @@ var std;
             // fill argArray from placeholders
             for (var i = 0; i < argArray.length; i++)
                 if (argArray[i] instanceof std.placeholders.PlaceHolder)
-                    argArray[i] = args[argArray[i].index - 1];
+                    argArray[i] = args[argArray[i].index() - 1];
             // arguments are over the placeholder_count 
             if (args.length > placeholder_count)
                 for (var i = placeholder_count; i < args.length; i++)
@@ -6374,24 +6504,24 @@ var std;
     std.bind = bind;
 })(std || (std = {}));
 /**
- * <p> Bind argument placeholders. </p>
+ * Bind argument placeholders.
  *
- * <p> This namespace declares an unspecified number of objects: <i>_1</i>, <i>_2</i>, <i>_3</i>, ...</i>, which are
- * used to specify placeholders in calls to function {@link std.bind}. </p>
+ * This namespace declares an unspecified number of objects: <i>_1</i>, <i>_2</i>, <i>_3</i>, ...</i>, which are
+ * used to specify placeholders in calls to function {@link bind}.
  *
- * <p> When the function object returned by bind is called, an argument with placeholder {@link _1} is replaced by the
- * first argument in the call, {@link _2} is replaced by the second argument in the call, and so on... For example: </p>
+ * When the function object returned by bind is called, an argument with placeholder {@link _1} is replaced by the
+ * first argument in the call, {@link _2} is replaced by the second argument in the call, and so on... For example:
  *
  * <code>
  * let vec: Vector<number> = new Vector<number>();
  *
- * let bind = std.bind(Vector.insert, _1, vec.end(), _2, _3);
+ * let bind = bind(Vector.insert, _1, vec.end(), _2, _3);
  * bind.apply(vec, 5, 1); // vec.insert(vec.end(), 5, 1);
  * // [1, 1, 1, 1, 1]
  * </code>
  *
- * <p> When a call to {@link bind} is used as a subexpression in another call to <i>bind</i>, the {@link placeholders}
- * are relative to the outermost {@link bind} expression. </p>
+ * When a call to {@link bind} is used as a subexpression in another call to <i>bind</i>, the {@link placeholders}
+ * are relative to the outermost {@link bind} expression.
  *
  * @reference http://www.cplusplus.com/reference/functional/placeholders/
  * @author Jeongho Nam <http://samchon.org>
@@ -6406,13 +6536,9 @@ var std;
             function PlaceHolder(index) {
                 this.index_ = index;
             }
-            Object.defineProperty(PlaceHolder.prototype, "index", {
-                get: function () {
-                    return this.index_;
-                },
-                enumerable: true,
-                configurable: true
-            });
+            PlaceHolder.prototype.index = function () {
+                return this.index_;
+            };
             return PlaceHolder;
         }());
         placeholders.PlaceHolder = PlaceHolder;
@@ -6453,29 +6579,27 @@ var std;
 var std;
 (function (std) {
     /**
-     * <p> Hashed, unordered map. </p>
+     * Hashed, unordered map.
      *
-     * <p> {@link HashMap}s are associative containers that store elements formed by the combination of a <i>key value</i>
+     * {@link HashMap}s are associative containers that store elements formed by the combination of a <i>key value</i>
      * and a <i>mapped value</i>, and which allows for fast retrieval of individual elements based on their <i>keys</i>.
-     * </p>
      *
-     * <p> In an {@link HashMap}, the <i>key value</i> is generally used to uniquely identify the element, while the
+     * In an {@link HashMap}, the <i>key value</i> is generally used to uniquely identify the element, while the
      * <i>mapped value</i> is an object with the content associated to this <i>key</i>. Types of <i>key</i> and
-     * <i>mapped value</i> may differ. </p>
+     * <i>mapped value</i> may differ.
      *
-     * <p> Internally, the elements in the {@link HashMap} are not sorted in any particular order with respect to either
+     * Internally, the elements in the {@link HashMap} are not sorted in any particular order with respect to either
      * their <i>key</i> or <i>mapped values</i>, but organized into <i>buckets</i> depending on their hash values to allow
      * for fast access to individual elements directly by their <i>key values</i> (with a constant average time complexity
-     * on average). </p>
+     * on average).
      *
-     * <p> {@link HashMap} containers are faster than {@link TreeMap} containers to access individual elements by their
-     * <i>key</i>, although they are generally less efficient for range iteration through a subset of their elements. </p>
+     * {@link HashMap} containers are faster than {@link TreeMap} containers to access individual elements by their
+     * <i>key</i>, although they are generally less efficient for range iteration through a subset of their elements.
      *
-     * <p> <a href="http://samchon.github.io/tstl/images/design/class_diagram/map_containers.png" target="_blank">
+     * <a href="http://samchon.github.io/tstl/images/design/class_diagram/map_containers.png" target="_blank">
      * <img src="http://samchon.github.io/tstl/images/design/class_diagram/map_containers.png" style="max-width: 100%" /> </a>
-     * </p>
      *
-     * <h3> Container properties </h3>
+     * ### Container properties
      * <dl>
      * 	<dt> Associative </dt>
      * 	<dd> Elements in associative containers are referenced by their <i>key</i> and not by their absolute
@@ -6511,7 +6635,7 @@ var std;
             var _this = 
             // INIT MEMBERS
             _super.call(this) || this;
-            _this.hash_buckets_ = new std.base.MapHashBuckets(_this);
+            _this.hash_buckets_ = new std.base._MapHashBuckets(_this);
             // BRANCH - METHOD OVERLOADINGS
             if (args.length == 0) {
             }
@@ -6723,29 +6847,28 @@ var std;
 var std;
 (function (std) {
     /**
-     * <p> Hashed, unordered Multimap. </p>
+     * Hashed, unordered Multimap.
      *
-     * <p> {@link HashMultiMap}s are associative containers that store elements formed by the combination of
+     * {@link HashMultiMap}s are associative containers that store elements formed by the combination of
      * a <i>key value</i> and a <i>mapped value</i>, much like {@link HashMultiMap} containers, but allowing
-     * different elements to have equivalent <i>keys</i>. </p>
+     * different elements to have equivalent <i>keys</i>.
      *
-     * <p> In an {@link HashMultiMap}, the <i>key value</i> is generally used to uniquely identify the
+     * In an {@link HashMultiMap}, the <i>key value</i> is generally used to uniquely identify the
      * element, while the <i>mapped value</i> is an object with the content associated to this <i>key</i>.
-     * Types of <i>key</i> and <i>mapped value</i> may differ. </p>
+     * Types of <i>key</i> and <i>mapped value</i> may differ.
      *
-     * <p> Internally, the elements in the {@link HashMultiMap} are not sorted in any particular order with
+     * Internally, the elements in the {@link HashMultiMap} are not sorted in any particular order with
      * respect to either their <i>key</i> or <i>mapped values</i>, but organized into <i>buckets</i> depending on
      * their hash values to allow for fast access to individual elements directly by their <i>key values</i>
-     * (with a constant average time complexity on average). </p>
+     * (with a constant average time complexity on average).
      *
-     * <p> Elements with equivalent <i>keys</i> are grouped together in the same bucket and in such a way that
-     * an iterator can iterate through all of them. Iterators in the container are doubly linked iterators. </p>
+     * Elements with equivalent <i>keys</i> are grouped together in the same bucket and in such a way that
+     * an iterator can iterate through all of them. Iterators in the container are doubly linked iterators.
      *
-     * <p> <a href="http://samchon.github.io/tstl/images/design/class_diagram/map_containers.png" target="_blank">
+     * <a href="http://samchon.github.io/tstl/images/design/class_diagram/map_containers.png" target="_blank">
      * <img src="http://samchon.github.io/tstl/images/design/class_diagram/map_containers.png" style="max-width: 100%" /> </a>
-     * </p>
      *
-     * <h3> Container properties </h3>
+     * ### Container properties
      * <dl>
      *	<dt> Associative </dt>
      *	<dd> Elements in associative containers are referenced by their <i>key</i> and not by their absolute
@@ -6781,7 +6904,7 @@ var std;
             var _this = 
             // INIT MEMBERS
             _super.call(this) || this;
-            _this.hash_buckets_ = new std.base.MapHashBuckets(_this);
+            _this.hash_buckets_ = new std.base._MapHashBuckets(_this);
             // BRANCH - METHOD OVERLOADINGS
             if (args.length == 0) {
             }
@@ -6983,27 +7106,27 @@ var std;
 var std;
 (function (std) {
     /**
-     * <p> Hashed, unordered Multiset. </p>
+     * Hashed, unordered Multiset.
      *
-     * <p> {@link HashMultiSet HashMultiSets} are containers that store elements in no particular order, allowing fast
+     * {@link HashMultiSet HashMultiSets} are containers that store elements in no particular order, allowing fast
      * retrieval of individual elements based on their value, much like {@link HashMultiSet} containers,
-     * but allowing different elements to have equivalent values. </p>
+     * but allowing different elements to have equivalent values.
      *
-     * <p> In an {@link HashMultiSet}, the value of an element is at the same time its <i>key</i>, used to
+     * In an {@link HashMultiSet}, the value of an element is at the same time its <i>key</i>, used to
      * identify it. <i>Keys</i> are immutable, therefore, the elements in an {@link HashMultiSet} cannot be
-     * modified once in the container - they can be inserted and removed, though. </p>
+     * modified once in the container - they can be inserted and removed, though.
      *
-     * <p> Internally, the elements in the {@link HashMultiSet} are not sorted in any particular, but
+     * Internally, the elements in the {@link HashMultiSet} are not sorted in any particular, but
      * organized into <i>buckets</i> depending on their hash values to allow for fast access to individual
-     * elements directly by their <i>values</i> (with a constant average time complexity on average). </p>
+     * elements directly by their <i>values</i> (with a constant average time complexity on average).
      *
-     * <p> Elements with equivalent values are grouped together in the same bucket and in such a way that an
-     * iterator can iterate through all of them. Iterators in the container are doubly linked iterators. </p>
+     * Elements with equivalent values are grouped together in the same bucket and in such a way that an
+     * iterator can iterate through all of them. Iterators in the container are doubly linked iterators.
      *
-     * <p> <a href="http://samchon.github.io/tstl/images/design/class_diagram/set_containers.png" target="_blank">
-     * <img src="http://samchon.github.io/tstl/images/design/class_diagram/set_containers.png" style="max-width: 100%" /></a> </p>
+     * <a href="http://samchon.github.io/tstl/images/design/class_diagram/set_containers.png" target="_blank">
+     * <img src="http://samchon.github.io/tstl/images/design/class_diagram/set_containers.png" style="max-width: 100%" /></a>
      *
-     * <h3> Container properties </h3>
+     * ### Container properties
      * <dl>
      *	<dt> Associative </dt>
      *	<dd> Elements in associative containers are referenced by their <i>key</i> and not by their absolute
@@ -7036,11 +7159,7 @@ var std;
             var _this = 
             // INIT MEMBERS
             _super.call(this) || this;
-            /**
-             * @hidden
-             */
-            _this.hash_buckets_ = new std.base.SetHashBuckets(_this);
-            _this.hash_buckets_ = new std.base.SetHashBuckets(_this);
+            _this.hash_buckets_ = new std.base._SetHashBuckets(_this);
             // BRANCH - METHOD OVERLOADINGS
             if (args.length == 0) {
             }
@@ -7244,27 +7363,27 @@ var std;
 var std;
 (function (std) {
     /**
-     * <p> Hashed, unordered set. </p>
+     * Hashed, unordered set.
      *
-     * <p> {@link HashSet}s are containers that store unique elements in no particular order, and which
-     * allow for fast retrieval of individual elements based on their value. </p>
+     * {@link HashSet}s are containers that store unique elements in no particular order, and which
+     * allow for fast retrieval of individual elements based on their value.
      *
-     * <p> In an {@link HashSet}, the value of an element is at the same time its <i>key</i>, that
+     * In an {@link HashSet}, the value of an element is at the same time its <i>key</i>, that
      * identifies it uniquely. Keys are immutable, therefore, the elements in an {@link HashSet} cannot be
-     * modified once in the container - they can be inserted and removed, though. </p>
+     * modified once in the container - they can be inserted and removed, though.
      *
-     * <p> Internally, the elements in the {@link HashSet} are not sorted in any particular order, but
+     * Internally, the elements in the {@link HashSet} are not sorted in any particular order, but
      * organized into buckets depending on their hash values to allow for fast access to individual elements
-     * directly by their <i>values</i> (with a constant average time complexity on average). </p>
+     * directly by their <i>values</i> (with a constant average time complexity on average).
      *
-     * <p> {@link HashSet} containers are faster than {@link TreeSet} containers to access individual
+     * {@link HashSet} containers are faster than {@link TreeSet} containers to access individual
      * elements by their <i>key</i>, although they are generally less efficient for range iteration through a
-     * subset of their elements. </p>
+     * subset of their elements.
      *
-     * <p> <a href="http://samchon.github.io/tstl/images/design/class_diagram/set_containers.png" target="_blank">
-     * <img src="http://samchon.github.io/tstl/images/design/class_diagram/set_containers.png" style="max-width: 100%" /></a> </p>
+     * <a href="http://samchon.github.io/tstl/images/design/class_diagram/set_containers.png" target="_blank">
+     * <img src="http://samchon.github.io/tstl/images/design/class_diagram/set_containers.png" style="max-width: 100%" /></a>
      *
-     * <h3> Container properties </h3>
+     * ### Container properties
      * <dl>
      *	<dt> Associative </dt>
      *	<dd> Elements in associative containers are referenced by their <i>key</i> and not by their absolute
@@ -7297,11 +7416,7 @@ var std;
             var _this = 
             // INIT MEMBERS
             _super.call(this) || this;
-            /**
-             * @hidden
-             */
-            _this.hash_buckets_ = new std.base.SetHashBuckets(_this);
-            _this.hash_buckets_ = new std.base.SetHashBuckets(_this);
+            _this.hash_buckets_ = new std.base._SetHashBuckets(_this);
             // BRANCH - METHOD OVERLOADINGS
             if (args.length == 0) {
             }
@@ -7505,34 +7620,34 @@ var std;
     std.HashSet = HashSet;
 })(std || (std = {}));
 /// <reference path="API.ts" />
-/// <reference path="base/ListContainer.ts" />
+/// <reference path="base/_ListContainer.ts" />
 var std;
 (function (std) {
     /**
-     * <p> Doubly linked list. </p>
+     * Doubly linked list.
      *
-     * <p> {@link List}s are sequence containers that allow constant time insert and erase operations anywhere within the
-     * sequence, and iteration in both directions. </p>
+     * {@link List}s are sequence containers that allow constant time insert and erase operations anywhere within the
+     * sequence, and iteration in both directions.
      *
-     * <p> List containers are implemented as doubly-linked lists; Doubly linked lists can store each of the elements they
+     * List containers are implemented as doubly-linked lists; Doubly linked lists can store each of the elements they
      * contain in different and unrelated storage locations. The ordering is kept internally by the association to each
-     * element of a link to the element preceding it and a link to the element following it. </p>
+     * element of a link to the element preceding it and a link to the element following it.
      *
-     * <p> Compared to other base standard sequence containers (array, vector and deque), lists perform generally better
+     * Compared to other base standard sequence containers (array, vector and deque), lists perform generally better
      * in inserting, extracting and moving elements in any position within the container for which an iterator has already
-     * been obtained, and therefore also in algorithms that make intensive use of these, like sorting algorithms. </p>
+     * been obtained, and therefore also in algorithms that make intensive use of these, like sorting algorithms.
      *
-     * <p> The main drawback of lists and forward_lists compared to these other sequence containers is that they lack
+     * The main drawback of lists and forward_lists compared to these other sequence containers is that they lack
      * direct access to the elements by their position; For example, to access the sixth element in a list, one has to
      * iterate from a known position (like the beginning or the end) to that position, which takes linear time in the
      * distance between these. They also consume some extra memory to keep the linking information associated to each
-     * element (which may be an important factor for large lists of small-sized elements). </p>
+     * element (which may be an important factor for large lists of small-sized elements).
      *
-     * <p> <a href="http://samchon.github.io/tstl/images/design/class_diagram/linear_containers.png" target="_blank">
+     * <a href="http://samchon.github.io/tstl/images/design/class_diagram/linear_containers.png" target="_blank">
      * <img src="http://samchon.github.io/tstl/images/design/class_diagram/linear_containers.png" style="max-width: 100%" /></a>
-     * </p>
      *
-     * <h3> Container properties </h3>
+     *
+     * ### Container properties
      * <dl>
      * 	<dt> Sequence </dt>
      * 	<dd> Elements in sequence containers are ordered in a strict linear sequence. Individual elements are accessed by
@@ -7569,14 +7684,14 @@ var std;
                 _this.assign(container.begin(), container.end());
             }
             else if (args.length == 2 && args[0] instanceof std.Iterator && args[1] instanceof std.Iterator) {
-                var begin_3 = args[0];
-                var end_3 = args[1];
-                _this.assign(begin_3, end_3);
+                var begin_1 = args[0];
+                var end_1 = args[1];
+                _this.assign(begin_1, end_1);
             }
             else if (args.length == 2 && typeof args[0] == "number") {
-                var size = args[0];
+                var size_1 = args[0];
                 var val = args[1];
-                _this.assign(size, val);
+                _this.assign(size_1, val);
             }
             return _this;
         }
@@ -7636,13 +7751,10 @@ var std;
                 is_reverse_iterator = true;
                 args[0] = args[0].base().prev();
             }
-            // BRANCHES
-            if (args.length == 2)
-                ret = this._Insert_by_repeating_val(args[0], 1, args[1]);
-            else if (args.length == 3 && typeof args[1] == "number")
-                ret = this._Insert_by_repeating_val(args[0], args[1], args[2]);
-            else
-                ret = this._Insert_by_range(args[0], args[1], args[2]);
+            //----
+            // DO INSERT VIA SUPER
+            //----
+            ret = _super.prototype.insert.apply(this, args);
             // RETURNS
             if (is_reverse_iterator == true)
                 return new std.ListReverseIterator(ret.next());
@@ -7680,16 +7792,16 @@ var std;
             }
         };
         /**
-         * <p> Remove elements with specific value. </p>
+         * Remove elements with specific value.
          *
-         * <p> Removes from the container all the elements that compare equal to <i>val</i>. This calls the
-         * destructor of these objects and reduces the container {@link size} by the number of elements removed. </p>
+         * Removes from the container all the elements that compare equal to <i>val</i>. This calls the
+         * destructor of these objects and reduces the container {@link size} by the number of elements removed.
          *
-         * <p> Unlike member function {@link List.erase}, which erases elements by their position (using an
-         * iterator), this function ({@link List.remove}) removes elements by their value. </p>
+         * Unlike member function {@link List.erase}, which erases elements by their position (using an
+         * iterator), this function ({@link List.remove}) removes elements by their value.
          *
-         * <p> A similar function, {@link List.remove_if}, exists, which allows for a condition other than an
-         * equality comparison to determine whether an element is removed. </p>
+         * A similar function, {@link List.remove_if}, exists, which allows for a condition other than an
+         * equality comparison to determine whether an element is removed.
          *
          * @param val Value of the elements to be removed.
          */
@@ -7703,15 +7815,15 @@ var std;
             }
         };
         /**
-         * <p> Remove elements fulfilling condition. </p>
+         * Remove elements fulfilling condition.
          *
-         * <p> Removes from the container all the elements for which <i>pred</i> returns <code>true</code>. This
+         * Removes from the container all the elements for which <i>pred</i> returns <code>true</code>. This
          * calls the destructor of these objects and reduces the container {@link size} by the number of elements
-         * removed. </p>
+         * removed.
          *
-         * <p> The function calls <code>pred(it.value)</code> for each element (where <code>it</code> is an iterator
+         * The function calls <code>pred(it.value)</code> for each element (where <code>it</code> is an iterator
          * to that element). Any of the elements in the list for which this returns <code>true</code>, are removed
-         * from the  </p>
+         * from the
          *
          * @param pred Unary predicate that, taking a value of the same type as those contained in the forward_list
          *			   object, returns <code>true</code> for those values to be removed from the container, and
@@ -7733,10 +7845,10 @@ var std;
                 return;
             var it = this.begin();
             while (obj.empty() == false) {
-                var begin_4 = obj.begin();
-                while (!it.equals(this.end()) && compare(it.value, begin_4.value) == true)
+                var begin_2 = obj.begin();
+                while (!it.equals(this.end()) && compare(it.value, begin_2.value) == true)
                     it = it.next();
-                this.splice(it, obj, begin_4);
+                this.splice(it, obj, begin_2);
             }
         };
         List.prototype.splice = function (position, obj, begin, end) {
@@ -7760,7 +7872,7 @@ var std;
          * @hidden
          */
         List.prototype._Quick_sort = function (first, last, compare) {
-            if (first != last && last != this.end() && first != last.next()) {
+            if (!first.equals(last) && !last.equals(this.end()) && !first.equals(last.next())) {
                 var temp = this._Quick_sort_partition(first, last, compare);
                 this._Quick_sort(first, temp.prev(), compare);
                 this._Quick_sort(temp.next(), last, compare);
@@ -7773,30 +7885,48 @@ var std;
             var standard = last.value; // TO BE COMPARED
             var prev = first.prev(); // TO BE SMALLEST
             var it = first;
-            for (; it != last; it = it.next())
+            for (; !it.equals(last); it = it.next())
                 if (compare(it.value, standard)) {
-                    prev = (prev == this.end()) ? first : prev.next();
+                    prev = prev.equals(this.end()) ? first : prev.next();
                     _a = [it.value, prev.value], prev.value = _a[0], it.value = _a[1];
                 }
-            prev = (prev == this.end()) ? first : prev.next();
+            prev = prev.equals(this.end()) ? first : prev.next();
             _b = [it.value, prev.value], prev.value = _b[0], it.value = _b[1];
             return prev;
             var _a, _b;
+        };
+        /**
+         * Reverse the order of elements.
+         *
+         * Reverses the order of the elements in the list container.
+         */
+        List.prototype.reverse = function () {
+            var begin = this.end().prev();
+            var prev_of_end = this.begin();
+            for (var it = this.begin(); !it.equals(this.end());) {
+                var next_4 = it.next();
+                _a = [it.next_, it.prev_], it.prev_ = _a[0], it.next_ = _a[1];
+                it = next_4;
+            }
+            // ADJUST THE BEGIN AND END
+            this._Set_begin(begin); // THE NEW BEGIN
+            this.end().prev_ = prev_of_end;
+            this.end().next_ = begin;
+            var _a;
         };
         List.prototype.swap = function (obj) {
             _super.prototype.swap.call(this, obj);
         };
         return List;
-    }(std.base.ListContainer));
+    }(std.base._ListContainer));
     std.List = List;
 })(std || (std = {}));
 (function (std) {
     /**
-     * <p> An iterator, node of a List. </p>
+     * An iterator, node of a List.
      *
-     * <p> <a href="http://samchon.github.io/tstl/images/design/class_diagram/linear_containers.png" target="_blank">
+     * <a href="http://samchon.github.io/tstl/images/design/class_diagram/linear_containers.png" target="_blank">
      * <img src="http://samchon.github.io/tstl/images/design/class_diagram/linear_containers.png" style="max-width: 100%" /></a>
-     * </p>
      *
      * @author Jeongho Nam <http://samchon.org>
      */
@@ -7827,20 +7957,8 @@ var std;
         /**
          * @inheritdoc
          */
-        ListIterator.prototype.prev = function () {
-            return this.prev_;
-        };
-        /**
-         * @inheritdoc
-         */
-        ListIterator.prototype.next = function () {
-            return this.next_;
-        };
-        /**
-         * @inheritdoc
-         */
-        ListIterator.prototype.advance = function (step) {
-            return _super.prototype.advance.call(this, step);
+        ListIterator.prototype.source = function () {
+            return this.source_;
         };
         Object.defineProperty(ListIterator.prototype, "value", {
             /**
@@ -7860,6 +7978,27 @@ var std;
             enumerable: true,
             configurable: true
         });
+        /* ---------------------------------------------------------
+            MOVERS
+        --------------------------------------------------------- */
+        /**
+         * @inheritdoc
+         */
+        ListIterator.prototype.prev = function () {
+            return this.prev_;
+        };
+        /**
+         * @inheritdoc
+         */
+        ListIterator.prototype.next = function () {
+            return this.next_;
+        };
+        /**
+         * @inheritdoc
+         */
+        ListIterator.prototype.advance = function (step) {
+            return _super.prototype.advance.call(this, step);
+        };
         /* ---------------------------------------------------------------
             COMPARISON
         --------------------------------------------------------------- */
@@ -7876,16 +8015,15 @@ var std;
             _super.prototype.swap.call(this, obj);
         };
         return ListIterator;
-    }(std.base.ListIteratorBase));
+    }(std.base._ListIteratorBase));
     std.ListIterator = ListIterator;
 })(std || (std = {}));
 (function (std) {
     /**
-     * <p> A reverse-iterator of List. </p>
+     * A reverse-iterator of List.
      *
-     * <p> <a href="http://samchon.github.io/tstl/images/design/class_diagram/linear_containers.png" target="_blank">
+     * <a href="http://samchon.github.io/tstl/images/design/class_diagram/linear_containers.png" target="_blank">
      * <img src="http://samchon.github.io/tstl/images/design/class_diagram/linear_containers.png" style="max-width: 100%" /></a>
-     * </p>
      *
      * @param <T> Type of the elements.
      *
@@ -7936,35 +8074,35 @@ var std;
     std.ListReverseIterator = ListReverseIterator;
 })(std || (std = {}));
 /// <reference path="API.ts" />
+/// <reference path="base/Container.ts" />
 /// <reference path="Iterator.ts" />
 var std;
 (function (std) {
     /**
-     * <p> Vector, the dynamic array. </p>
+     * Vector, the dynamic array.
      *
-     * <p> {@link Vector}s are sequence containers representing arrays that can change in size. </p>
+     * {@link Vector}s are sequence containers representing arrays that can change in size.
      *
-     * <p> Just like arrays, {@link Vector}s use contiguous storage locations for their elements, which means that
+     * Just like arrays, {@link Vector}s use contiguous storage locations for their elements, which means that
      * their elements can also be accessed using offsets on regular pointers to its elements, and just as efficiently
      * as in arrays. But unlike arrays, their size can change dynamically, with their storage being handled
-     * automatically by the container. </p>
+     * automatically by the container.
      *
-     * <p> Internally, {@link Vector}s use a dynamically allocated array to store their elements. This array may need
+     * Internally, {@link Vector}s use a dynamically allocated array to store their elements. This array may need
      * to be reallocated in order to grow in size when new elements are inserted, which implies allocating a new
      * array and moving all elements to it. This is a relatively expensive task in terms of processing time, and
-     * thus, {@link Vector}s do not reallocate each time an element is added to the container. </p>
+     * thus, {@link Vector}s do not reallocate each time an element is added to the container.
      *
-     * <p> Compared to the other dynamic sequence containers ({@link Deque}s, {@link List}s), {@link Vector Vectors}
+     * Compared to the other dynamic sequence containers ({@link Deque}s, {@link List}s), {@link Vector Vectors}
      * are very efficient accessing its elements (just like arrays) and relatively efficient adding or removing
      * elements from its end. For operations that involve inserting or removing elements at positions other than the
      * end, they perform worse than the others, and have less consistent iterators and references than {@link List}s.
-     * </p>
      *
-     * <p> <a href="http://samchon.github.io/tstl/images/design/class_diagram/linear_containers.png" target="_blank">
+     * <a href="http://samchon.github.io/tstl/images/design/class_diagram/linear_containers.png" target="_blank">
      * <img src="http://samchon.github.io/tstl/images/design/class_diagram/linear_containers.png" style="max-width: 100%" />
-     * </a> </p>
+     * </a>
      *
-     * <h3> Container properties </h3>
+     * ### Container properties
      * <dl>
      *	<dt> Sequence </dt>
      *	<dd>
@@ -8008,20 +8146,20 @@ var std;
             }
             else if (args.length == 1 && typeof args[0] == "number") {
                 // CONSTRUCT FROM SIZE
-                var size = args[0];
-                _this.data_.length = size;
+                var size_2 = args[0];
+                _this.data_.length = size_2;
             }
             else if (args.length == 2 && typeof args[0] == "number") {
                 // CONSTRUCT FROM SIZE AND REPEATING VALUE
-                var size = args[0];
+                var size_3 = args[0];
                 var val = args[1];
-                _this.assign(size, val);
+                _this.assign(size_3, val);
             }
             else if (args.length == 2 && args[0] instanceof std.Iterator && args[1] instanceof std.Iterator) {
                 // CONSTRUCT FROM INPUT ITERATORS
-                var begin_5 = args[0];
-                var end_4 = args[1];
-                _this.assign(begin_5, end_4);
+                var begin_3 = args[0];
+                var end_2 = args[1];
+                _this.assign(begin_3, end_2);
             }
             return _this;
         }
@@ -8181,34 +8319,15 @@ var std;
          * @hidden
          */
         Vector.prototype._Insert_by_repeating_val = function (position, n, val) {
-            if (position.index == -1) {
-                // WHEN INSERT TO THE LAST
-                for (var i = 0; i < n; i++)
-                    this.data_.push(val);
-                return this.begin();
-            }
-            else {
-                ///////
-                // INSERT TO THE MIDDLE POSITION
-                ///////
-                // CUT RIGHT SIDE
-                var spliced_array = this.data_.splice(position.index);
-                var insert_size = 0;
-                // INSERT ELEMENTS
-                for (var i = 0; i < n; i++) {
-                    this.data_.push(val);
-                    insert_size++;
-                }
-                (_a = this.data_).push.apply(_a, spliced_array); // CONCAT THE SPLICEDS
-                return position;
-            }
-            var _a;
+            var first = new std.base._Repeater(0, val);
+            var last = new std.base._Repeater(n);
+            return this._Insert_by_range(position, first, last);
         };
         /**
          * @hidden
          */
         Vector.prototype._Insert_by_range = function (position, first, last) {
-            if (position.index == -1) {
+            if (position.index() == -1) {
                 // WHEN INSERT TO THE LAST
                 for (; !first.equals(last); first = first.next())
                     this.data_.push(first.value);
@@ -8219,7 +8338,7 @@ var std;
                 // INSERT TO THE MIDDLE POSITION
                 ///////
                 // CUT RIGHT SIDE
-                var spliced_array = this.data_.splice(position.index);
+                var spliced_array = this.data_.splice(position.index());
                 var insert_size = 0;
                 // INSERT ELEMENTS
                 for (; !first.equals(last); first = first.next()) {
@@ -8264,15 +8383,15 @@ var std;
          * @hidden
          */
         Vector.prototype._Erase_by_range = function (first, last) {
-            if (first.index == -1)
+            if (first.index() == -1)
                 return first;
             // ERASE ELEMENTS
-            if (last.index == -1) {
-                this.data_.splice(first.index);
+            if (last.index() == -1) {
+                this.data_.splice(first.index());
                 return this.end();
             }
             else
-                this.data_.splice(first.index, last.index - first.index);
+                this.data_.splice(first.index(), last.index() - first.index());
             return first;
         };
         Vector.prototype.swap = function (obj) {
@@ -8288,11 +8407,10 @@ var std;
 })(std || (std = {}));
 (function (std) {
     /**
-     * <p> An iterator of Vector. </p>
+     * An iterator of Vector.
      *
-     * <p> <a href="http://samchon.github.io/tstl/images/design/class_diagram/linear_containers.png" target="_blank">
+     * <a href="http://samchon.github.io/tstl/images/design/class_diagram/linear_containers.png" target="_blank">
      * <img src="http://samchon.github.io/tstl/images/design/class_diagram/linear_containers.png" style="max-width: 100%" />
-     * </p>
      *
      * @param <T> Type of the elements.
      *
@@ -8304,11 +8422,12 @@ var std;
             CONSTRUCTORS
         --------------------------------------------------------- */
         /**
-         * <p> Construct from the source {@link Vector container}. </p>
+         * Construct from the source {@link Vector container}.
          *
-         * <h4> Note </h4>
-         * <p> Do not create the iterator directly, by yourself. </p>
-         * <p> Use {@link Vector.begin begin()}, {@link Vector.end end()} in {@link Vector container} instead. </p>
+         * #### Note
+         * Do not create the iterator directly, by yourself.
+         *
+         * Use {@link Vector.begin begin()}, {@link Vector.end end()} in {@link Vector container} instead.
          *
          * @param source The source {@link Vector container} to reference.
          * @param index Sequence number of the element in the source {@link Vector}.
@@ -8318,15 +8437,27 @@ var std;
             _this.index_ = index;
             return _this;
         }
+        /* ---------------------------------------------------------
+            ACCESSORS
+        --------------------------------------------------------- */
+        /**
+         * @inheritdoc
+         */
+        VectorIterator.prototype.source = function () {
+            return this.source_;
+        };
+        /**
+         * @inheritdoc
+         */
+        VectorIterator.prototype.index = function () {
+            return this.index_;
+        };
         Object.defineProperty(VectorIterator.prototype, "value", {
-            /* ---------------------------------------------------------
-                ACCESSORS
-            --------------------------------------------------------- */
             /**
              * @inheritdoc
              */
             get: function () {
-                return this.source_.at(this.index_);
+                return this.source().at(this.index_);
             },
             /**
              * Set value of the iterator is pointing to.
@@ -8334,17 +8465,7 @@ var std;
              * @param val Value to set.
              */
             set: function (val) {
-                this.source_.set(this.index_, val);
-            },
-            enumerable: true,
-            configurable: true
-        });
-        Object.defineProperty(VectorIterator.prototype, "index", {
-            /**
-             * Get index.
-             */
-            get: function () {
-                return this.index_;
+                this.source().set(this.index_, val);
             },
             enumerable: true,
             configurable: true
@@ -8357,20 +8478,20 @@ var std;
          */
         VectorIterator.prototype.prev = function () {
             if (this.index_ == -1)
-                return new VectorIterator(this.source_, this.source_.size() - 1);
+                return new VectorIterator(this.source(), this.source_.size() - 1);
             else if (this.index_ - 1 < 0)
-                return this.source_.end();
+                return this.source().end();
             else
-                return new VectorIterator(this.source_, this.index_ - 1);
+                return new VectorIterator(this.source(), this.index_ - 1);
         };
         /**
          * @inheritdoc
          */
         VectorIterator.prototype.next = function () {
             if (this.index_ >= this.source_.size() - 1)
-                return this.source_.end();
+                return this.source().end();
             else
-                return new VectorIterator(this.source_, this.index_ + 1);
+                return new VectorIterator(this.source(), this.index_ + 1);
         };
         /**
          * @inheritdoc
@@ -8382,9 +8503,9 @@ var std;
             else
                 new_index = this.index_ + n;
             if (new_index < 0 || new_index >= this.source_.size())
-                return this.source_.end();
+                return this.source().end();
             else
-                return new VectorIterator(this.source_, new_index);
+                return new VectorIterator(this.source(), new_index);
         };
         /* ---------------------------------------------------------
             COMPARES
@@ -8402,20 +8523,16 @@ var std;
             _a = [obj.value, this.value], this.value = _a[0], obj.value = _a[1];
             var _a;
         };
-        VectorIterator.prototype.toString = function () {
-            return this.index_;
-        };
         return VectorIterator;
     }(std.Iterator));
     std.VectorIterator = VectorIterator;
 })(std || (std = {}));
 (function (std) {
     /**
-     * <p> A reverse-iterator of Vector. </p>
+     * A reverse-iterator of Vector.
      *
-     * <p> <a href="http://samchon.github.io/tstl/images/design/class_diagram/linear_containers.png" target="_blank">
+     * <a href="http://samchon.github.io/tstl/images/design/class_diagram/linear_containers.png" target="_blank">
      * <img src="http://samchon.github.io/tstl/images/design/class_diagram/linear_containers.png" style="max-width: 100%" />
-     * </p>
      *
      * @param <T> Type of the elements.
      *
@@ -8440,10 +8557,16 @@ var std;
         VectorReverseIterator.prototype._Create_neighbor = function (base) {
             return new VectorReverseIterator(base);
         };
+        /* ---------------------------------------------------------
+            ACCESSORS
+        --------------------------------------------------------- */
+        /**
+         * @inheritdoc
+         */
+        VectorReverseIterator.prototype.index = function () {
+            return this.base_.index();
+        };
         Object.defineProperty(VectorReverseIterator.prototype, "value", {
-            /* ---------------------------------------------------------
-                ACCESSORS
-            --------------------------------------------------------- */
             /**
              * @inheritdoc
              */
@@ -8461,16 +8584,6 @@ var std;
             enumerable: true,
             configurable: true
         });
-        Object.defineProperty(VectorReverseIterator.prototype, "index", {
-            /**
-             * Get index.
-             */
-            get: function () {
-                return this.base_.index;
-            },
-            enumerable: true,
-            configurable: true
-        });
         return VectorReverseIterator;
     }(std.ReverseIterator));
     std.VectorReverseIterator = VectorReverseIterator;
@@ -8479,37 +8592,33 @@ var std;
 var std;
 (function (std) {
     /**
-     * <p> FIFO queue. </p>
+     * FIFO queue.
      *
-     * <p> {@link Queue}s are a type of container adaptor, specifically designed to operate in a FIFO context
+     * {@link Queue}s are a type of container adaptor, specifically designed to operate in a FIFO context
      * (first-in first-out), where elements are inserted into one end of the container and extracted from the other.
-     * </p>
      *
-     * <p> {@link Queue}s are implemented as containers adaptors, which are classes that use an encapsulated object of
+     * {@link Queue}s are implemented as containers adaptors, which are classes that use an encapsulated object of
      * a specific container class as its underlying container, providing a specific set of member functions to access
      * its elements. Elements are pushed into the {@link IDeque.back back()} of the specific container and popped from
-     * its {@link IDeque.front front()}. </p>
+     * its {@link IDeque.front front()}.
      *
-     * <p> {@link container_ The underlying container} may be one of the standard container class template or some
+     * {@link container_ The underlying container} may be one of the standard container class template or some
      * other specifically designed container class. This underlying container shall support at least the following
-     * operations: </p>
+     * operations:
      *
-     * <ul>
-     *	<li> empty </li>
-     *	<li> size </li>
-     *	<li> front </li>
-     *	<li> back </li>
-     *	<li> push_back </li>
-     *	<li> pop_front </li>
-     * </ul>
+     * - {@link IDequeContainer.empty empty}
+     * - {@link IDequeContainer.size size}
+     * - {@link IDequeContainer.front front}
+     * - {@link IDequeContainer.back back}
+     * - {@link IDequeContainer.push_back push_back}
+     * - {@link IDequeContainer.pop_front pop_front}
      *
-     * <p> The standard container classes {@link Deque} and {@link List} fulfill these requirements.
+     * The standard container classes {@link Deque} and {@link List} fulfill these requirements.
      * By default, if no container class is specified for a particular {@link Queue} class instantiation, the standard
-     * container {@link List} is used. </p>
+     * container {@link List} is used.
      *
-     * <p> <a href="http://samchon.github.io/tstl/images/class_diagram/linear_containers.png" target="_blank">
+     * <a href="http://samchon.github.io/tstl/images/class_diagram/linear_containers.png" target="_blank">
      * <img src="http://samchon.github.io/tstl/images/class_diagram/linear_containers.png" style="max-width: 100%" /></a>
-     * </p>
      *
      * @param <T> Type of elements.
      *
@@ -8527,11 +8636,12 @@ var std;
             ACCESSORS
         --------------------------------------------------------- */
         /**
-         * <p> Return size. </p>
-         * <p> Returns the number of elements in the {@link Queue}. </p>
+         * Return size.
          *
-         * <p> This member function effectively calls member {@link IDeque.size size()} of the
-         * {@link container_ underlying container} object. </p>
+         * Returns the number of elements in the {@link Queue}.
+         *
+         * This member function effectively calls member {@link IDeque.size size()} of the
+         * {@link container_ underlying container} object.
          *
          * @return The number of elements in the {@link container_ underlying container}.
          */
@@ -8539,27 +8649,29 @@ var std;
             return this.container_.size();
         };
         /**
-         * <p> Test whether container is empty. </p>
-         * <p> returns whether the {@link Queue} is empty: i.e. whether its <i>size</i> is zero. </p>
+         * Test whether container is empty.
          *
-         * <p> This member function efeectively calls member {@link IDeque.empty empty()} of the
-         * {@link container_ underlying container} object. </p>
+         * returns whether the {@link Queue} is empty: i.e. whether its <i>size</i> is zero.
+         *
+         * This member function efeectively calls member {@link IDeque.empty empty()} of the
+         * {@link container_ underlying container} object.
          *
          * @return <code>true</code> if the {@link container_ underlying container}'s size is 0,
-         *		   <code>false</code> otherwise. </p>
+         *		   <code>false</code> otherwise.
          */
         Queue.prototype.empty = function () {
             return this.container_.empty();
         };
         /**
-         * <p> Access next element. </p>
-         * <p> Returns a value of the next element in the {@link Queue}. </p>
+         * Access next element.
          *
-         * <p> The next element is the "oldest" element in the {@link Queue} and the same element that is popped out
-         * from the queue when {@link pop Queue.pop()} is called. </p>
+         * Returns a value of the next element in the {@link Queue}.
          *
-         * <p> This member function effectively calls member {@link IDeque.front front()} of the
-         * {@link container_ underlying container} object. </p>
+         * The next element is the "oldest" element in the {@link Queue} and the same element that is popped out
+         * from the queue when {@link pop Queue.pop()} is called.
+         *
+         * This member function effectively calls member {@link IDeque.front front()} of the
+         * {@link container_ underlying container} object.
          *
          * @return A value of the next element in the {@link Queue}.
          */
@@ -8567,13 +8679,13 @@ var std;
             return this.container_.front();
         };
         /**
-         * <p> Access last element. </p>
+         * Access last element.
          *
-         * <p> Returns a vaue of the last element in the queue. This is the "newest" element in the queue (i.e. the
-         * last element pushed into the queue). </p>
+         * Returns a vaue of the last element in the queue. This is the "newest" element in the queue (i.e. the
+         * last element pushed into the queue).
          *
-         * <p> This member function effectively calls the member function {@link IDeque.back back()} of the
-         * {@link container_ underlying container} object. </p>
+         * This member function effectively calls the member function {@link IDeque.back back()} of the
+         * {@link container_ underlying container} object.
          *
          * @return A value of the last element in the {@link Queue}.
          */
@@ -8584,13 +8696,13 @@ var std;
             ELEMENTS I/O
         --------------------------------------------------------- */
         /**
-         * <p> Insert element. </p>
+         * Insert element.
          *
-         * <p> Inserts a new element at the end of the {@link Queue}, after its current last element.
-         * The content of this new element is initialized to <i>val</i>. </p>
+         * Inserts a new element at the end of the {@link Queue}, after its current last element.
+         * The content of this new element is initialized to <i>val</i>.
          *
-         * <p> This member function effectively calls the member function {@link IDeque.push_back push_back()} of the
-         * {@link container_ underlying container} object. </p>
+         * This member function effectively calls the member function {@link IDeque.push_back push_back()} of the
+         * {@link container_ underlying container} object.
          *
          * @param val Value to which the inserted element is initialized.
          */
@@ -8598,29 +8710,29 @@ var std;
             this.container_.push_back(val);
         };
         /**
-         * <p> Remove next element. </p>
+         * Remove next element.
          *
-         * <p> Removes the next element in the {@link Queue}, effectively reducing its size by one. </p>
+         * Removes the next element in the {@link Queue}, effectively reducing its size by one.
          *
-         * <p> The element removed is the "oldest" element in the {@link Queue} whose value can be retrieved by calling
-         * member {@link front Queue.front()} </p>.
+         * The element removed is the "oldest" element in the {@link Queue} whose value can be retrieved by calling
+         * member {@link front Queue.front()}.
          *
-         * <p> This member function effectively calls the member function {@link IDeque.pop_front pop_front()} of the
-         * {@link container_ underlying container} object. </p>
+         * This member function effectively calls the member function {@link IDeque.pop_front pop_front()} of the
+         * {@link container_ underlying container} object.
          */
         Queue.prototype.pop = function () {
             this.container_.pop_front();
         };
         /**
-         * <p> Swap contents. </p>
+         * Swap contents.
          *
-         * <p> Exchanges the contents of the container adaptor (<i>this</i>) by those of <i>obj</i>. </p>
+         * Exchanges the contents of the container adaptor (<i>this</i>) by those of <i>obj</i>.
          *
-         * <p> This member function calls the non-member function {@link IContainer.swap swap} (unqualified) to swap
-         * the {@link container_ underlying containers}. </p>
+         * This member function calls the non-member function {@link Container.swap swap} (unqualified) to swap
+         * the {@link container_ underlying containers}.
          *
          * @param obj Another {@link Queue} container adaptor of the same type (i.e., instantiated with the same
-         *			  template parameter, <b>T</b>). Sizes may differ. </p>
+         *			  template parameter, <b>T</b>). Sizes may differ.
          */
         Queue.prototype.swap = function (obj) {
             this.container_.swap(obj.container_);
@@ -8633,39 +8745,37 @@ var std;
 var std;
 (function (std) {
     /**
-     * <p> Priority queue. </p>
+     * Priority queue.
      *
-     * <p> {@link PriorityQueue Priority queues} are a type of container adaptors, specifically designed such that its
+     * {@link PriorityQueue Priority queues} are a type of container adaptors, specifically designed such that its
      * first element is always the greatest of the elements it contains, according to some <i>strict weak ordering</i>
-     * criterion. </p>
+     * criterion.
      *
-     * <p> This context is similar to a <i>heap</i>, where elements can be inserted at any moment, and only the
-     * <i>max heap</i> element can be retrieved (the one at the top in the {@link PriorityQueue priority queue}). </p>
+     * This context is similar to a <i>heap</i>, where elements can be inserted at any moment, and only the
+     * <i>max heap</i> element can be retrieved (the one at the top in the {@link PriorityQueue priority queue}).
      *
-     * <p> {@link PriorityQueue Priority queues} are implemented as <i>container adaptors</i>, which are classes that
+     * {@link PriorityQueue Priority queues} are implemented as <i>container adaptors</i>, which are classes that
      * use an encapsulated object of a specific container class as its {@link container_ underlying container},
      * providing a specific set of member functions to access its elements. Elements are popped from the <i>"back"</i>
-     * of the specific container, which is known as the <i>top</i> of the {@link PriorityQueue Priority queue}. </p>
+     * of the specific container, which is known as the <i>top</i> of the {@link PriorityQueue Priority queue}.
      *
-     * <p> The {@link container_ underlying container} may be any of the standard container class templates or some
+     * The {@link container_ underlying container} may be any of the standard container class templates or some
      * other specifically designed container class. The container shall be accessible through
-     * {@link IArrayIterator random access iterators} and support the following operations: </p>
+     * {@link IArrayIterator random access iterators} and support the following operations:
      *
-     * <ul>
-     *	<li> empty() </li>
-     *	<li> size() </li>
-     *	<li> front() </li>
-     *	<li> push_back() </li>
-     *	<li> pop_back() </li>
-     * </ul>
+     * - {@link IArrayContainer.empty empty()}
+     * - {@link IArrayContainer.size size()}
+     * - {@link IArrayContainer.front front()}
+     * - {@link IArrayContainer.push_back push_back()}
+     * - {@link IArrayContainer.pop_back pop_back()}
      *
-     * <p> The standard container classes {@link Vector} and {@link Deque} fulfill these requirements. By default, if
+     * The standard container classes {@link Vector} and {@link Deque} fulfill these requirements. By default, if
      * no container class is specified for a particular {@link PriorityQueue} class instantiation, the standard
-     * container {@link Vector} is used. </p>
+     * container {@link Vector} is used.
      *
-     * <p> Support of {@link IArrayIterator random access iterators} is required to keep a heap structure internally
+     * Support of {@link IArrayIterator random access iterators} is required to keep a heap structure internally
      * at all times. This is done automatically by the container adaptor by automatically calling the algorithm
-     * functions <i>make_heap</i>, <i>push_heap</i> and <i>pop_heap</i> when needed. </p>
+     * functions <i>make_heap</i>, <i>push_heap</i> and <i>pop_heap</i> when needed.
      *
      * @param <T> Type of the elements.
      *
@@ -8712,12 +8822,12 @@ var std;
             ACCESSORS
         --------------------------------------------------------- */
         /**
-         * <p> Return size. </p>
+         * Return size.
          *
-         * <p> Returns the number of elements in the {@link PriorityQueue}. </p>
+         * Returns the number of elements in the {@link PriorityQueue}.
          *
-         * <p> This member function effectively calls member {@link IArray.size size} of the
-         * {@link container_ underlying container} object. </p>
+         * This member function effectively calls member {@link IArrayContainer.size size} of the
+         * {@link IArrayContainer underlying container} object.
          *
          * @return The number of elements in the underlying
          */
@@ -8725,12 +8835,12 @@ var std;
             return this.container_.size();
         };
         /**
-         * <p> Test whether container is empty. </p>
+         * Test whether container is empty.
          *
-         * <p> Returns whether the {@link PriorityQueue} is empty: i.e. whether its {@link size} is zero. </p>
+         * Returns whether the {@link PriorityQueue} is empty: i.e. whether its {@link size} is zero.
          *
-         * <p> This member function effectively calls member {@link IARray.empty empty} of the
-         * {@link container_ underlying container} object. </p>
+         * This member function effectively calls member {@link IARray.empty empty} of the
+         * {@link IArrayContainer underlying container} object.
          */
         PriorityQueue.prototype.empty = function () {
             return this.container_.empty();
@@ -8739,15 +8849,15 @@ var std;
             ELEMENTS I/O
         --------------------------------------------------------- */
         /**
-         * <p> Access top element. </p>
+         * Access top element.
          *
-         * <p> Returns a constant reference to the top element in the {@link PriorityQueue}. </p>
+         * Returns a constant reference to the top element in the {@link PriorityQueue}.
          *
-         * <p> The top element is the element that compares higher in the {@link PriorityQueue}, and the next that is
-         * removed from the container when {@link PriorityQueue.pop} is called. </p>
+         * The top element is the element that compares higher in the {@link PriorityQueue}, and the next that is
+         * removed from the container when {@link PriorityQueue.pop} is called.
          *
-         * <p> This member function effectively calls member {@link IArray.front front} of the
-         * {@link container_ underlying container} object. </p>
+         * This member function effectively calls member {@link IArrayContainer.front front} of the
+         * {@link IArrayContainer underlying container} object.
          *
          * @return A reference to the top element in the {@link PriorityQueue}.
          */
@@ -8755,14 +8865,14 @@ var std;
             return this.container_.begin().value;
         };
         /**
-         * <p> Insert element. </p>
+         * Insert element.
          *
-         * <p> Inserts a new element in the {@link PriorityQueue}. The content of this new element is initialized to
+         * Inserts a new element in the {@link PriorityQueue}. The content of this new element is initialized to
          * <i>val</i>.
          *
-         * <p> This member function effectively calls the member function {@link IArray.push_back push_back} of the
-         * {@link container_ underlying container} object, and then reorders it to its location in the heap by calling
-         * the <i>push_heap</i> algorithm on the range that includes all the elements of the  </p>
+         * This member function effectively calls the member function {@link IArrayContainer.push_back push_back} of the
+         * {@link IArrayContainer underlying container} object, and then reorders it to its location in the heap by calling
+         * the <i>push_heap</i> algorithm on the range that includes all the elements of the
          *
          * @param val Value to which the inserted element is initialized.
          */
@@ -8770,31 +8880,31 @@ var std;
             this.container_.insert(val);
         };
         /**
-         * <p> Remove top element. </p>
+         * Remove top element.
          *
-         * <p> Removes the element on top of the {@link PriorityQueue}, effectively reducing its {@link size} by one.
-         * The element removed is the one with the highest (or lowest) value. </p>
+         * Removes the element on top of the {@link PriorityQueue}, effectively reducing its {@link size} by one.
+         * The element removed is the one with the highest (or lowest) value.
          *
-         * <p> The value of this element can be retrieved before being popped by calling member
-         * {@link PriorityQueue.top}. </p>
+         * The value of this element can be retrieved before being popped by calling member
+         * {@link PriorityQueue.top}.
          *
-         * <p> This member function effectively calls the <i>pop_heap</i> algorithm to keep the heap property of
-         * {@link PriorityQueue PriorityQueues} and then calls the member function {@link IArray.pop_back pop_back} of
-         * the {@link container_ underlying container} object to remove the element. </p>
+         * This member function effectively calls the <i>pop_heap</i> algorithm to keep the heap property of
+         * {@link PriorityQueue PriorityQueues} and then calls the member function {@link IArrayContainer.pop_back pop_back} of
+         * the {@link IArrayContainer underlying container} object to remove the element.
          */
         PriorityQueue.prototype.pop = function () {
             this.container_.erase(this.container_.begin());
         };
         /**
-         * <p> Swap contents. </p>
+         * Swap contents.
          *
-         * <p> Exchanges the contents of the container adaptor by those of <i>obj</i>, swapping both the
-         * {@link container_ underlying container} value and their comparison function using the corresponding
-         * {@link std.swap swap} non-member functions (unqualified). </p>
+         * Exchanges the contents of the container adaptor by those of <i>obj</i>, swapping both the
+         * {@link IArrayContainer underlying container} value and their comparison function using the corresponding
+         * {@link swap swap} non-member functions (unqualified).
          *
-         * <p> This member function has a <i>noexcept</i> specifier that matches the combined <i>noexcept</i> of the
-         * {@link IArray.swap swap} operations on the {@link container_ underlying container} and the comparison
-         * functions. </p>
+         * This member function has a <i>noexcept</i> specifier that matches the combined <i>noexcept</i> of the
+         * {@link IArrayContainer.swap swap} operations on the {@link IArrayContainer underlying container} and the comparison
+         * functions.
          *
          * @param obj {@link PriorityQueue} container adaptor of the same type (i.e., instantiated with the same
          *			  template parameters, <b>T</b>). Sizes may differ.
@@ -8810,35 +8920,32 @@ var std;
 var std;
 (function (std) {
     /**
-     * <p> LIFO stack. </p>
+     * LIFO stack.
      *
-     * <p> {@link Stack}s are a type of container adaptor, specifically designed to operate in a LIFO context
-     * (last-in first-out), where elements are inserted and extracted only from one end of the  </p>
+     * {@link Stack}s are a type of container adaptor, specifically designed to operate in a LIFO context
+     * (last-in first-out), where elements are inserted and extracted only from one end of the
      *
-     * <p> {@link Stack}s are implemented as containers adaptors, which are classes that use an encapsulated object of
+     * {@link Stack}s are implemented as containers adaptors, which are classes that use an encapsulated object of
      * a specific container class as its <i>underlying container</i>, providing a specific set of member functions to
      * access its elements. Elements are pushed/popped from the {@link ILinearContainer.back back()} of the
-     * {@link ILinearContainer specific container}, which is known as the top of the {@link Stack}. </p>
+     * {@link ILinearContainer specific container}, which is known as the top of the {@link Stack}.
      *
-     * <p> {@link container_ The underlying container} may be any of the standard container class templates or some
-     * other specifically designed container class. The container shall support the following operations: </p>
+     * {@link container_ The underlying container} may be any of the standard container class templates or some
+     * other specifically designed container class. The container shall support the following operations:
      *
-     * <ul>
-     *	<li> empty </li>
-     *	<li> size </li>
-     *	<li> front </li>
-     *	<li> back </li>
-     *	<li> push_back </li>
-     *	<li> pop_back </li>
-     * </ul>
+     * - {@link ILinearContainer.empty empty}
+     * - {@link ILinearContainer.size size}
+     * - {@link ILinearContainer.front front}
+     * - {@link ILinearContainer.back back}
+     * - {@link ILinearContainer.push_back push_back}
+     * - {@link ILinearContainer.pop_back pop_back}
      *
-     * <p> The standard container classes {@link Vector}, {@link Deque} and {@link List} fulfill these requirements.
+     * The standard container classes {@link Vector}, {@link Deque} and {@link List} fulfill these requirements.
      * By default, if no container class is specified for a particular {@link Stack} class instantiation, the standard
-     * container {@link List} is used. </p>
+     * container {@link List} is used.
      *
-     * <p> <a href="http://samchon.github.io/tstl/images/class_diagram/linear_containers.png" target="_blank">
+     * <a href="http://samchon.github.io/tstl/images/class_diagram/linear_containers.png" target="_blank">
      * <img src="http://samchon.github.io/tstl/images/class_diagram/linear_containers.png" style="max-width: 100%" /></a>
-     * </p>
      *
      * @param <T> Type of elements.
      *
@@ -8856,12 +8963,12 @@ var std;
             ACCESSORS
         --------------------------------------------------------- */
         /**
-         * <p> Return size. </p>
+         * Return size.
          *
-         * <p> Returns the number of elements in the {@link Stack}. </p>
+         * Returns the number of elements in the {@link Stack}.
          *
-         * <p> This member function effectively calls member {@link ILinearContainer.size size()} of the
-         * {@link container_ underlying container} object. </p>
+         * This member function effectively calls member {@link ILinearContainer.size size()} of the
+         * {@link container_ underlying container} object.
          *
          * @return The number of elements in the {@link container_ underlying container}.
          */
@@ -8869,29 +8976,29 @@ var std;
             return this.container_.size();
         };
         /**
-         * <p> Test whether container is empty. </p>
+         * Test whether container is empty.
          *
-         * <p> returns whether the {@link Stack} is empty: i.e. whether its <i>size</i> is zero. </p>
+         * returns whether the {@link Stack} is empty: i.e. whether its <i>size</i> is zero.
          *
-         * <p> This member function effectively calls member {@link ILinearContainer.empty empty()} of the
-         * {@link container_ underlying container} object. </p>
+         * This member function effectively calls member {@link ILinearContainer.empty empty()} of the
+         * {@link container_ underlying container} object.
          *
          * @return <code>true</code> if the <i>underlying container</i>'s size is 0,
-         *		   <code>false</code> otherwise. </p>
+         *		   <code>false</code> otherwise.
          */
         Stack.prototype.empty = function () {
             return this.container_.empty();
         };
         /**
-         * <p> Access next element. </p>
+         * Access next element.
          *
-         * <p> Returns a value of the top element in the {@link Stack} </p>.
+         * Returns a value of the top element in the {@link Stack}.
          *
-         * <p> Since {@link Stack}s are last-in first-out containers, the top element is the last element inserted into
-         * the {@link Stack}. </p>
+         * Since {@link Stack}s are last-in first-out containers, the top element is the last element inserted into
+         * the {@link Stack}.
          *
-         * <p> This member function effectively calls member {@link ILinearContainer.back back()} of the
-         * {@link container_ underlying container} object. </p>
+         * This member function effectively calls member {@link ILinearContainer.back back()} of the
+         * {@link container_ underlying container} object.
          *
          * @return A value of the top element in the {@link Stack}.
          */
@@ -8902,12 +9009,12 @@ var std;
             ELEMENTS I/O
         --------------------------------------------------------- */
         /**
-         * <p> Insert element. </p>
+         * Insert element.
          *
-         * <p> Inserts a new element at the top of the {@link Stack}, above its current top element. </p>
+         * Inserts a new element at the top of the {@link Stack}, above its current top element.
          *
-         * <p> This member function effectively calls the member function
-         * {@link ILinearContainer.push_back push_back()} of the {@link container_ underlying container} object. </p>
+         * This member function effectively calls the member function
+         * {@link ILinearContainer.push_back push_back()} of the {@link container_ underlying container} object.
          *
          * @param val Value to which the inserted element is initialized.
          */
@@ -8915,29 +9022,29 @@ var std;
             this.container_.push_back(val);
         };
         /**
-         * <p> Remove top element. </p>
+         * Remove top element.
          *
-         * <p> Removes the element on top of the {@link Stack}, effectively reducing its size by one. </p>
+         * Removes the element on top of the {@link Stack}, effectively reducing its size by one.
          *
-         * <p> The element removed is the latest element inserted into the {@link Stack}, whose value can be retrieved
-         * by calling member {@link top Stack.top()} </p>.
+         * The element removed is the latest element inserted into the {@link Stack}, whose value can be retrieved
+         * by calling member {@link top Stack.top()}.
          *
-         * <p> This member function effectively calls the member function {@link ILinearContainer.pop_back pop_back()}
-         * of the {@link container_ underlying container} object. </p>
+         * This member function effectively calls the member function {@link ILinearContainer.pop_back pop_back()}
+         * of the {@link container_ underlying container} object.
          */
         Stack.prototype.pop = function () {
             this.container_.pop_back();
         };
         /**
-         * <p> Swap contents. </p>
+         * Swap contents.
          *
-         * <p> Exchanges the contents of the container adaptor (<i>this</i>) by those of <i>obj</i>. </p>
+         * Exchanges the contents of the container adaptor (<i>this</i>) by those of <i>obj</i>.
          *
-         * <p> This member function calls the non-member function {@link IContainer.swap swap} (unqualified) to swap
-         * the {@link container_ underlying containers}. </p>
+         * This member function calls the non-member function {@link Container.swap swap} (unqualified) to swap
+         * the {@link container_ underlying containers}.
          *
          * @param obj Another {@link Stack} container adaptor of the same type (i.e., instantiated with the same
-         *			  template parameter, <b>T</b>). Sizes may differ. </p>
+         *			  template parameter, <b>T</b>). Sizes may differ.
          */
         Stack.prototype.swap = function (obj) {
             this.container_.swap(obj.container_);
@@ -8951,28 +9058,28 @@ var std;
 var std;
 (function (std) {
     /**
-     * <p> Tree-structured set, <code>std::set</code> of STL. </p>
+     * Tree-structured set, <code>std::set</code> of STL.
      *
-     * <p> {@link TreeSet}s are containers that store unique elements following a specific order. </p>
+     * {@link TreeSet}s are containers that store unique elements following a specific order.
      *
-     * <p> In a {@link TreeSet}, the value of an element also identifies it (the value is itself the
+     * In a {@link TreeSet}, the value of an element also identifies it (the value is itself the
      * <i>key</i>, of type <i>T</i>), and each value must be unique. The value of the elements in a
      * {@link TreeSet} cannot be modified once in the container (the elements are always const), but they
-     * can be inserted or removed from the container. </p>
+     * can be inserted or removed from the container.
      *
-     * <p> Internally, the elements in a {@link TreeSet} are always sorted following a specific strict weak
-     * ordering criterion indicated by its internal comparison method (of {@link less}). </p>
+     * Internally, the elements in a {@link TreeSet} are always sorted following a specific strict weak
+     * ordering criterion indicated by its internal comparison method (of {@link less}).
      *
-     * <p> {@link TreeSet} containers are generally slower than {@link HashSet} containers to access
+     * {@link TreeSet} containers are generally slower than {@link HashSet} containers to access
      * individual elements by their <i>key</i>, but they allow the direct iteration on subsets based on their
-     * order. </p>
+     * order.
      *
-     * <p> {@link TreeSet}s are typically implemented as binary search trees. </p>
+     * {@link TreeSet}s are typically implemented as binary search trees.
      *
-     * <p> <a href="http://samchon.github.io/tstl/images/design/class_diagram/set_containers.png" target="_blank">
+     * <a href="http://samchon.github.io/tstl/images/design/class_diagram/set_containers.png" target="_blank">
      * <img src="http://samchon.github.io/tstl/images/design/class_diagram/set_containers.png" style="max-width: 100%" /> </a></p>
      *
-     * <h3> Container properties </h3>
+     * ### Container properties
      * <dl>
      *	<dt> Associative </dt>
      *	<dd>
@@ -9190,30 +9297,30 @@ var std;
 var std;
 (function (std) {
     /**
-     * <p> Tree-structured map, <code>std::map</code> of STL. </p>
+     * Tree-structured map, <code>std::map</code> of STL.
      *
-     * <p> {@link TreeMap TreeMaps} are associative containers that store elements formed by a combination of a
-     * <i>key value</i> (<i>Key</i>) and a <i>mapped value</i> (<i>T</i>), following order. </p>
+     * {@link TreeMap TreeMaps} are associative containers that store elements formed by a combination of a
+     * <i>key value</i> (<i>Key</i>) and a <i>mapped value</i> (<i>T</i>), following order.
      *
-     * <p> In a {@link TreeMap}, the <i>key values</i> are generally used to sort and uniquely identify the elements,
+     * In a {@link TreeMap}, the <i>key values</i> are generally used to sort and uniquely identify the elements,
      * while the <i>mapped values</i> store the content associated to this key. The types of <i>key</i> and
      * <i>mapped value</i> may differ, and are grouped together in member type <i>value_type</i>, which is a {@link Pair}
-     * type combining both: </p>
+     * type combining both:
      *
-     * <p> <code>typedef Pair<Key, T> value_type;</code> </p>
+     * <code>typedef Pair<Key, T> value_type;</code>
      *
-     * <p> Internally, the elements in a {@link TreeMap} are always sorted by its <i>key</i> following a
+     * Internally, the elements in a {@link TreeMap} are always sorted by its <i>key</i> following a
      * <i>strict weak ordering</i> criterion indicated by its internal comparison method {@link less}.
      *
-     * <p> {@link TreeMap} containers are generally slower than {@link HashMap HashMap} containers to access individual
-     * elements by their <i>key</i>, but they allow the direct iteration on subsets based on their order. </p>
+     * {@link TreeMap} containers are generally slower than {@link HashMap HashMap} containers to access individual
+     * elements by their <i>key</i>, but they allow the direct iteration on subsets based on their order.
      *
-     * <p> {@link TreeMap}s are typically implemented as binary search trees. </p>
+     * {@link TreeMap}s are typically implemented as binary search trees.
      *
-     * <p> <a href="http://samchon.github.io/tstl/images/design/class_diagram/map_containers.png" target="_blank">
+     * <a href="http://samchon.github.io/tstl/images/design/class_diagram/map_containers.png" target="_blank">
      * <img src="http://samchon.github.io/tstl/images/design/class_diagram/map_containers.png" style="max-width: 100%" /> </a></p>
      *
-     * <h3> Container properties </h3>
+     * ### Container properties
      * <dl>
      *	<dt> Associative </dt>
      *	<dd> Elements in associative containers are referenced by their <i>key</i> and not by their absolute
@@ -9432,29 +9539,29 @@ var std;
 var std;
 (function (std) {
     /**
-     * <p> Tree-structured multiple-key set. </p>
+     * Tree-structured multiple-key set.
      *
-     * <p> {@link TreeMultiSet TreeMultiSets} are containers that store elements following a specific order, and
-     * where multiple elements can have equivalent values. </p>
+     * {@link TreeMultiSet TreeMultiSets} are containers that store elements following a specific order, and
+     * where multiple elements can have equivalent values.
      *
-     * <p> In a {@link TreeMultiSet}, the value of an element also identifies it (the value is itself
+     * In a {@link TreeMultiSet}, the value of an element also identifies it (the value is itself
      * the <i>key</i>, of type <i>T</i>). The value of the elements in a {@link TreeMultiSet} cannot
      * be modified once in the container (the elements are always const), but they can be inserted or removed
-     * from the container. </p>
+     * from the container.
      *
-     * <p> Internally, the elements in a {@link TreeMultiSet TreeMultiSets} are always sorted following a strict
-     * weak ordering criterion indicated by its internal comparison method (of {@link IComparable.less less}). </p>
+     * Internally, the elements in a {@link TreeMultiSet TreeMultiSets} are always sorted following a strict
+     * weak ordering criterion indicated by its internal comparison method (of {@link IComparable.less less}).
      *
-     * <p> {@link TreeMultiSet} containers are generally slower than {@link HashMultiSet} containers
+     * {@link TreeMultiSet} containers are generally slower than {@link HashMultiSet} containers
      * to access individual elements by their <i>key</i>, but they allow the direct iteration on subsets based on
-     * their order. </p>
+     * their order.
      *
-     * <p> {@link TreeMultiSet TreeMultiSets} are typically implemented as binary search trees. </p>
+     * {@link TreeMultiSet TreeMultiSets} are typically implemented as binary search trees.
      *
-     * <p> <a href="http://samchon.github.io/tstl/images/design/class_diagram/set_containers.png" target="_blank">
+     * <a href="http://samchon.github.io/tstl/images/design/class_diagram/set_containers.png" target="_blank">
      * <img src="http://samchon.github.io/tstl/images/design/class_diagram/set_containers.png" style="max-width: 100%" /> </a></p>
      *
-     * <h3> Container properties </h3>
+     * ### Container properties
      * <dl>
      *	<dt> Associative </dt>
      *	<dd>
@@ -9583,13 +9690,6 @@ var std;
         TreeMultiSet.prototype.equal_range = function (val) {
             return this.tree_.equal_range(val);
         };
-        ///**
-        // * @hidden
-        // */
-        //public _Get_tree(): base.AtomicTree<T>
-        //{
-        //	return this.tree_;
-        //}
         /* =========================================================
             ELEMENTS I/O
                 - INSERT
@@ -9694,32 +9794,32 @@ var std;
 var std;
 (function (std) {
     /**
-     * <p> Tree-structured multiple-key map. </p>
+     * Tree-structured multiple-key map.
      *
-     * <p> {@link TreeMultiMap TreeMultiMaps} are associative containers that store elements formed by a combination of
+     * {@link TreeMultiMap TreeMultiMaps} are associative containers that store elements formed by a combination of
      * a <i>key value</i> and a <i>mapped value</i>, following a specific order, and where multiple elements can
-     * have equivalent keys. </p>
+     * have equivalent keys.
      *
-     * <p> In a {@link TreeMultiMap}, the <i>key values</i> are generally used to sort and uniquely identify
+     * In a {@link TreeMultiMap}, the <i>key values</i> are generally used to sort and uniquely identify
      * the elements, while the <i>mapped values</i> store the content associated to this <i>key</i>. The types of
      * <i>key</i> and <i>mapped value</i> may differ, and are grouped together in member type
-     * <code>value_type</code>, which is a {@link Pair} type combining both: </p>
+     * <code>value_type</code>, which is a {@link Pair} type combining both:
      *
-     * <p> <code>typedef Pair<const Key, T> value_type;</code> </p>
+     * <code>typedef Pair<const Key, T> value_type;</code>
      *
-     * <p> Internally, the elements in a {@link TreeMultiMap}are always sorted by its key following a
-     * strict weak ordering criterion indicated by its internal comparison method (of {@link less}). </p>
+     * Internally, the elements in a {@link TreeMultiMap}are always sorted by its key following a
+     * strict weak ordering criterion indicated by its internal comparison method (of {@link less}).
      *
-     * <p> {@link TreeMultiMap}containers are generally slower than {@link HashMap} containers
+     * {@link TreeMultiMap}containers are generally slower than {@link HashMap} containers
      * to access individual elements by their <i>key</i>, but they allow the direct iteration on subsets based
-     * on their order. </p>
+     * on their order.
      *
-     * <p> {@link TreeMultiMap TreeMultiMaps} are typically implemented as binary search trees. </p>
+     * {@link TreeMultiMap TreeMultiMaps} are typically implemented as binary search trees.
      *
-     * <p> <a href="http://samchon.github.io/tstl/images/design/class_diagram/map_containers.png" target="_blank"> <
+     * <a href="http://samchon.github.io/tstl/images/design/class_diagram/map_containers.png" target="_blank"> <
      * img src="http://samchon.github.io/tstl/images/design/class_diagram/map_containers.png" style="max-width: 100%" /> </a></p>
      *
-     * <h3> Container properties </h3>
+     * ### Container properties
      * <dl>
      *	<dt> Associative </dt>
      *	<dd>
@@ -9958,17 +10058,17 @@ var std;
 var std;
 (function (std) {
     /**
-     * <p> System error exception. </p>
+     * System error exception.
      *
-     * <p> This class defines the type of objects thrown as exceptions to report conditions originating during
+     * This class defines the type of objects thrown as exceptions to report conditions originating during
      * runtime from the operating system or other low-level application program interfaces which have an
-     * associated {@link ErrorCode}. </p>
+     * associated {@link ErrorCode}.
      *
-     * <p> The class inherits from {@link RuntimeError}, to which it adds an {@link ErrorCode} as
-     * member code (and defines a specialized what member). </p>
+     * The class inherits from {@link RuntimeError}, to which it adds an {@link ErrorCode} as
+     * member code (and defines a specialized what member).
      *
-     * <p> <a href="http://samchon.github.io/tstl/images/design/class_diagram/exceptions.png" target="_blank">
-     * <img src="http://samchon.github.io/tstl/images/design/class_diagram/exceptions.png" style="max-width: 100%" /> </a> </p>
+     * <a href="http://samchon.github.io/tstl/images/design/class_diagram/exceptions.png" target="_blank">
+     * <img src="http://samchon.github.io/tstl/images/design/class_diagram/exceptions.png" style="max-width: 100%" /> </a>
      *
      * @reference http://www.cplusplus.com/reference/system_error/system_error
      * @author Jeongho Nam <http://samchon.org>
@@ -9986,12 +10086,12 @@ var std;
             ACCESSORS
         --------------------------------------------------------- */
         /**
-         * <p> Get error code. </p>
+         * Get error code.
          *
-         * <p> Returns the {@link ErrorCode} object associated with the exception. </p>
+         * Returns the {@link ErrorCode} object associated with the exception.
          *
-         * <p> This value is either the {@link ErrorCode} passed to the construction or its equivalent
-         * (if constructed with a value and a {@link category}. </p>
+         * This value is either the {@link ErrorCode} passed to the construction or its equivalent
+         * (if constructed with a value and a {@link category}.
          *
          * @return The {@link ErrorCode} associated with the object.
          */
@@ -10004,20 +10104,20 @@ var std;
 })(std || (std = {}));
 (function (std) {
     /**
-     * <p> Error category. </p>
+     * Error category.
      *
-     * <p> This type serves as a base class for specific category types. </p>
+     * This type serves as a base class for specific category types.
      *
-     * <p> Category types are used to identify the source of an error. They also define the relation between
+     * Category types are used to identify the source of an error. They also define the relation between
      * {@link ErrorCode} and {@link ErrorCondition}objects of its category, as well as the message set for {@link ErrorCode}
      * objects.
      *
-     * <p> Objects of these types have no distinct values and are not-copyable and not-assignable, and thus can only be
+     * Objects of these types have no distinct values and are not-copyable and not-assignable, and thus can only be
      * passed by reference. As such, only one object of each of these types shall exist, each uniquely identifying its own
-     * category: all error codes and conditions of a same category shall return a reference to same object. </p>
+     * category: all error codes and conditions of a same category shall return a reference to same object.
      *
-     * <p> <a href="http://samchon.github.io/tstl/images/design/class_diagram/exceptions.png" target="_blank">
-     * <img src="http://samchon.github.io/tstl/images/design/class_diagram/exceptions.png" style="max-width: 100%" /> </a> </p>
+     * <a href="http://samchon.github.io/tstl/images/design/class_diagram/exceptions.png" target="_blank">
+     * <img src="http://samchon.github.io/tstl/images/design/class_diagram/exceptions.png" style="max-width: 100%" /> </a>
      *
      * @reference http://www.cplusplus.com/reference/system_error/error_category
      * @author Jeongho Nam <http://samchon.org>
@@ -10035,20 +10135,20 @@ var std;
             OPERATORS
         --------------------------------------------------------- */
         /**
-         * <p> Default error condition. </p>
+         * Default error condition.
          *
-         * <p> Returns the default {@link ErrorCondition}object of this category that is associated with the
-         * {@link ErrorCode} identified by a value of <i>val</i>. </p>
+         * Returns the default {@link ErrorCondition}object of this category that is associated with the
+         * {@link ErrorCode} identified by a value of <i>val</i>.
          *
-         * <p> Its definition in the base class {@link ErrorCategory} returns the same as constructing an
+         * Its definition in the base class {@link ErrorCategory} returns the same as constructing an
          * {@link ErrorCondition} object with:
          *
-         * <p> <code>new ErrorCondition(val, *this);</code> </p>
+         * <code>new ErrorCondition(val, *this);</code>
          *
-         * <p> As a virtual member function, this behavior can be overriden in derived classes. </p>
+         * As a virtual member function, this behavior can be overriden in derived classes.
          *
-         * <p> This function is called by the default definition of member {@link equivalent equivalent()}, which is used to
-         * compare {@link ErrorCondition error conditions} with error codes. </p>
+         * This function is called by the default definition of member {@link equivalent equivalent()}, which is used to
+         * compare {@link ErrorCondition error conditions} with error codes.
          *
          * @param val A numerical value identifying an error condition.
          *
@@ -10079,24 +10179,24 @@ var std;
 })(std || (std = {}));
 (function (std) {
     /**
-     * <p> Error condition. </p>
+     * Error condition.
      *
-     * <p> Objects of this type hold a condition {@link value} associated with a {@link category}. </p>
+     * Objects of this type hold a condition {@link value} associated with a {@link category}.
      *
-     * <p> Objects of this type describe errors in a generic way so that they may be portable across different
+     * Objects of this type describe errors in a generic way so that they may be portable across different
      * systems. This is in contrast with {@link ErrorCode} objects, that may contain system-specific
-     * information. </p>
+     * information.
      *
-     * <p> Because {@link ErrorCondition}objects can be compared with error_code objects directly by using
+     * Because {@link ErrorCondition}objects can be compared with error_code objects directly by using
      * <code>relational operators</code>, {@link ErrorCondition}objects are generally used to check whether
      * a particular {@link ErrorCode} obtained from the system matches a specific error condition no matter
-     * the system. </p>
+     * the system.
      *
-     * <p> The {@link ErrorCategory categories} associated with the {@link ErrorCondition} and the
-     * {@link ErrorCode} define the equivalences between them. </p>
+     * The {@link ErrorCategory categories} associated with the {@link ErrorCondition} and the
+     * {@link ErrorCode} define the equivalences between them.
      *
-     * <p> <a href="http://samchon.github.io/tstl/images/design/class_diagram/exceptions.png" target="_blank">
-     * <img src="http://samchon.github.io/tstl/images/design/class_diagram/exceptions.png" style="max-width: 100%" /> </a> </p>
+     * <a href="http://samchon.github.io/tstl/images/design/class_diagram/exceptions.png" target="_blank">
+     * <img src="http://samchon.github.io/tstl/images/design/class_diagram/exceptions.png" style="max-width: 100%" /> </a>
      *
      * @reference http://www.cplusplus.com/reference/system_error/error_condition
      * @author Jeongho Nam <http://samchon.org>
@@ -10114,19 +10214,19 @@ var std;
 })(std || (std = {}));
 (function (std) {
     /**
-     * <p> Error code. </p>
+     * Error code.
      *
-     * <p> Objects of this type hold an error code {@link value} associated with a {@link category}. </p>
+     * Objects of this type hold an error code {@link value} associated with a {@link category}.
      *
-     * <p> The operating system and other low-level applications and libraries generate numerical error codes to
+     * The operating system and other low-level applications and libraries generate numerical error codes to
      * represent possible results. These numerical values may carry essential information for a specific platform,
-     * but be non-portable from one platform to another. </p>
+     * but be non-portable from one platform to another.
      *
-     * <p> Objects of this class associate such numerical codes to {@link ErrorCategory error categories}, so that they
-     * can be interpreted when needed as more abstract (and portable) {@link ErrorCondition error conditions}. </p>
+     * Objects of this class associate such numerical codes to {@link ErrorCategory error categories}, so that they
+     * can be interpreted when needed as more abstract (and portable) {@link ErrorCondition error conditions}.
      *
-     * <p> <a href="http://samchon.github.io/tstl/images/design/class_diagram/exceptions.png" target="_blank">
-     * <img src="http://samchon.github.io/tstl/images/design/class_diagram/exceptions.png" style="max-width: 100%" /> </a> </p>
+     * <a href="http://samchon.github.io/tstl/images/design/class_diagram/exceptions.png" target="_blank">
+     * <img src="http://samchon.github.io/tstl/images/design/class_diagram/exceptions.png" style="max-width: 100%" /> </a>
      *
      * @reference http://www.cplusplus.com/reference/system_error/error_code
      * @author Jeongho Nam <http://samchon.org>
@@ -10146,9 +10246,9 @@ var std;
 var std;
 (function (std) {
     /**
-     * <p> Running on Node. </p>
+     * Running on Node.
      *
-     * <p> Test whether the JavaScript is running on Node. </p>
+     * Test whether the JavaScript is running on Node.
      *
      * @references http://stackoverflow.com/questions/17575790/environment-detection-node-js-or-browser
      */
@@ -10161,11 +10261,11 @@ var std;
     }
     std.is_node = is_node;
     /**
-     * <p> Pair of values. </p>
+     * Pair of values.
      *
-     * <p> This class couples together a pair of values, which may be of different types (<i>T1</i> and
+     * This class couples together a pair of values, which may be of different types (<i>T1</i> and
      * <i>T2</i>). The individual values can be accessed through its public members {@link first} and
-     * {@link second}. </p>
+     * {@link second}.
      *
      * @param <T1> Type of member {@link first}.
      * @param <T2> Type of member {@link second}.
@@ -10178,7 +10278,7 @@ var std;
             CONSTRUCTORS
         --------------------------------------------------------- */
         /**
-         * <p> Construct from pair values. </p>
+         * Construct from pair values.
          *
          * @param first The first value of the Pair
          * @param second The second value of the Pair
@@ -10191,12 +10291,13 @@ var std;
             COMPARISON
         --------------------------------------------------------- */
         /**
-         * <p> Whether a Pair is equal with the Pair. <p>
-         * <p> Compare each first and second value of two Pair(s) and returns whether they are equal or not. </p>
+         * Whether a Pair is equal with the Pair.
          *
-         * <p> If stored key and value in a Pair are not number or string but an object like a class or struct,
+         * Compare each first and second value of two Pair(s) and returns whether they are equal or not.
+         *
+         * If stored key and value in a Pair are not number or string but an object like a class or struct,
          * the comparison will be executed by a member method (SomeObject)::equals(). If the object does not have
-         * the member method equal_to(), only address of pointer will be compared. </p>
+         * the member method equal_to(), only address of pointer will be compared.
          *
          * @param obj A Map to compare
          * @return Indicates whether equal or not.
@@ -10217,15 +10318,15 @@ var std;
     }());
     std.Pair = Pair;
     /**
-     * <p> Construct {@link Pair} object. </p>
+     * Construct {@link Pair} object.
      *
-     * <p> Constructs a {@link Pair} object with its {@link Pair.first first} element set to <i>x</i> and its
-     * {@link Pair.second second} element set to <i>y</i>. </p>
+     * Constructs a {@link Pair} object with its {@link Pair.first first} element set to <i>x</i> and its
+     * {@link Pair.second second} element set to <i>y</i>.
      *
-     * <p> The template types can be implicitly deduced from the arguments passed to {@link make_pair}. </p>
+     * The template types can be implicitly deduced from the arguments passed to {@link make_pair}.
      *
-     * <p> {@link Pair} objects can be constructed from other {@link Pair} objects containing different types, if the
-     * respective types are implicitly convertible. </p>
+     * {@link Pair} objects can be constructed from other {@link Pair} objects containing different types, if the
+     * respective types are implicitly convertible.
      *
      * @param x Value for member {@link Pair.first first}.
      * @param y Value for member {@link Pair.second second}.

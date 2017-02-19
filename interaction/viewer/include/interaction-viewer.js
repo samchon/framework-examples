@@ -290,8 +290,8 @@ var interaction;
                 }
             };
             System.prototype.center_nodes_between = function (leftNode, rightNode) {
-                var leftIndex = std.find(leftNode.parent.begin(), leftNode.parent.end(), rightNode).index;
-                var rightIndex = std.find(leftNode.parent.begin(), leftNode.parent.end(), leftNode).index;
+                var leftIndex = std.find(leftNode.parent.begin(), leftNode.parent.end(), rightNode).index();
+                var rightIndex = std.find(leftNode.parent.begin(), leftNode.parent.end(), leftNode).index();
                 var numNodesBetween = (rightIndex - leftIndex) - 1;
                 if (numNodesBetween > 0) {
                     var distanceBetweenNodes = (leftNode.col_ - rightNode.col_) / (numNodesBetween + 1);
@@ -471,7 +471,7 @@ var interaction;
         var MessageArrayViewer = (function (_super) {
             __extends(MessageArrayViewer, _super);
             function MessageArrayViewer() {
-                return _super.apply(this, arguments) || this;
+                return _super !== null && _super.apply(this, arguments) || this;
             }
             MessageArrayViewer.prototype.get_row = function (index) {
                 return this.props.messageArray.at(index);
@@ -510,7 +510,7 @@ var interaction;
         var MessageMovie = (function (_super) {
             __extends(MessageMovie, _super);
             function MessageMovie() {
-                return _super.apply(this, arguments) || this;
+                return _super !== null && _super.apply(this, arguments) || this;
             }
             MessageMovie.prototype.render = function () {
                 var message = this.props.message;
@@ -541,7 +541,7 @@ var interaction;
         var SystemMovie = (function (_super) {
             __extends(SystemMovie, _super);
             function SystemMovie() {
-                return _super.apply(this, arguments) || this;
+                return _super !== null && _super.apply(this, arguments) || this;
             }
             SystemMovie.prototype.render = function () {
                 // SYSTEM TO BE REPRESENTED
@@ -586,7 +586,7 @@ var interaction;
         var SystemTreeViewer = (function (_super) {
             __extends(SystemTreeViewer, _super);
             function SystemTreeViewer() {
-                return _super.apply(this, arguments) || this;
+                return _super !== null && _super.apply(this, arguments) || this;
             }
             SystemTreeViewer.prototype.printMessage = function (message) {
                 // NO MATCHED SYSTEM (ALREADY DISCONNECTED), THEN TERMINATE

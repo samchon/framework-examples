@@ -444,7 +444,7 @@ namespace pack
 			if (this.size() == 0 || this.productArray.size() == 0)
 				return;
 
-			var caseGenerator = new library.CombinedPermutationGenerator(this.size(), this.productArray.size());
+			var caseGenerator = new library.RepeatedPermutation(this.size(), this.productArray.size());
 			var minPacker: Packer = null;
 
 			//ADJUST END INDEX

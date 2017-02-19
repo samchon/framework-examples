@@ -39,7 +39,7 @@ var samchon;
         var ArrayCollection = (function (_super) {
             __extends(ArrayCollection, _super);
             function ArrayCollection() {
-                var _this = _super.apply(this, arguments) || this;
+                var _this = _super !== null && _super.apply(this, arguments) || this;
                 // A chain object taking responsibility of dispatching events.
                 /**
                  * @hidden
@@ -77,14 +77,6 @@ var samchon;
             ArrayCollection.prototype.push_back = function (val) {
                 _super.prototype.push_back.call(this, val);
                 this._Notify_insert(this.end().prev(), this.end());
-            };
-            /**
-             * @hidden
-             */
-            ArrayCollection.prototype._Insert_by_repeating_val = function (position, n, val) {
-                var ret = _super.prototype._Insert_by_repeating_val.call(this, position, n, val);
-                this._Notify_insert(ret, ret.advance(n));
-                return ret;
             };
             /**
              * @hidden
@@ -506,7 +498,7 @@ var samchon;
         var DequeCollection = (function (_super) {
             __extends(DequeCollection, _super);
             function DequeCollection() {
-                var _this = _super.apply(this, arguments) || this;
+                var _this = _super !== null && _super.apply(this, arguments) || this;
                 // A chain object taking responsibility of dispatching events.
                 /**
                  * @hidden
@@ -529,14 +521,9 @@ var samchon;
             /**
              * @inheritdoc
              */
-            DequeCollection.prototype.push = function () {
-                var items = [];
-                for (var _i = 0; _i < arguments.length; _i++) {
-                    items[_i] = arguments[_i];
-                }
-                var ret = _super.prototype.push.apply(this, items);
-                this._Notify_insert(this.end().advance(-items.length), this.end());
-                return ret;
+            DequeCollection.prototype.push_front = function (val) {
+                _super.prototype.push_front.call(this, val);
+                this._Notify_insert(this.begin(), this.begin().next());
             };
             /**
              * @inheritdoc
@@ -544,14 +531,6 @@ var samchon;
             DequeCollection.prototype.push_back = function (val) {
                 _super.prototype.push.call(this, val);
                 this._Notify_insert(this.end().prev(), this.end());
-            };
-            /**
-             * @hidden
-             */
-            DequeCollection.prototype._Insert_by_repeating_val = function (position, n, val) {
-                var ret = _super.prototype._Insert_by_repeating_val.call(this, position, n, val);
-                this._Notify_insert(ret, ret.advance(n));
-                return ret;
             };
             /**
              * @hidden
@@ -686,7 +665,7 @@ var samchon;
         var HashMapCollection = (function (_super) {
             __extends(HashMapCollection, _super);
             function HashMapCollection() {
-                var _this = _super.apply(this, arguments) || this;
+                var _this = _super !== null && _super.apply(this, arguments) || this;
                 // A chain object taking responsibility of dispatching events.
                 /**
                  * @hidden
@@ -799,7 +778,7 @@ var samchon;
         var HashMultiMapCollection = (function (_super) {
             __extends(HashMultiMapCollection, _super);
             function HashMultiMapCollection() {
-                var _this = _super.apply(this, arguments) || this;
+                var _this = _super !== null && _super.apply(this, arguments) || this;
                 // A chain object taking responsibility of dispatching events.
                 /**
                  * @hidden
@@ -911,7 +890,7 @@ var samchon;
         var HashMultiSetCollection = (function (_super) {
             __extends(HashMultiSetCollection, _super);
             function HashMultiSetCollection() {
-                var _this = _super.apply(this, arguments) || this;
+                var _this = _super !== null && _super.apply(this, arguments) || this;
                 // A chain object taking responsibility of dispatching events.
                 /**
                  * @hidden
@@ -1025,7 +1004,7 @@ var samchon;
         var HashSetCollection = (function (_super) {
             __extends(HashSetCollection, _super);
             function HashSetCollection() {
-                var _this = _super.apply(this, arguments) || this;
+                var _this = _super !== null && _super.apply(this, arguments) || this;
                 // A chain object taking responsibility of dispatching events.
                 /**
                  * @hidden
@@ -1204,7 +1183,7 @@ var samchon;
         var ListCollection = (function (_super) {
             __extends(ListCollection, _super);
             function ListCollection() {
-                var _this = _super.apply(this, arguments) || this;
+                var _this = _super !== null && _super.apply(this, arguments) || this;
                 // A chain object taking responsibility of dispatching events.
                 /**
                  * @hidden
@@ -1224,26 +1203,6 @@ var samchon;
             ============================================================
                 INSERT
             --------------------------------------------------------- */
-            /**
-             * @inheritdoc
-             */
-            ListCollection.prototype.push = function () {
-                var items = [];
-                for (var _i = 0; _i < arguments.length; _i++) {
-                    items[_i] = arguments[_i];
-                }
-                var ret = _super.prototype.push.apply(this, items);
-                this._Notify_insert(this.end().advance(-items.length), this.end());
-                return ret;
-            };
-            /**
-             * @hidden
-             */
-            ListCollection.prototype._Insert_by_repeating_val = function (position, n, val) {
-                var ret = _super.prototype._Insert_by_repeating_val.call(this, position, n, val);
-                this._Notify_insert(ret, ret.advance(n));
-                return ret;
-            };
             /**
              * @hidden
              */
@@ -1349,7 +1308,7 @@ var samchon;
         var MapCollectionEvent = (function (_super) {
             __extends(MapCollectionEvent, _super);
             function MapCollectionEvent() {
-                return _super.apply(this, arguments) || this;
+                return _super !== null && _super.apply(this, arguments) || this;
             }
             Object.defineProperty(MapCollectionEvent.prototype, "first", {
                 // using super::constructor
@@ -1407,7 +1366,7 @@ var samchon;
         var TreeMapCollection = (function (_super) {
             __extends(TreeMapCollection, _super);
             function TreeMapCollection() {
-                var _this = _super.apply(this, arguments) || this;
+                var _this = _super !== null && _super.apply(this, arguments) || this;
                 // A chain object taking responsibility of dispatching events.
                 /**
                  * @hidden
@@ -1520,7 +1479,7 @@ var samchon;
         var TreeMultiMapCollection = (function (_super) {
             __extends(TreeMultiMapCollection, _super);
             function TreeMultiMapCollection() {
-                var _this = _super.apply(this, arguments) || this;
+                var _this = _super !== null && _super.apply(this, arguments) || this;
                 // A chain object taking responsibility of dispatching events.
                 /**
                  * @hidden
@@ -1632,7 +1591,7 @@ var samchon;
         var TreeMultiSetCollection = (function (_super) {
             __extends(TreeMultiSetCollection, _super);
             function TreeMultiSetCollection() {
-                var _this = _super.apply(this, arguments) || this;
+                var _this = _super !== null && _super.apply(this, arguments) || this;
                 // A chain object taking responsibility of dispatching events.
                 /**
                  * @hidden
@@ -1746,7 +1705,7 @@ var samchon;
         var TreeSetCollection = (function (_super) {
             __extends(TreeSetCollection, _super);
             function TreeSetCollection() {
-                var _this = _super.apply(this, arguments) || this;
+                var _this = _super !== null && _super.apply(this, arguments) || this;
                 // A chain object taking responsibility of dispatching events.
                 /**
                  * @hidden
@@ -2997,16 +2956,16 @@ var samchon;
                 SUBSTITUTE
             ------------------------------------------------------------------ */
             /**
-             * Substitute <code>{n}</code> tokens within the specified string.
+             * Substitute `{n}` tokens within the specified string.
              *
              * @param format The string to make substitutions in. This string can contain special tokens of the form
-             *				 <code>{n}</code>, where <code>n</code> is a zero based index, that will be replaced with the
-             *				 additional parameters found at that index if specified.
+             *				 `{n}`, where *n* is a zero based index, that will be replaced with the additional parameters
+             *				 found at that index if specified.
              * @param args Additional parameters that can be substituted in the *format* parameter at each
-             *			   <code>{n}</code> location, where <code>n</code> is an integer (zero based) index value into
-             *			   the array of values specified.
+             *			   `{n}` location, where *n* is an integer (zero based) index value into the array of values
+             *			   specified.
              *
-             * @return New string with all of the <code>{n}</code> tokens replaced with the respective arguments specified.
+             * @return New string with all of the `{n}` tokens replaced with the respective arguments specified.
              */
             StringUtil.substitute = function (format) {
                 var args = [];
@@ -3016,20 +2975,69 @@ var samchon;
                 while (true) {
                     if (args.length == 0)
                         break;
-                    var parenthesisArray = StringUtil.betweens(format, "{", "}");
-                    var minIndex = Number.MAX_VALUE;
-                    for (var i = 0; i < parenthesisArray.length; i++) {
-                        var index = Number(parenthesisArray[i]);
-                        if (isNaN(index) == true)
-                            continue;
-                        minIndex = Math.min(minIndex, index);
-                    }
-                    if (minIndex == Number.MAX_VALUE)
+                    var min_index = StringUtil._Fetch_substitute_index(format);
+                    if (min_index == Number.MAX_VALUE)
                         break;
-                    format = StringUtil.replaceAll(format, "{" + minIndex + "}", args[0]);
+                    format = StringUtil.replaceAll(format, "{" + min_index + "}", String(args[0]));
                     args.shift();
                 }
                 return format;
+            };
+            /**
+             * Substitute `{n}` tokens within the specified SQL-string.
+             *
+             * @param format The string to make substitutions in. This string can contain special tokens of the form
+             *				 `{n}`, where *n* is a zero based index, that will be replaced with the additional parameters
+             *				 found at that index if specified.
+             * @param args Additional parameters that can be substituted in the *format* parameter at each
+             *			   `{n}` location, where *n* is an integer (zero based) index value into the array of values
+             *			   specified.
+             *
+             * @return New SQL-string with all of the `{n}` tokens replaced with the respective arguments specified.
+             */
+            StringUtil.substituteSQL = function (format) {
+                var args = [];
+                for (var _i = 1; _i < arguments.length; _i++) {
+                    args[_i - 1] = arguments[_i];
+                }
+                while (true) {
+                    if (args.length == 0)
+                        break;
+                    var min_index = StringUtil._Fetch_substitute_index(format);
+                    if (min_index == Number.MAX_VALUE)
+                        break;
+                    var symbol = "{" + min_index + "}";
+                    if (args[0] == null)
+                        format = StringUtil.replaceAll(format, symbol, "NULL");
+                    else if (typeof args[0] == "number")
+                        format = StringUtil.replaceAll(format, symbol, String(args[0]));
+                    else if (typeof args[0] == "string")
+                        format = StringUtil.replaceAll(format, symbol, "'" + args[0] + "'");
+                    else {
+                        if (args[0].toXML != undefined) {
+                            var xml = args[0].toXML();
+                            if (xml instanceof library.XML)
+                                args[0] = xml;
+                        }
+                        format = StringUtil.replaceAll(format, symbol, "'" + args[0].toString() + "'");
+                    }
+                    args.shift();
+                }
+                return format;
+            };
+            /**
+             * @hidden
+             */
+            StringUtil._Fetch_substitute_index = function (format) {
+                var parenthesis_array = StringUtil.betweens(format, "{", "}");
+                var min_index = Number.MAX_VALUE;
+                for (var i = 0; i < parenthesis_array.length; i++) {
+                    var index = Number(parenthesis_array[i]);
+                    if (isNaN(index) == true)
+                        continue;
+                    min_index = Math.min(min_index, index);
+                }
+                return min_index;
             };
             StringUtil.replaceAll = function (str) {
                 var args = [];
@@ -3811,7 +3819,7 @@ var samchon;
         var XMLList = (function (_super) {
             __extends(XMLList, _super);
             function XMLList() {
-                return _super.apply(this, arguments) || this;
+                return _super !== null && _super.apply(this, arguments) || this;
             }
             // using super::constructor
             /**
@@ -3874,7 +3882,7 @@ var samchon;
                     else if (typeof entity[it.first] == "number")
                         entity[it.first] = Number(it.second);
                     else if (typeof entity[it.first] == "boolean")
-                        entity[it.first] = (it.second == "true");
+                        entity[it.first] = (it.second != "0" && it.second != "false");
                 }
             }
             IEntity.construct = construct;
@@ -3975,7 +3983,7 @@ var samchon;
         var EntityArrayCollection = (function (_super) {
             __extends(EntityArrayCollection, _super);
             function EntityArrayCollection() {
-                return _super.apply(this, arguments) || this;
+                return _super !== null && _super.apply(this, arguments) || this;
             }
             /* ------------------------------------------------------------------
                 CONSTRUCTORS
@@ -4034,7 +4042,7 @@ var samchon;
         var EntityListCollection = (function (_super) {
             __extends(EntityListCollection, _super);
             function EntityListCollection() {
-                return _super.apply(this, arguments) || this;
+                return _super !== null && _super.apply(this, arguments) || this;
             }
             /* ------------------------------------------------------------------
                 CONSTRUCTORS
@@ -4093,7 +4101,7 @@ var samchon;
         var EntityDequeCollection = (function (_super) {
             __extends(EntityDequeCollection, _super);
             function EntityDequeCollection() {
-                return _super.apply(this, arguments) || this;
+                return _super !== null && _super.apply(this, arguments) || this;
             }
             /* ------------------------------------------------------------------
                 CONSTRUCTORS
@@ -5138,7 +5146,7 @@ var samchon;
         var Communicator = (function (_super) {
             __extends(Communicator, _super);
             function Communicator() {
-                var _this = _super.apply(this, arguments) || this;
+                var _this = _super !== null && _super.apply(this, arguments) || this;
                 // SOCKET AND RECEIVED DATA
                 /**
                  * @hidden
@@ -5387,7 +5395,7 @@ var samchon;
         var DedicatedWorkerCommunicator = (function (_super) {
             __extends(DedicatedWorkerCommunicator, _super);
             function DedicatedWorkerCommunicator() {
-                return _super.apply(this, arguments) || this;
+                return _super !== null && _super.apply(this, arguments) || this;
             }
             /**
              * @hidden
@@ -5508,7 +5516,7 @@ var samchon;
         var SharedWorkerCommunicator = (function (_super) {
             __extends(SharedWorkerCommunicator, _super);
             function SharedWorkerCommunicator() {
-                return _super.apply(this, arguments) || this;
+                return _super !== null && _super.apply(this, arguments) || this;
             }
             /* ---------------------------------------------------------
                 CONSTRUCTORS
@@ -5629,7 +5637,7 @@ var samchon;
         var WebCommunicator = (function (_super) {
             __extends(WebCommunicator, _super);
             function WebCommunicator() {
-                var _this = _super.apply(this, arguments) || this;
+                var _this = _super !== null && _super.apply(this, arguments) || this;
                 // SOCKET MEMBER
                 /**
                  * @hidden
@@ -5662,7 +5670,7 @@ var samchon;
             /**
              * @hidden
              */
-            WebCommunicator.prototype.handle_message = function (message) {
+            WebCommunicator.prototype._Handle_message = function (message) {
                 // EXCEPTION HANDLING IS REQUIRED
                 //	- BINARY_INVOKE EXISTS, BUT TEXT MESSAGE HAS COME
                 //	- BINARY_INVOKE IS NOT, BUT BINARY MESSAGE HAS COME
@@ -5674,7 +5682,7 @@ var samchon;
             /**
              * @hidden
              */
-            WebCommunicator.prototype.handle_close = function () {
+            WebCommunicator.prototype._Handle_close = function () {
                 this.connected_ = false;
                 if (this.onClose != null)
                     this.onClose();
@@ -5736,9 +5744,9 @@ var samchon;
                 if (this.listening_ == true)
                     return;
                 this.listening_ = true;
-                this.connection_.on("message", this.handle_message.bind(this));
-                this.connection_.on("close", this.handle_close.bind(this));
-                this.connection_.on("error", this.handle_close.bind(this));
+                this.connection_.on("message", this._Handle_message.bind(this));
+                this.connection_.on("close", this._Handle_close.bind(this));
+                this.connection_.on("error", this._Handle_close.bind(this));
             };
             /* ---------------------------------------------------------
                 ACCESSORS
@@ -6050,7 +6058,7 @@ var samchon;
              * @param path Path of service which you want.
              */
             WebServerConnector.prototype.connect = function (ip, port, path) {
-                if (path === void 0) { path = ""; }
+                if (path === void 0) { path = "/"; }
                 // COMPOSITE FULL-ADDRESS
                 var address;
                 if (ip.indexOf("ws://") == -1)
@@ -6058,7 +6066,9 @@ var samchon;
                         throw "only websocket is possible";
                     else
                         ip = "ws://" + ip;
-                address = ip + ":" + port + "/" + path;
+                if (path.length != 0 && path.charAt(0) != "/")
+                    path = "/" + path;
+                address = ip + ":" + port + path;
                 // CONNECTION BRANCHES
                 if (std.is_node() == true) {
                     this.node_client_ = new websocket.client();
@@ -6068,8 +6078,8 @@ var samchon;
                 else {
                     this.browser_socket_ = new WebSocket(address);
                     this.browser_socket_.onopen = this._Handle_browser_connect.bind(this);
-                    this.browser_socket_.onerror = this.handle_close.bind(this);
-                    this.browser_socket_.onclose = this.handle_close.bind(this);
+                    this.browser_socket_.onerror = this._Handle_close.bind(this);
+                    this.browser_socket_.onclose = this._Handle_close.bind(this);
                     this.browser_socket_.onmessage = this._Handle_browser_message.bind(this);
                 }
             };
@@ -6122,9 +6132,9 @@ var samchon;
             WebServerConnector.prototype._Handle_node_connect = function (connection) {
                 this.connected_ = true;
                 this.connection_ = connection;
-                this.connection_.on("message", this.handle_message.bind(this));
-                this.connection_.on("close", this.handle_close.bind(this));
-                this.connection_.on("error", this.handle_close.bind(this));
+                this.connection_.on("message", this._Handle_message.bind(this));
+                this.connection_.on("close", this._Handle_close.bind(this));
+                this.connection_.on("error", this._Handle_close.bind(this));
                 if (this.onConnect != null)
                     this.onConnect();
             };
@@ -6222,7 +6232,7 @@ var samchon;
         var EntityArray = (function (_super) {
             __extends(EntityArray, _super);
             function EntityArray() {
-                return _super.apply(this, arguments) || this;
+                return _super !== null && _super.apply(this, arguments) || this;
             }
             /* ------------------------------------------------------------------
                 CONSTRUCTORS
@@ -6281,7 +6291,7 @@ var samchon;
         var EntityList = (function (_super) {
             __extends(EntityList, _super);
             function EntityList() {
-                return _super.apply(this, arguments) || this;
+                return _super !== null && _super.apply(this, arguments) || this;
             }
             /* ------------------------------------------------------------------
                 CONSTRUCTORS
@@ -6340,7 +6350,7 @@ var samchon;
         var EntityDeque = (function (_super) {
             __extends(EntityDeque, _super);
             function EntityDeque() {
-                return _super.apply(this, arguments) || this;
+                return _super !== null && _super.apply(this, arguments) || this;
             }
             /* ------------------------------------------------------------------
                 CONSTRUCTORS
@@ -6562,8 +6572,10 @@ var samchon;
                 this.type = xml.getProperty("type");
                 if (this.type == "XML")
                     this.value = xml.begin().second.front();
-                else if (this.type == "boolean")
-                    this.value = Boolean(xml.getValue());
+                else if (this.type == "boolean") {
+                    var value = xml.getValue();
+                    this.value = (value != "0" && value != "false"); // Do not use the Boolean(value);
+                }
                 else if (this.type == "number")
                     this.value = Number(xml.getValue());
                 else if (this.type == "string")
@@ -6973,7 +6985,7 @@ var samchon;
                 // 
                 // @param request Requested header.
                 //--------
-                var path = request.resource.substr(1);
+                var path = request.resource;
                 var session_id = this._Fetch_session_id(request.cookies);
                 var connection = request.accept("", request.origin, [{ name: "SESSION_ID", value: session_id }]);
                 var driver = new protocol.WebClientDriver(connection, path, session_id);
@@ -8351,7 +8363,7 @@ var samchon;
                         if (system.exclude_ == true)
                             continue; // BEING REMOVED SYSTEM
                         if (idle_system == null ||
-                            system.progress_list_.size() + system.history_list_.size() == 0 ||
+                            (system.progress_list_.empty() && system.history_list_.empty()) ||
                             system.progress_list_.size() < idle_system.progress_list_.size() ||
                             (system.progress_list_.size() == idle_system.progress_list_.size() &&
                                 system.getPerformance() > idle_system.getPerformance() // GREATER PERFORMANCE
@@ -9004,6 +9016,11 @@ var samchon;
     (function (templates) {
         var slave;
         (function (slave) {
+            /**
+             * A slave system.
+             *
+             * @author Jeongho Nam <http://samchon.org>
+             */
             var SlaveSystem = (function () {
                 /* ---------------------------------------------------------
                     CONSTRUCTORS
@@ -9042,9 +9059,6 @@ var samchon;
                     }
                     else
                         this.replyData(invoke);
-                };
-                SlaveSystem.prototype.replyData = function (invoke) {
-                    invoke.apply(this);
                 };
                 return SlaveSystem;
             }());
@@ -9260,7 +9274,7 @@ var samchon;
             var MediatorWebClient = (function (_super) {
                 __extends(MediatorWebClient, _super);
                 function MediatorWebClient() {
-                    return _super.apply(this, arguments) || this;
+                    return _super !== null && _super.apply(this, arguments) || this;
                 }
                 /**
                  * @inheritdoc
@@ -9283,7 +9297,7 @@ var samchon;
             var MediatorSharedWorkerClient = (function (_super) {
                 __extends(MediatorSharedWorkerClient, _super);
                 function MediatorSharedWorkerClient() {
-                    return _super.apply(this, arguments) || this;
+                    return _super !== null && _super.apply(this, arguments) || this;
                 }
                 /**
                  * @inheritdoc
@@ -9389,7 +9403,7 @@ var samchon;
             var MediatorWebServer = (function (_super) {
                 __extends(MediatorWebServer, _super);
                 function MediatorWebServer() {
-                    return _super.apply(this, arguments) || this;
+                    return _super !== null && _super.apply(this, arguments) || this;
                 }
                 /**
                  * @inheritdoc
@@ -9412,7 +9426,7 @@ var samchon;
             var MediatorDedicatedWorkerServer = (function (_super) {
                 __extends(MediatorDedicatedWorkerServer, _super);
                 function MediatorDedicatedWorkerServer() {
-                    return _super.apply(this, arguments) || this;
+                    return _super !== null && _super.apply(this, arguments) || this;
                 }
                 /**
                  * @inheritdoc
@@ -9435,7 +9449,7 @@ var samchon;
             var MediatorSharedWorkerServer = (function (_super) {
                 __extends(MediatorSharedWorkerServer, _super);
                 function MediatorSharedWorkerServer() {
-                    return _super.apply(this, arguments) || this;
+                    return _super !== null && _super.apply(this, arguments) || this;
                 }
                 /**
                  * @inheritdoc
@@ -10788,19 +10802,51 @@ var samchon;
     (function (templates) {
         var slave;
         (function (slave) {
+            /**
+             * An {@link Invoke} message which represents a **process**.
+             *
+             *
+             *
+             * #### [Inherited] {@link Invoke}
+             * @copydoc Invoke
+             */
             var PInvoke = (function (_super) {
                 __extends(PInvoke, _super);
-                function PInvoke(invoke, history, masterDriver) {
-                    var _this = _super.call(this, invoke.getListener()) || this;
+                /* ---------------------------------------------------------
+                    CONSTRUCTORS
+                --------------------------------------------------------- */
+                /**
+                 * Initializer Constructor.
+                 *
+                 * @param invoke Original {@link Invoke} message.
+                 * @param history {@link InvokeHistory} object archiving execution time.
+                 * @param slaveSystem Related {@link SlaveSystem} object who gets those processes from its master.
+                 */
+                function PInvoke(invoke, history, slaveSystem) {
+                    var _this = 
+                    // INVOKE'S CONSTRUCTION
+                    _super.call(this, invoke.getListener()) || this;
                     _this.assign(invoke.begin(), invoke.end());
+                    // INITIALIZATION OF MEMBERS
                     _this.history_ = history;
-                    _this.master_driver_ = masterDriver;
+                    _this.slave_system_ = slaveSystem;
                     _this.hold_ = false;
                     return _this;
                 }
+                /* ---------------------------------------------------------
+                    ACCESSORS
+                --------------------------------------------------------- */
+                /**
+                 * Get history object.
+                 *
+                 * Get {@link InvokeHistory} object who is archiving execution time of this process.
+                 */
                 PInvoke.prototype.getHistory = function () {
                     return this.history_;
                 };
+                /**
+                 * Is the reporting hold?
+                 */
                 PInvoke.prototype.isHold = function () {
                     return this.hold_;
                 };
@@ -10815,7 +10861,7 @@ var samchon;
                  */
                 PInvoke.prototype.complete = function () {
                     this.history_.complete();
-                    this.master_driver_.sendData(this.history_.toInvoke());
+                    this.slave_system_.sendData(this.history_.toInvoke());
                 };
                 return PInvoke;
             }(samchon.protocol.Invoke));
@@ -10877,6 +10923,9 @@ var samchon;
                 ============================================================
                     MEMBER
                 --------------------------------------------------------- */
+                /**
+                 * Default Constructor.
+                 */
                 function SlaveServer() {
                     var _this = _super.call(this) || this;
                     _this.server_base_ = null;
@@ -10885,12 +10934,18 @@ var samchon;
                 /* ---------------------------------------------------------
                     SERVER's METHOD
                 --------------------------------------------------------- */
+                /**
+                 * @inheritdoc
+                 */
                 SlaveServer.prototype.open = function (port) {
                     this.server_base_ = this.createServerBase();
                     if (this.server_base_ == null)
                         return;
                     this.server_base_.open(port);
                 };
+                /**
+                 * @inheritdoc
+                 */
                 SlaveServer.prototype.close = function () {
                     if (this.server_base_ != null)
                         this.server_base_.close();
@@ -10898,6 +10953,9 @@ var samchon;
                 /* ---------------------------------------------------------
                     OVERRIDINGS
                 --------------------------------------------------------- */
+                /**
+                 * @inheritdoc
+                 */
                 SlaveServer.prototype.addClient = function (driver) {
                     this.communicator_ = driver;
                     driver.listen(this);

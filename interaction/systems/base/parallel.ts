@@ -133,7 +133,7 @@ namespace parallel
 			packer.construct(xml);
 
 			let invoke: protocol.Invoke = new protocol.Invoke("optimizePacker", packer.toXML());
-			let piece_size: number = new library.CombinedPermutationGenerator(packer.size(), packer.getProductArray().size()).size();
+			let piece_size: number = new library.RepeatedPermutation(packer.size(), packer.getProductArray().size()).size();
 
 			console.log("Start Packer optimization: #" + piece_size);
 			this.init(this.master.sendSegmentData(invoke, piece_size));
@@ -198,7 +198,7 @@ namespace parallel
 			travel.construct(xml);
 
 			let invoke: protocol.Invoke = new protocol.Invoke("optimizeTSP", travel.toXML());
-			let piece_size: number = new library.FactorialGenerator(travel.size()).size();
+			let piece_size: number = new library.Factorial(travel.size()).size();
 
 			console.log("Start TSP optimization: #" + piece_size);
 			this.init(this.master.sendSegmentData(invoke, piece_size));

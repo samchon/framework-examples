@@ -160,8 +160,8 @@ namespace interaction.viewer
 
 		private center_nodes_between(leftNode: System, rightNode: System): void
         {
-			let leftIndex: number = std.find(leftNode.parent.begin(), leftNode.parent.end(), rightNode).index;
-			let rightIndex: number = std.find(leftNode.parent.begin(), leftNode.parent.end(), leftNode).index;
+			let leftIndex: number = std.find(leftNode.parent.begin(), leftNode.parent.end(), rightNode).index();
+			let rightIndex: number = std.find(leftNode.parent.begin(), leftNode.parent.end(), leftNode).index();
 
             let numNodesBetween: number = (rightIndex - leftIndex) - 1;
 

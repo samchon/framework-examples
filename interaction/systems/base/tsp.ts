@@ -20,7 +20,7 @@ module tsp
 
 		public optimize(first: number = -1, last: number = -1): Travel
 		{
-			let factorial: library.FactorialGenerator = new library.FactorialGenerator(this.travel.size());
+			let factorial: library.Factorial = new library.Factorial(this.travel.size());
 
 			if (first == -1)
 			{

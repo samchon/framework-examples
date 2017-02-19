@@ -247,7 +247,7 @@ node_modules
 *.js
 *.js.map
 
-!chat-application/include/*.js
+!chatting/application/include/*.js
 !interaction/viewer/include/*.js
 
 !interaction/execute.bat
