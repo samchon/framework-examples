@@ -1,0 +1,3 @@
+# Examples for Samchon Framework
+## Deprecated, use TGrid instead
+I've developed much better solution for implementing the [OON](https://github.com/samchon/framework#object-oriented-network) by realizing the true Grid Computing through the RFC (Remote Function Call). [**TGrid**](https://github.com/samchon/tgrid) is a new framework for that solution. Therefore, [**TGrid**](https://github.com/samchon/tgrid) will replace the Samchon Frameowrk and continue developing the *OON*.
